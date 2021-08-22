@@ -1,20 +1,19 @@
 import './App.css';
-import WelcomeScreen from './Welcome_screen/WelcomeScreen';
-import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
-import Home from './Welcome_screen/Dashboard/Home/Home';
-
+import {Route,Switch,withRouter} from 'react-router-dom';
+import Dashboard from "./Dashboard/DashboardRoutes.js";
+import CheckAuth from "./Login/CheckAuth.js";
+import WelcomeScreen from './Login/Components/WelcomeScreen';
 
 function App() {
   return (
     <div className="App">
-      <Router>
         <Switch>
-          <Route path="/" exact component ={WelcomeScreen} />
-          <Route path="/home" exact component ={Home} />
-        </Switch>
-      </Router>
+          <Route exact={true} path="/" component ={CheckAuth} />
+          <Route exact={true} path="/welcomescreen" component ={WelcomeScreen} />
+          <Route path="/dashboard/" component = {Dashboard} />
+        </Switch> 
     </div>
   );
 }
 
-export default App;
+export default withRouter(App);

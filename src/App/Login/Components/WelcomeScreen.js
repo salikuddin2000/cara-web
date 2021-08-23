@@ -1,11 +1,11 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import {Link} from 'react-router-dom';
 
 function WelcomeScreen() {
-    // useEffect(() => {
-    //     const flag = false;
-    //     localStorage.setItem('flag',JSON.stringify(flag));
-    // }, [])
+    useEffect(() => {
+        const flag = false;
+        localStorage.setItem('flag',JSON.stringify(flag));
+    }, [])
 
     return (
         

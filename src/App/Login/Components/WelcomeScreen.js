@@ -5,7 +5,6 @@ import fire from "../firebase_config.js";
 
 function WelcomeScreen(props) {
 
-
     const SignIn =() => {
         const provider = new firebase.auth.GoogleAuthProvider();
         fire.auth().signInWithPopup(provider).then((result) => {
@@ -20,10 +19,9 @@ function WelcomeScreen(props) {
                 email:user.email,
                 image: user.photoURL,
                 uuid:user.uid,
-                phone_number:"",
-                gender:""
+                phone_number: null,
             }
-            localStorage.setItem('google_user',JSON.stringify(data));
+            // localStorage.setItem('google_user',JSON.stringify(data));
             props.signIn(data);
         }).catch((error) => {
             const errorCode = error.code;

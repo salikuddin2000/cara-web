@@ -1,22 +1,36 @@
-import React from 'react'
-import { useGoogleUser} from '../caraUserProvider';
+import React,{useState} from "react";
+import { useGoogleUser } from "../caraUserProvider";
 
 function GetPhoneNumber(props) {
-    const { googleUser} = useGoogleUser()
-    const addPhoneNumber=()=>{
-        googleUser.phone_number = "9876543210"
-        console.log(googleUser)
-        // const newGoogleUser = googleUser;
-        // console.log("newGoogleUser is :");
-        // console.log(newGoogleUser);
-        props.setPhoneNumber(googleUser);
-    }
-    return (
-        <div>
-            {console.log("inside get Phone number")}
-            <button onClick={()=>addPhoneNumber()}>Phone Number</button>
-        </div>
-    )
+  const { googleUser } = useGoogleUser();
+  const [info, setInfo] = useState({
+    phone_number: "",
+})
+  function handle(e) {
+    const newinfo = {...info}
+    newinfo[e.target.id]= e.target.value
+    setInfo(newinfo)
+    console.log(newinfo)
+}
+  var submit = async (e) => {
+    e.preventDefault();
+    googleUser.phone_number = info.phone_number;
+    console.log(googleUser);
+    props.setPhoneNumber(googleUser);
+  };
+  return (
+    <div>
+      {console.log("inside get Phone number")}
+      <input
+              onChange={(e) => handle(e)}
+              id="phone_number"
+              value={info.phone_number}
+              placeholder="Phone Number"
+              type="text"
+            ></input>
+      <button onClick={(e) => submit(e)}>Phone Number</button>
+    </div>
+  );
 }
 
-export default GetPhoneNumber
+export default GetPhoneNumber;

@@ -1,22 +1,20 @@
-import React,{useState,useEffect} from 'react';
-import {useLocation} from 'react-router-dom';
+import React from 'react';
+import {useCaraUser} from "../../Login/caraUserProvider";
 
-function Home(props) {
-
-    const location = useLocation();
-
-    const [abc,setAbc]=useState();
-    useEffect(() => {
-        setAbc(location.state)
-    }, [location.state])
-    console.log(abc);
-
-    console.log(abc);
-    return (
-        <div>
-            This is Home Screen
-        </div>
-    )
+function Home() {
+    const { caraUser } = useCaraUser();
+    if(caraUser===undefined){
+        return(
+            <h1>Loading</h1>
+        )
+    }
+    else{
+        return (       
+            (caraUser === null)
+            ?<h1>Welcome User</h1>
+            :<h1>Welcome {caraUser.first_name}</h1>        
+        )
+    }
 }
 
 export default Home;

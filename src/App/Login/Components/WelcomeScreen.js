@@ -45,10 +45,7 @@ function WelcomeScreen(props) {
         </div>
       </button>
       <Link
-        to={{
-          pathname: "/dashboard",
-          state: { firstName: "User" },
-        }}
+        to="/dashboard"
       >
         Skip for Now
       </Link>

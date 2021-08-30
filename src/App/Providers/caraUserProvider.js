@@ -22,11 +22,14 @@ export function useUserUpdate() {
 export function CaraUserProvider({ children }) {
   const [caraUser, setCaraUser] = useState();
   const [googleUser, setGoogleUser] = useState();
+  const [showPhoneScreen, setShowPhoneScreen] = useState(false);
+  const [showDashboardScreen, setShowDashboardScreen] = useState(false);
 
   const userState = () => {
     const userdata = localStorage.getItem("cara_user");
     const userObject = userdata !== null ? JSON.parse(userdata) : null;
     console.log(userObject);
+    userdata !== null? setShowDashboardScreen(true):setShowDashboardScreen(false)
     setCaraUser(userObject);
   };
 
@@ -52,9 +55,11 @@ export function CaraUserProvider({ children }) {
             console.log(response);
             setCaraUser(response.data);
             localStorage.setItem("cara_user", JSON.stringify(response.data));
+            setShowDashboardScreen(true);
           }
         })
         .catch(async (err) => {
+          setShowPhoneScreen(true);
           console.log("caught error : ", err);
           console.log("No user found in database with these credentials...");
           console.log("Creating new user...");
@@ -81,6 +86,7 @@ export function CaraUserProvider({ children }) {
         console.log(res);
         setCaraUser(res.data);
         localStorage.setItem("cara_user", JSON.stringify(res.data));
+        setShowDashboardScreen(true);
       })
       .catch((e) => console.log("User not created with excepion" + e))
       .then((res) => {
@@ -97,7 +103,7 @@ export function CaraUserProvider({ children }) {
 
   return (
     <CaraUserContext.Provider value={{ caraUser, setCaraUser }}>
-      <GoogleUserContext.Provider value={{ googleUser, setGoogleUser }}>
+      <GoogleUserContext.Provider value={{ googleUser, setGoogleUser, showPhoneScreen, showDashboardScreen }}>
         <UserUpdateContext.Provider value={signOut}>
           <UserPostReqContext.Provider value={{ postGoogleUser }}>
             {children}

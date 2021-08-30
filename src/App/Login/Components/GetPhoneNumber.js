@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import { useGoogleUser } from "../caraUserProvider";
+import { useGoogleUser } from "../../Providers/caraUserProvider";
 
 function GetPhoneNumber(props) {
   const { googleUser } = useGoogleUser();
@@ -27,6 +27,7 @@ function GetPhoneNumber(props) {
               value={info.phone_number}
               placeholder="Phone Number"
               type="text"
+              maxLength="10"
             ></input>
       <button onClick={(e) => submit(e)}>Phone Number</button>
     </div>

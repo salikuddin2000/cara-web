@@ -5,13 +5,13 @@ function NavComponent() {
   return (
     <ul>
       <li>
-        <Link to={`${match.url}`}>Home</Link>
+        <Link to="/dashboard">Home</Link>
       </li>
       <li>
-        <Link to={`${match.url}/cart`}>Cart</Link>
+        <Link to="/dashboard/cart">Cart</Link>
       </li>
       <li>
-        <Link to={`${match.url}/profile`}>Profile</Link>
+        <Link to="/dashboard/profile">Profile</Link>
       </li>
     </ul>
   );

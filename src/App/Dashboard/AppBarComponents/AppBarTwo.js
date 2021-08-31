@@ -36,7 +36,7 @@ function AppBarTwo() {
           id="pincode"
           value={info.pincode}
           placeholder="enter pincode"
-          type="text"
+          type="number"
           maxLength="6"
         ></input>
         <button

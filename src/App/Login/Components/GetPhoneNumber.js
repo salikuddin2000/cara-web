@@ -26,8 +26,9 @@ function GetPhoneNumber(props) {
               id="phone_number"
               value={info.phone_number}
               placeholder="Phone Number"
-              type="text"
+              type="number"
               maxLength="10"
+              minLength="10"
             ></input>
       <button onClick={(e) => submit(e)}>Phone Number</button>
     </div>

@@ -6,6 +6,7 @@ import { CaraUserProvider } from "./Providers/caraUserProvider";
 import { ZipcodeProvider } from "./Providers/zipcodeProvider";
 import { BannerAdProvider } from "./Providers/bannerAdProvider";
 import { SalonRecommendationProvider } from "./Providers/salonRecommendationProvider";
+import { SalonSearchProvider } from "./Providers/salonSearchProvider";
 import Modal from "react-modal";
 
 Modal.setAppElement("#root");
@@ -17,8 +18,10 @@ function App() {
           <ZipcodeProvider>
             <BannerAdProvider>
               <SalonRecommendationProvider>
-                <Route exact={true} path="/" component={CheckAuth} />
-                <Route path="/dashboard/" component={Dashboard} />
+                <SalonSearchProvider>
+                  <Route exact={true} path="/" component={CheckAuth} />
+                  <Route path="/dashboard/" component={Dashboard} />
+                </SalonSearchProvider>
               </SalonRecommendationProvider>
             </BannerAdProvider>
           </ZipcodeProvider>

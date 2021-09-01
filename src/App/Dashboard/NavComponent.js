@@ -1,7 +1,6 @@
 import React from "react";
-import { Link, useRouteMatch } from "react-router-dom";
+import { Link } from "react-router-dom";
 function NavComponent() {
-  let match = useRouteMatch();
   return (
     <ul>
       <li>

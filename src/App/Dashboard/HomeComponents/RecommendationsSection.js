@@ -4,21 +4,18 @@ import { useRecommendedSalonList } from "../../Providers/salonRecommendationProv
 
 function RecommendationsSection() {
   let match = useRouteMatch();
-  const { salonList } = useRecommendedSalonList();
+  const { salonList,isLoading } = useRecommendedSalonList();
   const [recommendationList, setRecommendationList] = useState([]);
-  // to={{
-  //     pathname: "/tylermcginnis",
-  //     state: {
-  //       fromNotifications: true,
-  //     },
-  //   }}
+
   function setList(salonList) {
     if (salonList !== undefined) {
       setRecommendationList(
         salonList.map((salon) => (
           <div key={`${salon.salon_id}`}>
-            {salon === undefined || salon === null || salon.salon_logo === undefined ? (
-              ""
+            {salon === undefined ||
+            salon === null ||
+            salon.salon_logo === undefined ? (
+              setRecommendationList(recommendationList.splice(0, recommendationList.length))
             ) : (
               <Link
                 to={{
@@ -47,12 +44,17 @@ function RecommendationsSection() {
     setList(salonList);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [salonList]);
-  return (
+
+  if(salonList === undefined || salonList=== null || salonList.length===0){
+    if(isLoading===true) {return(<h3>Loading...</h3>)}
+    else{return(<h3>No recommendations Found</h3> )}
+  }
+  else {return (
     <div>
-      this is RecommendationsSection
-      {recommendationList}
+        {recommendationList}
     </div>
   );
+  }
 }
 
 export default RecommendationsSection;

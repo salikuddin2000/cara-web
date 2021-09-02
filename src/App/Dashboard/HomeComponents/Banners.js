@@ -4,19 +4,18 @@ import { useSalonAdList } from "../../Providers/bannerAdProvider";
 
 function Banners() {
   let match = useRouteMatch();
-  const { salonAdList } = useSalonAdList();
+  const { salonAdList,isLoading } = useSalonAdList();
   const [bannerList, setBannerList] = useState([]);
 
   function setList(salonAdList) {
     if (salonAdList !== undefined) {
       setBannerList(
-        salonAdList.map((ad) => (
-          <div key={ad.salon_id}>
-            {ad === undefined ||
+        salonAdList.map((ad) => (          
+            ad === undefined ||
             ad === null ||
-            ad.banner_position_number === undefined ? (
-              ""
-            ) : (
+            ad.length===0 ? (
+              setBannerList(bannerList.splice(0, bannerList.length))
+            ) : (<div key={ad.salon_id}>
               <Link
                 to={{
                   pathname: `${match.url}/salon`,
@@ -32,8 +31,8 @@ function Banners() {
                   width="100"
                 />
               </Link>
-            )}
-          </div>
+                </div>
+            )          
         ))
       );
     }
@@ -43,7 +42,11 @@ function Banners() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [salonAdList]);
 
-  return <div>{bannerList}</div>;
+  if(salonAdList === undefined || salonAdList=== null || salonAdList.length===0){
+    if(isLoading===true) {return(<h3>Loading...</h3>)}
+    else{return(<h3>No ads Found</h3> )}
+  }
+  else return <div>{bannerList}</div>;
 }
 
 export default Banners;

@@ -14,9 +14,11 @@ export function SalonSearchProvider({ children }) {
     word: "",
   });
   const [salons, setSalons] = useState([{}]);
+  const [loadingSearch,setLoadingSearch] = useState(true);
 
   async function getSalons(word) {
     if (searchWord.word.length !== 0) {
+      setLoadingSearch(true);
       await axios
         .get(`https://cara-api-01.herokuapp.com/api/v1/search/salons/${word}`)
         .then((response) => {
@@ -33,11 +35,13 @@ export function SalonSearchProvider({ children }) {
                 address_line_one: salon.address_line_one,
               }),
             ])
-          );
+            );
+            setLoadingSearch(false);
         })
         .catch(() => {
           console.log("no salons list Found");
           salons.splice(0, salons.length);
+          setLoadingSearch(false);
           console.log(salons);
         });
     }
@@ -48,7 +52,7 @@ export function SalonSearchProvider({ children }) {
   }, [searchWord]);
 
   return (
-    <SalonSearchContext.Provider value={{ searchWord, setSearchWord, salons }}>
+    <SalonSearchContext.Provider value={{ searchWord, setSearchWord, salons, loadingSearch }}>
       {children}
     </SalonSearchContext.Provider>
   );

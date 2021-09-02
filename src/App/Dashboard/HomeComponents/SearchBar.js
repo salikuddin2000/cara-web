@@ -3,7 +3,7 @@ import { Link, useRouteMatch } from "react-router-dom";
 import { useSalonSearch } from "../../Providers/salonSearchProvider.js";
 
 function SearchBar() {
-  const { searchWord, setSearchWord, salons } = useSalonSearch();
+  const { searchWord, setSearchWord, salons, loadingSearch } = useSalonSearch();
   const [searchList, setSearchList] = useState();
   let match = useRouteMatch();
   function handle(e) {
@@ -59,15 +59,16 @@ function SearchBar() {
         id="word"
         onChange={(e) => handle(e)}
         value={searchWord.word}
-        className="searchBar"
       />
       {console.log("searchword is", searchWord.word)}
-      {
-      searchWord.word.length !== 0 &&
-      searchWord !== "" ? ( 
-          salons.length !== 0
-        ?<div>{searchList}</div>
-        :<h2>No Salons Found with this name</h2>
+      {searchWord.word.length !== 0 && searchWord !== "" ? (
+        loadingSearch === true ? (
+          <h3>Loading</h3>
+        ) : salons.length !== 0 ? (
+          <div>{searchList}</div>
+        ) : (
+          <h2>No Salons Found with this name</h2>
+        )
       ) : (
         <h1>Nothing is Searched</h1>
       )}

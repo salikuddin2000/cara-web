@@ -11,7 +11,10 @@ export function useRecommendedSalonList(){
 export function SalonRecommendationProvider({children}){
     const { zipcode } = useZipcode();
     const [ salonList, setSalonList ] =useState([])
+    const [ isLoading, setIsLoading ] =useState(true)
+
     async function getSalons(pin){
+        setIsLoading(true)
         let url=""
         if(pin==="462000"){
             url="https://cara-api-01.herokuapp.com/api/v1/recommendations/salons"
@@ -37,11 +40,13 @@ export function SalonRecommendationProvider({children}){
                 }
             ])
             )
+            setIsLoading(false)
         })
         .catch(()=>{
             console.log("no Salons Found");
             salonList.splice(0, salonList.length)
             console.log(salonList)
+            setIsLoading(false)
         })
     }
     useEffect(() => {
@@ -52,7 +57,7 @@ export function SalonRecommendationProvider({children}){
     }, [zipcode])
 
     return(
-        <SalonRecommendationContext.Provider value ={{salonList}}>
+        <SalonRecommendationContext.Provider value ={{salonList,isLoading}}>
             {children}
         </SalonRecommendationContext.Provider>
     )

@@ -1,37 +1,38 @@
 import React, { useState, useEffect, useContext } from "react";
-
+import { useSalonInfo } from "./salonProvider";
 const ServicesCategoryContext = React.createContext();
 
 export function useCart() {
-  useContext(ServicesCategoryContext);
+  return useContext(ServicesCategoryContext);
 }
 
 export function ServicesCategoryProvider({ children }) {
-  const [serviceCart, setServiceCart] = useState([{}]);
-  
-  function doesContain(serviceObject) {
-    let found = serviceCart.includes(serviceObject);
-    console.log("found ? " , found)
-    return found;
-    //return true  or false
+  const {salonId} = useSalonInfo()
+  const [serviceCart, setServiceCart] = useState([]);
+  const [cartSalonId, setCartSalonId] = useState([]);
+
+  function checkSalonCart(salonId,cartSalonId){
+    if(salonId===cartSalonId){
+      setServiceCart([{}])
+    }
   }
-  function addService(serviceObject) {
-    setServiceCart((prevItems) => [
-      ...prevItems,
-        {serviceObject}
-    ]);
-  }
-  function removeService(index) {
-      setServiceCart(serviceCart.splice(index, 1))
-  }
+
+  useEffect(() => {
+    checkSalonCart(salonId,cartSalonId)
+  }, [salonId,cartSalonId])
+
   useEffect(() => {
     console.log("serviceCart is : ");
     console.log(serviceCart);
-  }, [serviceCart])
+  }, [serviceCart]);
 
   return (
     <ServicesCategoryContext.Provider
-      value={ doesContain, addService, removeService }
+      value={{
+        serviceCart,
+        setServiceCart,
+        setCartSalonId /*, addService,removeService */
+      }}
     >
       {children}
     </ServicesCategoryContext.Provider>

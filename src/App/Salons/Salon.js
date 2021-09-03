@@ -7,44 +7,93 @@ import { useCart } from "../Providers/servicesCategoryProvider";
 function Salon() {
   const location = useLocation();
   const { setSalonId, salonInfo, isLoading } = useSalonInfo();
-  // const  doesContain  = useCart();
-  // const  removeService  = useCart();
-  // const  addService  = useCart();
+  const { serviceCart, setServiceCart, setCartSalonId } = useCart();
   const [idLocation, setIdLocation] = useState();
   const [categoryList, setCategoryList] = useState();
+
+  function containsObject(id, list) {
+    let i;
+    
+    for (i = 0; i < list.length; i++) {
+      if (list[i].service && list[i].service.service_id === id) {
+        return true;
+      }
+    }
+  
+    return false;
+  }
+  function removeObject(id, list) {
+    let i;
+    for (i = 0; i < list.length; i++) {
+      if (list[i].service && list[i].service.service_id === id) {
+        list.splice(i, 1);
+      }
+    }
+    setServiceCart(list);
+    setCategories(salonInfo, list);
+  }
 
   function setVars() {
     if (location && location.state) {
       const { id } = location.state;
       setIdLocation(id);
       setSalonId(id);
+      // setServiceCart([])
     }
   }
   useEffect(() => {
     setVars();
   }, []);
 
-  async function setCategories(salonInfo) {
-    if (salonInfo&&salonInfo.salon_categories) {
+  async function setCategories(salonInfo, serviceCart) {
+    if (salonInfo && salonInfo.salon_categories) {
       setCategoryList(
         salonInfo.salon_categories.map((category) => (
           <div key={category.category_id}>
             <h3>{category.category_name}</h3>
-            {category.services.map((service,index) => (
-              <div key={service}><p>{service.service_name}</p>
-              {/* doesContain(service)=== */false?
-              <button /*onClick={()=>removeService(index)}*/>-</button>
-              :<button /*onClick={()=>addService(service)}*/>+</button>}
+            {category.services.map((service, index) => (
+              <div key={service.service_id}>
+                <p>{service.service_name}</p>
+                {containsObject(service.service_id, serviceCart) ? (
+                  <button
+                    onClick={() =>
+                      removeObject(service.service_id, serviceCart)
+                    }
+                  >
+                    -
+                  </button>
+                ) : (
+                  <>
+                    <button
+                      onClick={() =>
+                        setServiceCart([
+                          ...serviceCart,
+                          (serviceCart[serviceCart.length] = { service }),
+                        ])
+                      }
+                    >
+                      +
+                    </button>
+                  </>
+                )}
               </div>
             ))}
           </div>
         ))
       );
+      if(serviceCart.length!==0){
+        setCartSalonId(salonInfo.salon_id)
+      }
+      else(setCartSalonId(null))
     }
   }
   useEffect(() => {
-    setCategories(salonInfo);
-  }, [salonInfo]);
+    setCategories(salonInfo, serviceCart);
+  }, [salonInfo, serviceCart.length]);
+  useEffect(() => {
+    console.log("new cart is: ");
+    console.log(serviceCart);
+  }, [serviceCart.length]);
 
   return idLocation ? (
     <div>

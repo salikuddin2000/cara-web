@@ -44,7 +44,7 @@ export function SalonProvider({children}){
         }, [salonId])
 
     return(
-        <SalonContext.Provider value={{setSalonId,salonInfo,isLoading}}>
+        <SalonContext.Provider value={{salonId,setSalonId,salonInfo,isLoading}}>
             {children}
         </SalonContext.Provider>
     )

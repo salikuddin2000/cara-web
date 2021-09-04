@@ -14,6 +14,7 @@ export function SalonProvider({children}){
 
     async function setSalon(id){
         setIsLoading(true);
+        if(salonId){
         await axios
         .get(`https://cara-api-01.herokuapp.com/api/v1/salons/${id}`)
             .then((response) => {
@@ -35,6 +36,7 @@ export function SalonProvider({children}){
                 console.log(salonInfo)
                 setIsLoading(false)
             })
+        }
         }
         useEffect(() => {
             setSalon(salonId)

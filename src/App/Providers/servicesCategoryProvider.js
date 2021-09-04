@@ -9,11 +9,11 @@ export function useCart() {
 export function ServicesCategoryProvider({ children }) {
   const {salonId} = useSalonInfo()
   const [serviceCart, setServiceCart] = useState([]);
-  const [cartSalonId, setCartSalonId] = useState([]);
+  const [cartSalonId, setCartSalonId] = useState();
 
   function checkSalonCart(salonId,cartSalonId){
-    if(salonId===cartSalonId){
-      setServiceCart([{}])
+    if(salonId!==cartSalonId){
+      setServiceCart([])
     }
   }
 
@@ -31,7 +31,8 @@ export function ServicesCategoryProvider({ children }) {
       value={{
         serviceCart,
         setServiceCart,
-        setCartSalonId /*, addService,removeService */
+        setCartSalonId,
+        cartSalonId
       }}
     >
       {children}

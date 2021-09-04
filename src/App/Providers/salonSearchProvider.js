@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 
-///api/v1/search/salons/:keyword
 
 const SalonSearchContext = React.createContext();
 

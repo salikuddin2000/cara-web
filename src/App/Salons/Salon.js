@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import { useSalonInfo } from "../Providers/salonProvider";
 import { useCart } from "../Providers/servicesCategoryProvider";
 
+
 function Salon() {
   const location = useLocation();
   const { setSalonId, salonInfo, isLoading } = useSalonInfo();
@@ -38,7 +39,6 @@ function Salon() {
       const { id } = location.state;
       setIdLocation(id);
       setSalonId(id);
-      // setServiceCart([])
     }
   }
   useEffect(() => {
@@ -104,6 +104,7 @@ function Salon() {
           <>
             <h1>{salonInfo.salon_name}</h1>
             {categoryList}
+            <Link to="/dashboard/salon/slots">show cart</Link>
           </>
         ) : (
           <h2>Salon not available</h2>
@@ -116,6 +117,7 @@ function Salon() {
     <>
       <h1>Please Choose Salon From home Page</h1>
       <Link to="/dashboard"> Home Page</Link>
+      
     </>
   );
 }

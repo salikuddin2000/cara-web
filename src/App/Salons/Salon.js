@@ -4,23 +4,22 @@ import { useLocation } from "react-router-dom";
 import { useSalonInfo } from "../Providers/salonProvider";
 import { useCart } from "../Providers/servicesCategoryProvider";
 
-
 function Salon() {
   const location = useLocation();
   const { setSalonId, salonInfo, isLoading } = useSalonInfo();
-  const { serviceCart, setServiceCart, setCartSalonId } = useCart();
+  const { serviceCart, setServiceCart, setCartSalonId, totalPrice, setTotalPrice } = useCart();
   const [idLocation, setIdLocation] = useState();
   const [categoryList, setCategoryList] = useState();
 
   function containsObject(id, list) {
     let i;
-    
+
     for (i = 0; i < list.length; i++) {
       if (list[i].service && list[i].service.service_id === id) {
         return true;
       }
     }
-  
+
     return false;
   }
   function removeObject(id, list) {
@@ -56,21 +55,27 @@ function Salon() {
                 <p>{service.service_name}</p>
                 {containsObject(service.service_id, serviceCart) ? (
                   <button
-                    onClick={() =>
-                      removeObject(service.service_id, serviceCart)
-                    }
+                    onClick={() => {
+                      removeObject(service.service_id, serviceCart);
+                      setTotalPrice(
+                        totalPrice - parseInt(service.service_price)
+                      );
+                    }}
                   >
                     -
                   </button>
                 ) : (
                   <>
                     <button
-                      onClick={() =>
+                      onClick={() => {
                         setServiceCart([
                           ...serviceCart,
                           (serviceCart[serviceCart.length] = { service }),
-                        ])
-                      }
+                        ]);
+                        setTotalPrice(
+                          totalPrice + parseInt(service.service_price)
+                        );
+                      }}
                     >
                       +
                     </button>
@@ -81,10 +86,9 @@ function Salon() {
           </div>
         ))
       );
-      if(serviceCart.length!==0){
-        setCartSalonId(salonInfo.salon_id)
-      }
-      else(setCartSalonId(null))
+      if (serviceCart.length !== 0) {
+        setCartSalonId(salonInfo.salon_id);
+      } else setCartSalonId(null);
     }
   }
   useEffect(() => {
@@ -117,7 +121,6 @@ function Salon() {
     <>
       <h1>Please Choose Salon From home Page</h1>
       <Link to="/dashboard"> Home Page</Link>
-      
     </>
   );
 }

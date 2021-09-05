@@ -10,6 +10,7 @@ import { SalonSearchProvider } from "./Providers/salonSearchProvider";
 import { SalonProvider } from "./Providers/salonProvider";
 import { ServicesCategoryProvider } from "./Providers/servicesCategoryProvider";
 import { SlotsProvider } from "./Providers/slotsProvider";
+import { BookingDetailsProvider } from "./Providers/bookingDetails";
 import Modal from "react-modal";
 
 Modal.setAppElement("#root");
@@ -25,8 +26,10 @@ function App() {
                   <SalonProvider>
                     <ServicesCategoryProvider>
                       <SlotsProvider>
-                        <Route exact={true} path="/" component={CheckAuth} />
-                        <Route path="/dashboard/" component={Dashboard} />
+                        <BookingDetailsProvider>
+                          <Route exact={true} path="/" component={CheckAuth} />
+                          <Route path="/dashboard/" component={Dashboard} />
+                        </BookingDetailsProvider>
                       </SlotsProvider>
                     </ServicesCategoryProvider>
                   </SalonProvider>

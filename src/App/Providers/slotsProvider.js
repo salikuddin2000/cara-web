@@ -13,10 +13,11 @@ export function SlotsProvider({children}){
     var datetime = currentdate.getFullYear() + "-"
                 + (currentdate.getMonth()+1)  + "-" 
                 + currentdate.getDate()
-    const {cartSalonId}=useCart();
+    const {cartSalonId,serviceCart}=useCart();
     const [selectedDate,setSelectedDate]=useState();
     const [selectedChair,setSelectedChair]=useState(null);
     const [slots,setSlots]=useState();
+    const [onLoading,setOnLoading]=useState(false);
     async function getSlots(id,date,selectedChair){
         let url
         if(selectedChair===null){
@@ -25,18 +26,24 @@ export function SlotsProvider({children}){
         else{
             url=`https://cara-api-01.herokuapp.com/api/v1/appointments/slots/${id}/${date}/${selectedChair}`
         }
-        if(cartSalonId && date){
+        if(cartSalonId && date && serviceCart.length!==0){
+            setOnLoading(true)
         await axios
         .get(url)
         .then((response) => {
             console.log("slots found");
             console.log(response.data);
             setSlots(Array.from(response.data))
+            setOnLoading(false)
         })
         .catch((err)=>{
             console.log("no Slots Found with exception :");
             console.log(err)
+            setOnLoading(false)
         })
+        }
+        else{
+            setSlots([]);
         }
     }
     useEffect(() => {
@@ -45,6 +52,16 @@ export function SlotsProvider({children}){
     useEffect(() => {
        setSelectedDate(datetime)
     }, [])
+   
+//    function setSlotsEmpty(serviceCart){
+//        if(serviceCart.length===0){
+//            setSlots([]);
+//        }
+//    }   
+//     useEffect(()=>{
+//         setSlotsEmpty(serviceCart)
+//     },[serviceCart])
+
     useEffect(() => {
         console.log("datetime is :");
         console.log(selectedDate);
@@ -53,7 +70,7 @@ export function SlotsProvider({children}){
         console.log("selected chair : ",selectedChair)
     }, [selectedChair])
     return(
-        <SlotsContext.Provider value={{slots,setSelectedChair,selectedChair,setSelectedDate}}>
+        <SlotsContext.Provider value={{slots,setSelectedChair,selectedChair,setSelectedDate,onLoading}}>
             {children}
         </SlotsContext.Provider>
     )

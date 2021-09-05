@@ -1,20 +1,31 @@
 import React, { useState, useEffect } from "react";
 import { useCart } from "../Providers/servicesCategoryProvider.js";
 import { useSlots } from "../Providers/slotsProvider.js";
+import { useBookingDetails } from "../Providers/bookingDetails.js";
+import {usePostAppointmentfunc} from "../Providers/bookingDetails.js";
 import DatePicker from "react-horizontal-datepicker";
 
 function SalonSlots() {
-  const { slots, setSelectedChair, selectedChair, setSelectedDate } =
+  const { slots, setSelectedChair, selectedChair, setSelectedDate,selectedDate , onLoading } =
     useSlots();
-  const { serviceCart, setServiceCart } = useCart();
+  const { serviceCart, setServiceCart, totalPrice,setTotalPrice } = useCart();
+  const { bookObject,setBookObject } =useBookingDetails();
+  const postAppointment = usePostAppointmentfunc();
   const [list, setList] = useState();
   const [slotsList, setSlotsList] = useState();
   const [chairList, setChairList] = useState([]);
+  const [orderPrice,setOrderPrice]=useState(totalPrice)
+
 
   function removeObject(id, list) {
     let i;
     for (i = 0; i < list.length; i++) {
       if (list[i].service && list[i].service.service_id === id) {
+        // console.log(orderPrice)
+        // console.log(list[i].service.service_price)
+        // let newPrice = orderPrice-list[i].service.service_price
+        // console.log("new price", newPrice)
+        // setTotalPrice(newPrice)
         list.splice(i, 1);
       }
     }
@@ -37,7 +48,9 @@ function SalonSlots() {
   useEffect(() => {
     listChairs();
   }, []);
-
+  useEffect(() => {
+    console.log("totalPrice:",totalPrice)
+  }, [totalPrice])
   function setCart(serviceCart) {
     if (serviceCart && serviceCart.length !== 0 && serviceCart[0]) {
       setList(
@@ -50,8 +63,12 @@ function SalonSlots() {
             </h5>{" "}
             {serviceCart.length !== 0 ? (
               <button
-                onClick={() =>
-                  removeObject(service.service.service_id, serviceCart)
+                onClick={() =>{
+                  removeObject(service.service.service_id, serviceCart);
+                  setTotalPrice(
+                    totalPrice - parseInt(service.service.service_price)
+                  );
+                }
                 }
               >
                 remove
@@ -76,11 +93,21 @@ function SalonSlots() {
         slots.map((slot) => (
           <div key={slot.slot_id}>
             {selectedChair && selectedChair !== null ? (
-              <h6>{slot.start_time}</h6>
+              <button onClick={()=>setBookObject({
+                slot_id: slot.slot_id,
+                chair_number: slot.chair_number,
+              })}>{slot.start_time + "slot id : " + slot.slot_id}</button>
             ) : (
-              <h6>
-                {slot.start_time + "  chair number : " + slot.chair_number}
-              </h6>
+              <button onClick={()=>setBookObject({
+                slot_id: slot.slot_id,
+                chair_number: slot.chair_number,
+              })}>
+                {slot.start_time +
+                  "  chair number : " +
+                  slot.chair_number +
+                  "slot id : " +
+                  slot.slot_id}
+              </button>
             )}
           </div>
         ))
@@ -104,17 +131,17 @@ function SalonSlots() {
   return (
     <>
       <div>{serviceCart ? list : ""}</div>
+      <div>{totalPrice ? <h5>{totalPrice}</h5> : ""}</div>
       <div>{chairList ? chairList : ""}</div>
       <button onClick={() => setSelectedChair(null)}>See All Slots</button>
       <DatePicker
         getSelectedDay={selectedDay}
         endDate={31}
-        selectDate={new Date("2021-09-04")}
+        selectDate={selectedDate}
         labelFormat={"MMMM"}
         color={"#639FA5"}
-        // eslint-disable-next-line react-hooks/exhaustive-deps
       />
-      <div>{slots ? slotsList : ""}</div>
+      <div>{slots ?((onLoading)? <h4>Loading Slots</h4>:slotsList ): ""}</div>
     </>
   );
 }

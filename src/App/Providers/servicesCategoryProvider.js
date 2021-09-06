@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useSalonInfo } from "./salonProvider";
+
 const ServicesCategoryContext = React.createContext();
 
 export function useCart() {

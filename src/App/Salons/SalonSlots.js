@@ -1,31 +1,32 @@
 import React, { useState, useEffect } from "react";
+import { useCaraUser } from "../Providers/caraUserProvider.js";
 import { useCart } from "../Providers/servicesCategoryProvider.js";
 import { useSlots } from "../Providers/slotsProvider.js";
 import { useBookingDetails } from "../Providers/bookingDetails.js";
-import {usePostAppointmentfunc} from "../Providers/bookingDetails.js";
+import { usePostAppointmentfunc } from "../Providers/bookingDetails.js";
 import DatePicker from "react-horizontal-datepicker";
 
 function SalonSlots() {
-  const { slots, setSelectedChair, selectedChair, setSelectedDate,selectedDate , onLoading } =
-    useSlots();
-  const { serviceCart, setServiceCart, totalPrice,setTotalPrice } = useCart();
-  const { bookObject,setBookObject } =useBookingDetails();
+  const {
+    slots,
+    setSelectedChair,
+    selectedChair,
+    setSelectedDate,
+    selectedDate,
+    onLoading,
+  } = useSlots();
+  const { caraUser } = useCaraUser();
+  const { serviceCart, setServiceCart, totalPrice, setTotalPrice, cartSalonId } = useCart();
+  const { bookObject, setBookObject } = useBookingDetails();
   const postAppointment = usePostAppointmentfunc();
   const [list, setList] = useState();
   const [slotsList, setSlotsList] = useState();
   const [chairList, setChairList] = useState([]);
-  const [orderPrice,setOrderPrice]=useState(totalPrice)
-
 
   function removeObject(id, list) {
     let i;
     for (i = 0; i < list.length; i++) {
       if (list[i].service && list[i].service.service_id === id) {
-        // console.log(orderPrice)
-        // console.log(list[i].service.service_price)
-        // let newPrice = orderPrice-list[i].service.service_price
-        // console.log("new price", newPrice)
-        // setTotalPrice(newPrice)
         list.splice(i, 1);
       }
     }
@@ -49,8 +50,8 @@ function SalonSlots() {
     listChairs();
   }, []);
   useEffect(() => {
-    console.log("totalPrice:",totalPrice)
-  }, [totalPrice])
+    console.log("totalPrice:", totalPrice);
+  }, [totalPrice]);
   function setCart(serviceCart) {
     if (serviceCart && serviceCart.length !== 0 && serviceCart[0]) {
       setList(
@@ -63,13 +64,12 @@ function SalonSlots() {
             </h5>{" "}
             {serviceCart.length !== 0 ? (
               <button
-                onClick={() =>{
+                onClick={() => {
                   removeObject(service.service.service_id, serviceCart);
                   setTotalPrice(
                     totalPrice - parseInt(service.service.service_price)
                   );
-                }
-                }
+                }}
               >
                 remove
               </button>
@@ -85,7 +85,7 @@ function SalonSlots() {
   }
   useEffect(() => {
     setCart(serviceCart);
-  }, [serviceCart]);
+  }, [serviceCart, totalPrice]);
 
   function listSlots(slots) {
     if (slots && slots.length !== 0) {
@@ -93,15 +93,27 @@ function SalonSlots() {
         slots.map((slot) => (
           <div key={slot.slot_id}>
             {selectedChair && selectedChair !== null ? (
-              <button onClick={()=>setBookObject({
-                slot_id: slot.slot_id,
-                chair_number: slot.chair_number,
-              })}>{slot.start_time + "slot id : " + slot.slot_id}</button>
+              <button
+                onClick={() =>
+                  setBookObject({
+                    slot_id: slot.slot_id,
+                    chair_number: slot.chair_number,
+                    appointment_details:bookObject.appointment_details,
+                  })
+                }
+              >
+                {slot.start_time + "slot id : " + slot.slot_id}
+              </button>
             ) : (
-              <button onClick={()=>setBookObject({
-                slot_id: slot.slot_id,
-                chair_number: slot.chair_number,
-              })}>
+              <button
+                onClick={() =>
+                  setBookObject({
+                    slot_id: slot.slot_id,
+                    chair_number: slot.chair_number,
+                    appointment_details:bookObject.appointment_details,
+                  })
+                }
+              >
                 {slot.start_time +
                   "  chair number : " +
                   slot.chair_number +
@@ -119,14 +131,19 @@ function SalonSlots() {
   }, [slots]);
 
   const selectedDay = (val) => {
-    let date = val.getDate(); /* <10 ? ("0"+val.getDate()):(val.getDate()) */
+    let date = val.getDate() <10 ? ("0"+val.getDate()):(val.getDate())
     let month =
-      val.getMonth(); /* <10 ? ("0"+val.getMonth()):(val.getMonth()) */
+      val.getMonth() <10 ? ("0"+val.getMonth()):(val.getMonth())
     let year = val.getFullYear();
     console.log(year + "-" + month + "-" + date);
     // console.log("date is :"+val)
-    setSelectedDate(year + "-" + month + "-" + date /* +"T00:00:00.000Z" */);
+    setSelectedDate(year + "-" + month + "-" + date);
   };
+  // useEffect(() => {
+  //   setBookObject({
+  //     appointment_details: serviceCart.map(service => ({service_id : service.service.service_id}) )})
+  // }, [serviceCart]);
+
 
   return (
     <>
@@ -141,7 +158,8 @@ function SalonSlots() {
         labelFormat={"MMMM"}
         color={"#639FA5"}
       />
-      <div>{slots ?((onLoading)? <h4>Loading Slots</h4>:slotsList ): ""}</div>
+      <div>{slots ? onLoading ? <h4>Loading Slots</h4> : slotsList : ""}</div>
+      <button onClick={()=>postAppointment()}>Book Appointment</button>
     </>
   );
 }

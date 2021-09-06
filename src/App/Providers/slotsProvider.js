@@ -11,8 +11,8 @@ export function useSlots(){
 export function SlotsProvider({children}){
     var currentdate = new Date(); 
     var datetime = currentdate.getFullYear() + "-"
-                + (currentdate.getMonth()+1)  + "-" 
-                + currentdate.getDate()
+                + ((currentdate.getMonth()+1)<10 ? ("0"+(currentdate.getMonth()+1)):(currentdate.getMonth()+1))  + "-" 
+                + (currentdate.getDate()<10 ? ("0"+currentdate.getDate()):(currentdate.getDate()))
     const {cartSalonId,serviceCart}=useCart();
     const [selectedDate,setSelectedDate]=useState();
     const [selectedChair,setSelectedChair]=useState(null);
@@ -52,6 +52,9 @@ export function SlotsProvider({children}){
     useEffect(() => {
        setSelectedDate(datetime)
     }, [])
+    useEffect(() => {
+        console.log(selectedDate)
+    }, [selectedDate])
    
 //    function setSlotsEmpty(serviceCart){
 //        if(serviceCart.length===0){

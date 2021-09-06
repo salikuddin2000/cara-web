@@ -16,7 +16,8 @@ export function usePostAppointmentfunc() {
 
 export function BookingDetailsProvider({children}) {
   const{caraUser}=useCaraUser();
-  const{cartSalonId, selectedDate, totalPrice,serviceCart}=useCart();
+  const{cartSalonId, totalPrice,serviceCart}=useCart();
+  const{selectedDate}=useSlots();
   const [bookObject, setBookObject] = useState({
     // user_id: "",
     // salon_id: "",
@@ -26,21 +27,21 @@ export function BookingDetailsProvider({children}) {
     slot_id: "",
     appointment_details: [],
   });
-  
+
   useEffect(() => {
       console.log("bookObject is: ")
     console.log(bookObject)
   }, [bookObject])
-
+//add Loading functionality, confirmation Modal and Redirect to appointment History
   async function postAppointment() {
-    // if (bookObject.slot_id && bookObject.chair_number && caraUser!==null && selectedDate &&serviceCart.length!==0) {
+    if (bookObject.slot_id && bookObject.chair_number && caraUser!==null && selectedDate &&serviceCart.length!==0) {
       await axios.post(
         "https://cara-api-01.herokuapp.com/api/v1/appointments",
         {
-          user_id: caraUser.email_Address,
+          user_id: caraUser.email_address,
           salon_id: cartSalonId,
           chair_number: bookObject.chair_number,
-          date_of_appointment: selectedDate,
+          date_of_appointment: selectedDate+"T00:00:00.000Z",
           total_price: totalPrice,
           slot_id: bookObject.slot_id,
           appointment_details: serviceCart.map(service => ({service_id : service.service.service_id}) ),
@@ -54,7 +55,7 @@ export function BookingDetailsProvider({children}) {
             console.log(res);
           })
       ;
-    // }
+    }
   }
   return(
       <BookingDetailsContext.Provider value={{bookObject,setBookObject}}>

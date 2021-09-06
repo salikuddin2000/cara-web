@@ -73,7 +73,7 @@ export function SlotsProvider({children}){
         console.log("selected chair : ",selectedChair)
     }, [selectedChair])
     return(
-        <SlotsContext.Provider value={{slots,setSelectedChair,selectedChair,setSelectedDate,onLoading}}>
+        <SlotsContext.Provider value={{slots,setSelectedChair,selectedChair,setSelectedDate,onLoading,selectedDate}}>
             {children}
         </SlotsContext.Provider>
     )

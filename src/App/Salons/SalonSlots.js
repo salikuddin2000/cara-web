@@ -133,7 +133,7 @@ function SalonSlots() {
   const selectedDay = (val) => {
     let date = val.getDate() <10 ? ("0"+val.getDate()):(val.getDate())
     let month =
-      val.getMonth() <10 ? ("0"+val.getMonth()):(val.getMonth())
+     ( val.getMonth()+1) <10 ? ("0"+(val.getMonth()+1)):(val.getMonth()+1)
     let year = val.getFullYear();
     console.log(year + "-" + month + "-" + date);
     // console.log("date is :"+val)
@@ -154,7 +154,7 @@ function SalonSlots() {
       <DatePicker
         getSelectedDay={selectedDay}
         endDate={31}
-        selectDate={selectedDate}
+        selectDate={new Date(selectedDate)}
         labelFormat={"MMMM"}
         color={"#639FA5"}
       />

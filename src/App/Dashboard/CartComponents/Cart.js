@@ -1,11 +1,23 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import { useAppointmentHistoryList } from "../../Providers/appointmentHistoryProvider.js";
 
 function Cart() {
-    return (
-        <div>
-            This is cart Screen
-        </div>
-    )
+  const { appointmentList } = useAppointmentHistoryList();
+  const [list, setList] = useState();
+  useEffect(() => {
+    setList(
+      appointmentList.map((appointment) => (
+        <h5 key={appointment.appointment_id}>
+          {appointment.date_of_appointment.split("T")[0]}
+        </h5>
+      ))
+    );
+    console.log(appointmentList);
+  }, [appointmentList]);
+  //   useEffect(() => {
+  //     console.log(list)
+  //   }, [list])
+  return <div>{list}</div>;
 }
 
 export default Cart;

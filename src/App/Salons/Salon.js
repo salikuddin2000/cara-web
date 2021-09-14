@@ -108,7 +108,7 @@ function Salon() {
           <>
             <h1>{salonInfo.salon_name}</h1>
             {categoryList}
-            <Link to="/dashboard/salon/slots">show cart</Link>
+            {serviceCart.length!==0?<Link to="/dashboard/salon/slots">show cart</Link> :""} 
           </>
         ) : (
           <h2>Salon not available</h2>

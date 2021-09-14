@@ -1,4 +1,15 @@
 .App {
   text-align: center;
 }
+body {
+  background-color: #F5F5F5;
+  
+}
 
+html {
+  --primaryColor: #796AC8;
+}
+@font-face {
+  font-family: 'Signatra';
+  src: local('Signatra DEMO'), url(../Signatra.otf) format('opentype');
+}

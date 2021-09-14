@@ -16,8 +16,15 @@ function SalonSlots() {
     onLoading,
   } = useSlots();
   const { caraUser } = useCaraUser();
-  const { serviceCart, setServiceCart, totalPrice, setTotalPrice, cartSalonId } = useCart();
-  const { bookObject, setBookObject } = useBookingDetails();
+  const {
+    serviceCart,
+    setServiceCart,
+    totalPrice,
+    setTotalPrice,
+    cartSalonId,
+  } = useCart();
+  const { bookObject, setBookObject, loading, isBooked } =
+    useBookingDetails();
   const postAppointment = usePostAppointmentfunc();
   const [list, setList] = useState();
   const [slotsList, setSlotsList] = useState();
@@ -98,7 +105,7 @@ function SalonSlots() {
                   setBookObject({
                     slot_id: slot.slot_id,
                     chair_number: slot.chair_number,
-                    appointment_details:bookObject.appointment_details,
+                    appointment_details: bookObject.appointment_details,
                   })
                 }
               >
@@ -110,7 +117,7 @@ function SalonSlots() {
                   setBookObject({
                     slot_id: slot.slot_id,
                     chair_number: slot.chair_number,
-                    appointment_details:bookObject.appointment_details,
+                    appointment_details: bookObject.appointment_details,
                   })
                 }
               >
@@ -131,9 +138,9 @@ function SalonSlots() {
   }, [slots]);
 
   const selectedDay = (val) => {
-    let date = val.getDate() <10 ? ("0"+val.getDate()):(val.getDate())
+    let date = val.getDate() < 10 ? "0" + val.getDate() : val.getDate();
     let month =
-     ( val.getMonth()+1) <10 ? ("0"+(val.getMonth()+1)):(val.getMonth()+1)
+      val.getMonth() + 1 < 10 ? "0" + (val.getMonth() + 1) : val.getMonth() + 1;
     let year = val.getFullYear();
     console.log(year + "-" + month + "-" + date);
     // console.log("date is :"+val)
@@ -143,7 +150,6 @@ function SalonSlots() {
   //   setBookObject({
   //     appointment_details: serviceCart.map(service => ({service_id : service.service.service_id}) )})
   // }, [serviceCart]);
-
 
   return (
     <>
@@ -159,7 +165,15 @@ function SalonSlots() {
         color={"#639FA5"}
       />
       <div>{slots ? onLoading ? <h4>Loading Slots</h4> : slotsList : ""}</div>
-      <button onClick={()=>postAppointment()}>Book Appointment</button>
+      {serviceCart.length !== 0 && selectedDate && bookObject!==null &&bookObject.slot_id ? (
+        loading ? (
+          <h5>Loading..</h5>
+        ) : (
+          <button onClick={() => postAppointment()}>Book Appointment</button>
+        )
+      ) : ""}
+      {(isBooked===true)?<h1>Appointment Booked</h1>:""}
+      {/* {(isBooked===true)?<h1>Appointment Booked</h1>:"<h5>Appointment not Booked</h5>"} */}
     </>
   );
 }

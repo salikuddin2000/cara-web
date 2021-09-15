@@ -13,22 +13,30 @@
     padding-top: 1vh;
     
 }
+
 .AppBar button{
     display: inline-block;
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	/* font: inherit; */
+	/* cursor: pointer; */
+	outline: inherit;
 }
 
 .AppBar h1{
     display: inline-block;
     font-size: 5vh;
-    width: 50vw;
+    width: 75vw;
     color: var(--primaryColor);
     font-family: 'Signatra', Tahoma, Geneva, Verdana, sans-serif;
     margin:0;
     font-weight: 500;
 }
-/* .zipcode{
-    left: 0;
+.zipcode img{
+    height:3vh;
 }
-.coins{
-    right: 0;
-} */
+.coins img{
+    height:2.7vh;
+}

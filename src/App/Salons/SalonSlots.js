@@ -5,6 +5,7 @@ import { useSlots } from "../Providers/slotsProvider.js";
 import { useBookingDetails } from "../Providers/bookingDetails.js";
 import { usePostAppointmentfunc } from "../Providers/bookingDetails.js";
 import DatePicker from "react-horizontal-datepicker";
+import {BeatLoader} from 'react-spinners';
 
 function SalonSlots() {
   const {
@@ -165,15 +166,15 @@ function SalonSlots() {
         endDate={31}
         selectDate={new Date(selectedDate)}
         labelFormat={"MMMM"}
-        color={"#639FA5"}
+        color={"#796AC8"}
       />
-      <div>{slots ? onLoading ? <h4>Loading Slots</h4> : slotsList : ""}</div>
+      <div>{slots ? onLoading ? <BeatLoader loading color='#796AC8' /> : slotsList : ""}</div>
       {serviceCart.length !== 0 &&
       selectedDate &&
       bookObject !== null &&
       bookObject.slot_id ? (
         loading ? (
-          <h5>Loading..</h5>
+          <><br /><BeatLoader loading color='#796AC8' /></>
         ) : (
           <button onClick={() => postAppointment()}>Book Appointment</button>
         )

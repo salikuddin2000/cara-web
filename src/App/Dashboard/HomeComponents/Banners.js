@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 import { useSalonAdList } from "../../Providers/bannerAdProvider";
+import {BeatLoader} from 'react-spinners';
 
 function Banners() {
   let match = useRouteMatch();
@@ -43,7 +44,7 @@ function Banners() {
   }, [salonAdList]);
 
   if(salonAdList === undefined || salonAdList=== null || salonAdList.length===0){
-    if(isLoading===true) {return(<h3>Loading...</h3>)}
+    if(isLoading===true) {return(<><br /><BeatLoader loading color='#796AC8' /></>)}
     else{return(<h3>No ads Found</h3> )}
   }
   else return <div>{bannerList}</div>;

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 import { useSalonSearch } from "../../Providers/salonSearchProvider.js";
+import {BeatLoader} from 'react-spinners';
 
 function SearchBar() {
   const { searchWord, setSearchWord, salons, loadingSearch } = useSalonSearch();
@@ -63,14 +64,14 @@ function SearchBar() {
       {console.log("searchword is", searchWord.word)}
       {searchWord.word.length !== 0 && searchWord !== "" ? (
         loadingSearch === true ? (
-          <h3>Loading</h3>
+          <><br /><BeatLoader loading color='#796AC8' /></>
         ) : salons.length !== 0 ? (
           <div>{searchList}</div>
         ) : (
-          <h2>No Salons Found with this name</h2>
+          <h5>No Salons Found with this name</h5>
         )
       ) : (
-        <h1>Nothing is Searched</h1>
+        ""
       )}
     </>
   );

@@ -32,3 +32,9 @@
 .NavBar :link :active{
     background-color: var(--primaryColor);
 }
+.NavBar img{
+    height:3vh;
+}
+/* .cart{
+    height: 1vh;
+} */

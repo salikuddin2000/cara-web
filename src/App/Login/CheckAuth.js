@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import { useGoogleUser, useCaraUser, useUserPostReq } from "../Providers/caraUserProvider";
 import WelcomeScreen from "./Components/WelcomeScreen";
 import GetPhoneNumber from "./Components/GetPhoneNumber.js";
+import {BeatLoader} from 'react-spinners';
 
 function CheckAuth() {
   const { caraUser } = useCaraUser();
@@ -37,7 +38,7 @@ function CheckAuth() {
     );
   }
   else {
-    return <h1>Loading</h1>;
+    return <BeatLoader loading color='#796AC8' />;
   }
 }
 

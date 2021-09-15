@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useAppointmentHistoryList } from "../../Providers/appointmentHistoryProvider.js";
+import AppBar from "../AppBarComponents/AppBar.js";
 
 function Cart() {
   const { appointmentList } = useAppointmentHistoryList();
@@ -17,7 +18,12 @@ function Cart() {
   //   useEffect(() => {
   //     console.log(list)
   //   }, [list])
-  return <div>{list}</div>;
+  return (
+    <div>
+      <AppBar />
+      {list}
+    </div>
+  );
 }
 
 export default Cart;

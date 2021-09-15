@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 import { useRecommendedSalonList } from "../../Providers/salonRecommendationProvider";
+import {BeatLoader} from 'react-spinners';
 
 function RecommendationsSection() {
   let match = useRouteMatch();
@@ -46,7 +47,7 @@ function RecommendationsSection() {
   }, [salonList]);
 
   if(salonList === undefined || salonList=== null || salonList.length===0){
-    if(isLoading===true) {return(<h3>Loading...</h3>)}
+    if(isLoading===true) {return(<><br /><BeatLoader loading color='#796AC8' /></>)}
     else{return(<h3>No recommendations Found</h3> )}
   }
   else {return (

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useSalonInfo } from "../Providers/salonProvider";
 import { useCart } from "../Providers/servicesCategoryProvider";
+import {BeatLoader} from 'react-spinners';
 
 function Salon() {
   const location = useLocation();
@@ -127,7 +128,7 @@ function Salon() {
           <h2>Salon not available</h2>
         )
       ) : (
-        <h2>Loading...</h2>
+        <BeatLoader loading color='#796AC8' />
       )}
     </div>
   ) : (

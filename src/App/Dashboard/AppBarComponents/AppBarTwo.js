@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useZipcode } from "../../Providers/zipcodeProvider.js";
 import Modal from "react-modal";
 import "./AppBar.css";
-
+import location from "../../../assets/location.svg"
+import wallet from "../../../assets/wallet.svg"
 
 function AppBarTwo() {
   const { zipcode,  updateZipcode } = useZipcode();
@@ -41,7 +42,7 @@ function AppBarTwo() {
           type="number"
           maxLength="6"
         ></input>
-        <button className="zipcode"
+        <button
           onClick={(e) => {
             submit(e);
           }}
@@ -50,9 +51,9 @@ function AppBarTwo() {
         </button>
         <button onClick={() => setModalisOpen(false)}>Close</button>
       </Modal>
-      <button onClick={() => setModalisOpen(true)}>Zipcode</button>
+      <button  className="zipcode" onClick={() => setModalisOpen(true)}><img alt="location" src={location}/></button>
       <h1>Cara</h1>
-      <button className="coins">Coins</button>
+      <button className="coins"><img alt="wallet" src={wallet} /></button>
     </div>
   );
 }

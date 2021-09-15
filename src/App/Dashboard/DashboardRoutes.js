@@ -8,7 +8,7 @@ import {
 import Home from "./HomeComponents/Home.js";
 import Cart from "./CartComponents/Cart.js";
 import Profile from "./ProfileComponents/Profile.js";
-import NavComponent from "./NavComponent.js";
+import NavComponent from "./NavBarComponents/NavComponent.js";
 import Salon from "../Salons/Salon.js";
 import SalonSlots from "../Salons/SalonSlots.js";
 

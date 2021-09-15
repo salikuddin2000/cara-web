@@ -7,7 +7,13 @@ import { useCart } from "../Providers/servicesCategoryProvider";
 function Salon() {
   const location = useLocation();
   const { setSalonId, salonInfo, isLoading } = useSalonInfo();
-  const { serviceCart, setServiceCart, setCartSalonId, totalPrice, setTotalPrice } = useCart();
+  const {
+    serviceCart,
+    setServiceCart,
+    setCartSalonId,
+    totalPrice,
+    setTotalPrice,
+  } = useCart();
   const [idLocation, setIdLocation] = useState();
   const [categoryList, setCategoryList] = useState();
 
@@ -42,6 +48,7 @@ function Salon() {
   }
   useEffect(() => {
     setVars();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   async function setCategories(salonInfo, serviceCart) {
@@ -93,10 +100,12 @@ function Salon() {
   }
   useEffect(() => {
     setCategories(salonInfo, serviceCart);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [salonInfo, serviceCart.length]);
   useEffect(() => {
     console.log("new cart is: ");
     console.log(serviceCart);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [serviceCart.length]);
 
   return idLocation ? (
@@ -108,7 +117,11 @@ function Salon() {
           <>
             <h1>{salonInfo.salon_name}</h1>
             {categoryList}
-            {serviceCart.length!==0?<Link to="/dashboard/salon/slots">show cart</Link> :""} 
+            {serviceCart.length !== 0 ? (
+              <Link to="/dashboard/salon/slots">show cart</Link>
+            ) : (
+              ""
+            )}
           </>
         ) : (
           <h2>Salon not available</h2>

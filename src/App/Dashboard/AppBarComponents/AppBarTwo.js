@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useZipcode } from "../../Providers/zipcodeProvider.js";
 import Modal from "react-modal";
+import "./AppBar.css";
+
 
 function AppBarTwo() {
   const { zipcode,  updateZipcode } = useZipcode();
@@ -22,7 +24,7 @@ function AppBarTwo() {
   };
 
   return (
-    <div>
+    <div className="AppBar">
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={() => setModalisOpen(false)}
@@ -39,7 +41,7 @@ function AppBarTwo() {
           type="number"
           maxLength="6"
         ></input>
-        <button
+        <button className="zipcode"
           onClick={(e) => {
             submit(e);
           }}
@@ -49,8 +51,8 @@ function AppBarTwo() {
         <button onClick={() => setModalisOpen(false)}>Close</button>
       </Modal>
       <button onClick={() => setModalisOpen(true)}>Zipcode</button>
-      <header>Cara</header>
-      <button>Coins</button>
+      <h1>Cara</h1>
+      <button className="coins">Coins</button>
     </div>
   );
 }

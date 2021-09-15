@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useCaraUser } from "../Providers/caraUserProvider.js";
+// import { useCaraUser } from "../Providers/caraUserProvider.js";
 import { useCart } from "../Providers/servicesCategoryProvider.js";
 import { useSlots } from "../Providers/slotsProvider.js";
 import { useBookingDetails } from "../Providers/bookingDetails.js";
@@ -15,16 +15,15 @@ function SalonSlots() {
     selectedDate,
     onLoading,
   } = useSlots();
-  const { caraUser } = useCaraUser();
+  // const { caraUser } = useCaraUser();
   const {
     serviceCart,
     setServiceCart,
     totalPrice,
     setTotalPrice,
-    cartSalonId,
+    // cartSalonId,
   } = useCart();
-  const { bookObject, setBookObject, loading, isBooked } =
-    useBookingDetails();
+  const { bookObject, setBookObject, loading, isBooked } = useBookingDetails();
   const postAppointment = usePostAppointmentfunc();
   const [list, setList] = useState();
   const [slotsList, setSlotsList] = useState();
@@ -55,9 +54,11 @@ function SalonSlots() {
   }
   useEffect(() => {
     listChairs();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   useEffect(() => {
     console.log("totalPrice:", totalPrice);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [totalPrice]);
   function setCart(serviceCart) {
     if (serviceCart && serviceCart.length !== 0 && serviceCart[0]) {
@@ -92,6 +93,7 @@ function SalonSlots() {
   }
   useEffect(() => {
     setCart(serviceCart);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [serviceCart, totalPrice]);
 
   function listSlots(slots) {
@@ -135,6 +137,7 @@ function SalonSlots() {
   }
   useEffect(() => {
     listSlots(slots);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slots]);
 
   const selectedDay = (val) => {
@@ -165,14 +168,19 @@ function SalonSlots() {
         color={"#639FA5"}
       />
       <div>{slots ? onLoading ? <h4>Loading Slots</h4> : slotsList : ""}</div>
-      {serviceCart.length !== 0 && selectedDate && bookObject!==null &&bookObject.slot_id ? (
+      {serviceCart.length !== 0 &&
+      selectedDate &&
+      bookObject !== null &&
+      bookObject.slot_id ? (
         loading ? (
           <h5>Loading..</h5>
         ) : (
           <button onClick={() => postAppointment()}>Book Appointment</button>
         )
-      ) : ""}
-      {(isBooked===true)?<h1>Appointment Booked</h1>:""}
+      ) : (
+        ""
+      )}
+      {isBooked === true ? <h1>Appointment Booked</h1> : ""}
       {/* {(isBooked===true)?<h1>Appointment Booked</h1>:"<h5>Appointment not Booked</h5>"} */}
     </>
   );

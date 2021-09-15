@@ -48,12 +48,15 @@ export function SlotsProvider({children}){
     }
     useEffect(() => {
         getSlots(cartSalonId,selectedDate,selectedChair)
+            // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [cartSalonId,selectedDate,selectedChair])
     useEffect(() => {
        setSelectedDate(datetime)
+            // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     useEffect(() => {
         console.log(selectedDate)
+            // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedDate])
    
 //    function setSlotsEmpty(serviceCart){
@@ -68,9 +71,11 @@ export function SlotsProvider({children}){
     useEffect(() => {
         console.log("datetime is :");
         console.log(selectedDate);
+            // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedDate])
     useEffect(() => {
         console.log("selected chair : ",selectedChair)
+            // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedChair])
     return(
         <SlotsContext.Provider value={{slots,setSelectedChair,selectedChair,setSelectedDate,onLoading,selectedDate}}>

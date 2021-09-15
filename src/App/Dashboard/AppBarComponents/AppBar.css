@@ -1,0 +1,34 @@
+/* it is covering some content */
+.AppBar{
+    position: static;
+    top: 0;
+    width: 100%;
+    /* background-color: white; */
+    overflow: hidden;
+    height: 6vh;
+    justify-content: center;
+    /* display: inline-block;  */
+    margin:0;
+    padding:0;
+    padding-top: 1vh;
+    
+}
+.AppBar button{
+    display: inline-block;
+}
+
+.AppBar h1{
+    display: inline-block;
+    font-size: 5vh;
+    width: 50vw;
+    color: var(--primaryColor);
+    font-family: 'Signatra', Tahoma, Geneva, Verdana, sans-serif;
+    margin:0;
+    font-weight: 500;
+}
+/* .zipcode{
+    left: 0;
+}
+.coins{
+    right: 0;
+} */

@@ -45,15 +45,15 @@ function WelcomeScreen(props) {
 
   return (
     <div className="welcomeScreen">
-      <img class="upperleaf" src={upper_leaf} />
-      <img class="lowerleaf" src={lower_leaf} />
-      <img class="hairgirl" src={hair_girl} />
-      <img class="poleman" src={pole_man} />
+      <img alt="backgroundImage" class="upperleaf" src={upper_leaf} />
+      <img alt="backgroundImage" class="lowerleaf" src={lower_leaf} />
+      <img alt="backgroundImage" class="hairgirl" src={hair_girl} />
+      <img alt="backgroundImage" class="poleman" src={pole_man} />
       <h1>Cara</h1>
       <div className="loginAssets">
         <button onClick={() => SignIn()}>
           <div>
-            <img class="googleLogo" src={google_logo} />
+            <img alt="googleLogo" class="googleLogo" src={google_logo} />
             <span>Profile Sign In/Sign Up with Google</span>
           </div>
         </button>

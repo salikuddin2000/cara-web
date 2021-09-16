@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 import { useSalonSearch } from "../../Providers/salonSearchProvider.js";
 import {BeatLoader} from 'react-spinners';
+// import search from "../../../assets/search.svg"
+import "./home.css"
+
 
 function SearchBar() {
   const { searchWord, setSearchWord, salons, loadingSearch } = useSalonSearch();
@@ -54,13 +57,15 @@ function SearchBar() {
   }, [salons]);
   return (
     <>
-      <input
+      <input className="searchBar"
         type="text"
-        placeholder="       Search here"
+        placeholder={"            Find Salons here"}
         id="word"
         onChange={(e) => handle(e)}
         value={searchWord.word}
+        // background-image={search}
       />
+      {/* <img src={search} /> */}
       {console.log("searchword is", searchWord.word)}
       {searchWord.word.length !== 0 && searchWord !== "" ? (
         loadingSearch === true ? (

@@ -1,22 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 import { useRecommendedSalonList } from "../../Providers/salonRecommendationProvider";
-import {BeatLoader} from 'react-spinners';
+import { BeatLoader } from "react-spinners";
+import arrow from "../../../assets/arrow.svg";
+import "./home.css";
 
 function RecommendationsSection() {
   let match = useRouteMatch();
-  const { salonList,isLoading } = useRecommendedSalonList();
+  const { salonList, isLoading } = useRecommendedSalonList();
   const [recommendationList, setRecommendationList] = useState([]);
 
   function setList(salonList) {
     if (salonList !== undefined) {
       setRecommendationList(
         salonList.map((salon) => (
-          <div key={`${salon.salon_id}`}>
+          <div className="recommendationsCard" key={`${salon.salon_id}`}>
             {salon === undefined ||
             salon === null ||
             salon.salon_logo === undefined ? (
-              setRecommendationList(recommendationList.splice(0, recommendationList.length))
+              setRecommendationList(
+                recommendationList.splice(0, recommendationList.length)
+              )
             ) : (
               <Link
                 to={{
@@ -34,6 +38,7 @@ function RecommendationsSection() {
                 />
                 <h5>{salon.salon_name}</h5>
                 <h6>{salon.star_rating}</h6>{" "}
+                <div>Open <img src={arrow}/></div>
               </Link>
             )}
           </div>
@@ -46,15 +51,19 @@ function RecommendationsSection() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [salonList]);
 
-  if(salonList === undefined || salonList=== null || salonList.length===0){
-    if(isLoading===true) {return(<><br /><BeatLoader loading color='#796AC8' /></>)}
-    else{return(<h3>No recommendations Found</h3> )}
-  }
-  else {return (
-    <div>
-        {recommendationList}
-    </div>
-  );
+  if (salonList === undefined || salonList === null || salonList.length === 0) {
+    if (isLoading === true) {
+      return (
+        <>
+          <br />
+          <BeatLoader loading color="#796AC8" />
+        </>
+      );
+    } else {
+      return <h4>No recommendations Found</h4>;
+    }
+  } else {
+    return <div className="recommendations">{recommendationList}</div>;
   }
 }
 

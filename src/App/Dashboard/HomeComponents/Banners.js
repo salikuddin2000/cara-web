@@ -45,7 +45,7 @@ function Banners() {
 
   if(salonAdList === undefined || salonAdList=== null || salonAdList.length===0){
     if(isLoading===true) {return(<><br /><BeatLoader loading color='#796AC8' /></>)}
-    else{return(<h3>No ads Found</h3> )}
+    else{return(<h4>No ads Found</h4> )}
   }
   else return <div>{bannerList}</div>;
 }

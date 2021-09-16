@@ -6,6 +6,7 @@ import Banners from "./Banners.js";
 import RecommendationsSection from "./RecommendationsSection.js";
 import SearchBar from "./SearchBar.js";
 import {BeatLoader} from 'react-spinners';
+import "./home.css";
 
 function Home() {
   const { caraUser } = useCaraUser();
@@ -19,10 +20,10 @@ function Home() {
     );
   } else {
     return (
-      <>
+      <div className="home">
         {caraUser === null ? (
           <>
-            <AppBarTwo /> <h2>Hello User,<br />Welcome Back</h2>
+            <AppBarTwo /> <h3>Hello User,</h3><h2><br />Welcome Back</h2>
             <SearchBar />
             {searchWord.word.length === 0 ? (
               <>
@@ -36,8 +37,8 @@ function Home() {
         ) : (
           <>
             <AppBarTwo />
+            <h3>Hello {caraUser.first_name},</h3><h2><br />Welcome Back</h2>
             <SearchBar />
-            <h2>Hello {caraUser.first_name},<br />Welcome Back</h2>
             {searchWord.word.length === 0 ? (
               <>
                 <Banners />
@@ -48,7 +49,7 @@ function Home() {
             )}
           </>
         )}
-      </>
+      </div>
     );
   }
 }

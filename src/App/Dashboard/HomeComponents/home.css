@@ -8,68 +8,163 @@
     float: left;
     margin-left: 7.1vw;
     text-align: left;
-    font-weight: 600;
+    font-weight: 500;
 }
 .home h3{
     float: left;
     margin-left: 7.1vw;
     text-align: left;
-    font-weight: 600;
+    font-weight: 400;
     position:absolute;
 }
+.home h4{
+    display: block;
+    /* float: left; */
+    /* width: 50vw; */
+    margin-left: 7.1vw;
+    text-align: left;
+    margin-bottom: 0;
+    font-weight: 600;
+}
+.madeWithLove{
+    font-weight: 600;
+    margin:0;
+    margin-top: 5vh;
+    margin-bottom: 10vh;
+}
+.madeWithLove img{
+    height:10px;
+}
 .searchBar{
+    background-color: white;
     background-image:url(../../../assets/search.svg);
-    background-size: 2vh;
+    background-size: 13px;
     background-repeat: no-repeat;
     background-position-x: 15px;
-    background-position-y: 1.65vh;
-    border-radius: 10px;
+    background-position-y: 15px;
+    border-radius: 7px;
     width:85vw;
-    height: 5vh;
+    height: 42px;
     justify-content: center;
     border:none;
-    -webkit-box-shadow: 0px 5px 11px -10px rgba(0,0,0,0.3); 
+    -webkit-box-shadow: 0px 3px 8px -1px rgba(0,0,0,0.3); 
+    -moz-shadow: 0px 3px 8px -1px rgba(0,0,0,0.3); 
+    box-shadow: 0px 3px 8px -1px rgba(0,0,0,0.3); 
+    text-indent: 50px;
+    outline: none;
 }
-.recommendationsCard{
+.searchCard{
     background-color: white;
     display:inline-block;
-    margin-top: 2vh;
-    margin-left: 3vw;
-    margin-right: 3vw;
+    margin-top: 10px;
+    margin-left: 4vw;
+    margin-right: 4vw;
     margin-bottom: 2vh;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-    width: 130px;
+    width: 83vw;
+    height: 90px;
+    border-radius: 20px;
+    border-left: 10px solid var(--primaryColor);
+    color: black;
+}
+.searchCard h5{
+    margin:0;
+    color: black;
+}
+.searchCard h6{
+    margin: 0;
+    color: black;
+}
+/* .searchBar :active{
+    margin-left: 20px;
+    padding-left: 20px;
+} */
+.searchCard :link{
+    text-decoration: none;
+    color:black;
+}
+/* .searchCard :link :visited{
+    text-decoration: none;
+} */
+.recommendationsCard{
+    position: relative;
+    background-color: white;
+    display:inline-block;
+    margin-top: 10px;
+    margin-left: 4vw;
+    margin-right: 4vw;
+    margin-bottom: 2vh;
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 38vw;
     height: 140px;
     border-radius: 20px;
     border-bottom: 40px solid var(--primaryColor);
 }
 .recommendations{
-    margin-bottom: 7vh;
+    margin-bottom: 1vh;
 }
-.recommendationsCard a h5{
-    /* z-index: 1;  */
-    margin-top:80px;
+.recommendationsCard a h1{
+    position: absolute;
+    bottom: 10px;
+    left:0;
+    right:0;
+    margin-left: auto;
+    margin-right: auto;
+    /* margin-bottom: 40px; */
+    z-index: 1; 
+    /* overflow-x:auto; */
+    /* overflow-wrap: break-word; */
+    /* margin-top:80px; */
+    /* margin-bottom: 0; */
+    /* bottom: 0; */
+    /* text-align: left ; */
+    color: black;
+    font-size: 13px;
+}
+.slideRight {
+    /* margin-top: 500px;; */
+    overflow:hidden;
+    white-space:pre;
+    margin:0;
     margin-bottom: 0;
     bottom: 0;
     /* text-align: left ; */
     color: black;
+    font-size: 13px;
 }
-.recommendationsCard a h6{
+.slideRight h1{
+    margin-top:80px;
     margin: 0;
-    bottom: 0;
+    overflow: visible;
+    white-space: pre;
     color: black;
+    font-size: 13px;
+    animation: infinite slide-right 9s cubic-bezier(0, 0, .5, .8);
+    transform:translateX(100%);
 }
-.recommendationsCard a div{
-    margin-top: 25px;
-    margin-left: 30px;
+@keyframes slide-right {
+    to {
+      transform:translateX(-100%);
+    }
+  }  
+
+
+.openArrow{
+    position: absolute;
+    bottom: -28px;
+    /* margin-top: 18px; */
+    margin-left: 9.6vw;
     /* padding-bottom: 4vh; */
     /* margin-bottom: 4vh; */
     text-align: center;
     display: block;
     position:absolute;
     /* bottom: 0; */
-    height: 5vh;
+    /* height: 5vh; */
 
     /* margin-top: 1.5vh; */
     /* margin-bottom: auto; */
@@ -79,10 +174,55 @@
     font-size: 14px;
     font-weight: 600;
 }
-.recommendationsCard a div img{
+.openArrow img{
     margin-left: 15px;
     height: 10px;
 }
+.rating{
+    position: absolute;
+    bottom: 0;
+    left:0;
+    right:0;
+    margin-left: auto;
+    margin-right: auto;
+    /* display: inline-block; */
+    /* font-size: 16px; */
+}
+.rating h6{
+    margin: 0;
+    bottom: 0;
+    color: black;
+    display: inline;
+    margin-top: 0;
+ font-size: 12px;
+ /* padding-bottom: 5px; */
+ vertical-align: .8px;
+ font-weight: 500;
+}
+.rating img{
+    width:12px;
+    margin-right: 1.1vw;
+    /* position: 1px;; */
+    /* top: 50px; */
+    /* background-position-x: 15px; */
+    /* padding-top: 50px; */
+}
 .recommendationsCard :link{
     text-decoration: none;
+}
+/* .stars{
+    width:12px;
+    size: 12px;
+    display: inline-block;
+} */
+
+.carouselImage{
+    /* z-index: -1; */
+    margin-top: 10px;
+    width: 86vw;
+    height: auto;
+    border-radius: 20px;
+}
+.banners{
+    z-index: 0;
 }

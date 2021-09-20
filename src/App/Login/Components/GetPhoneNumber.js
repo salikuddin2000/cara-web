@@ -1,5 +1,6 @@
 import React,{useState} from "react";
 import { useGoogleUser } from "../../Providers/caraUserProvider";
+import "./GetPhoneNumber.css";
 
 function GetPhoneNumber(props) {
   const { googleUser } = useGoogleUser();
@@ -18,19 +19,35 @@ function GetPhoneNumber(props) {
     console.log(googleUser);
     props.setPhoneNumber(googleUser);
   };
+  function validateForm(e) {
+    var errors = false;
+    console.log("e : ",e);
+    if(info.phone_number.length !== 10) {
+      errors=true;
+      return(alert("number must be of 10 characters"))
+    }else{
+      errors=false;
+    }
+    if(errors==false){
+     submit(e);
+    }
+  }
   return (
-    <div>
+    <div className="phoneScreen">
       {console.log("inside get Phone number")}
+      <div>
+        <span>+91</span>
+      </div>
       <input
               onChange={(e) => handle(e)}
               id="phone_number"
               value={info.phone_number}
-              placeholder="Phone Number"
-              type="number"
+              placeholder="Enter Phone Number"
+              type="tel"
               maxLength="10"
-              minLength="10"
-            ></input>
-      <button onClick={(e) => submit(e)}>Phone Number</button>
+              pattern="[0-9]{5}-[0-9]{5}"
+              />
+      <button onClick={(e) => validateForm(e)}>Confirm</button>
     </div>
   );
 }

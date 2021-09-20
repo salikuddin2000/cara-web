@@ -27,11 +27,11 @@
     padding-top: 1.6vh;
 }
 .NavBar :link :hover{
-    background-color: gray;
+    /* background-color: gray; */
 }
-.NavBar :link :active{
+/* .NavBar :link :active{
     background-color: var(--primaryColor);
-}
+} */
 .NavBar img{
     height:3vh;
 }

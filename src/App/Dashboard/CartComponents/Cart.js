@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useAppointmentHistoryList } from "../../Providers/appointmentHistoryProvider.js";
 import AppBar from "../AppBarComponents/AppBar.js";
+import MadeWithLove from "../MadeWithLove.js";
 
 function Cart() {
   const { appointmentList } = useAppointmentHistoryList();
@@ -22,6 +23,7 @@ function Cart() {
     <div>
       <AppBar />
       {list}
+      <MadeWithLove />
     </div>
   );
 }

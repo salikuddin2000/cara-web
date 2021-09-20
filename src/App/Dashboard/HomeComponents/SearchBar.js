@@ -27,6 +27,7 @@ function SearchBar() {
             salon.salon_id === undefined ? (
               ""
             ) : (
+              <div className="searchCard">
               <Link
                 to={{
                   pathname: `${match.url}/salon`,
@@ -41,10 +42,12 @@ function SearchBar() {
                   height="50"
                   width="100"
                 /> */}
+                <img alt="salon logo" src={salon.salon_logo} />
                 <h5>{salon.salon_name}</h5>
                 <h6>{salon.address_line_one}</h6>
                 <h6>{salon.salon_type}</h6>
               </Link>
+              </div>
             )}
           </div>
         ))
@@ -59,7 +62,7 @@ function SearchBar() {
     <>
       <input className="searchBar"
         type="text"
-        placeholder={"            Find Salons here"}
+        placeholder={"Find Salons here"}
         id="word"
         onChange={(e) => handle(e)}
         value={searchWord.word}

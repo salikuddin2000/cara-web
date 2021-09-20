@@ -32,6 +32,7 @@ export function SalonSearchProvider({ children }) {
                 salon_name: salon.salon_name,
                 salon_type: salon.salon_type,
                 address_line_one: salon.address_line_one,
+                salon_logo: salon.logo
               }),
             ])
             );

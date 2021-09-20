@@ -4,6 +4,7 @@ import { useRecommendedSalonList } from "../../Providers/salonRecommendationProv
 import { BeatLoader } from "react-spinners";
 import arrow from "../../../assets/arrow.svg";
 import "./home.css";
+import star from "../../../assets/star.png";
 
 function RecommendationsSection() {
   let match = useRouteMatch();
@@ -36,9 +37,19 @@ function RecommendationsSection() {
                   height="50"
                   width="100"
                 />
-                <h5>{salon.salon_name}</h5>
-                <h6>{salon.star_rating}</h6>{" "}
-                <div>Open <img src={arrow}/></div>
+                {salon.salon_name.length<14?
+                <h1>{salon.salon_name}</h1>
+                :<div className="slideRight">
+                <h1>{salon.salon_name}</h1>
+                </div>
+              }
+                <div className="rating">
+                  <img alt="star rating" src={star} />
+                  <h6>{(parseFloat(salon.star_rating)).toPrecision(2)}</h6>{" "}
+                </div>
+                <div className="openArrow">
+                  Open <img src={arrow} />
+                </div>
               </Link>
             )}
           </div>

@@ -10,8 +10,7 @@
     /* display: inline-block;  */
     margin:0;
     padding:0;
-    padding-top: 1vh;
-    
+    padding-top: 7px;    
 }
 
 .AppBar button{
@@ -27,7 +26,7 @@
 
 .AppBar h1{
     display: inline-block;
-    font-size: 5vh;
+    font-size: 10vw;
     width: 75vw;
     color: var(--primaryColor);
     font-family: 'Signatra', Tahoma, Geneva, Verdana, sans-serif;
@@ -35,8 +34,75 @@
     font-weight: 500;
 }
 .zipcode img{
-    height:3vh;
+    /* height:22px; */
+    width: 4.3vw;
 }
 .coins img{
-    height:2.7vh;
+    /* height:20px; */
+    width: 6vw;
 }
+.zipcodeModal{
+    position:absolute;
+    height: 270px;
+    width:60vw;
+    display:block;
+    background-color: white;
+    margin-left: 20vw;   
+    margin-top:9.8rem;   
+    border-radius: 15px;
+    outline: none;
+}
+.zipcodeModalOverlay{
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(36, 36, 36, 0.541);
+}
+.modalDiv{
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    outline: none;
+}
+.zipcodeModal h2{
+    font-size: 20px;
+}
+.modalDiv h2{
+    /* color:var(--primaryColor); */
+}
+.modalDiv img{
+    margin-top: 35px;
+    height:55px
+}
+.modalDiv input{
+    margin-top: 35px;;
+    width: 40vw;
+    height: 25px;;
+    border:none;
+    border-bottom: 1.5px solid rgb(207, 207, 207);
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    outline: none;
+}
+
+.modalDiv button{
+    /* display: block; */
+    /* width: 20vw; */
+    margin-top: 20px;
+    border:none;
+    background-color: var(--primaryColor);
+    height: 30px;
+    width: 20vw;
+    color:white;
+    border-radius: 50px;
+}
+/* .modalDiv input :active{
+    border:none;
+} */

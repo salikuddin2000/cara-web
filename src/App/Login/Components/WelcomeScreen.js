@@ -59,7 +59,7 @@ function WelcomeScreen(props) {
         </button>
         <span>or</span>
         <Link className="skipLink" to="/dashboard">
-          Skip for now
+          skip for now
         </Link>
       </div>
     </div>

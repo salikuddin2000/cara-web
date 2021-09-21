@@ -5,7 +5,7 @@
     width: 100%;
     /* background-color: white; */
     overflow: hidden;
-    height: 6vh;
+    height: auto;
     justify-content: center;
     /* display: inline-block;  */
     margin:0;
@@ -26,7 +26,7 @@
 
 .AppBar h1{
     display: inline-block;
-    font-size: 10vw;
+    font-size: 11.5vw;
     width: 75vw;
     color: var(--primaryColor);
     font-family: 'Signatra', Tahoma, Geneva, Verdana, sans-serif;
@@ -36,12 +36,15 @@
 .zipcode img{
     /* height:22px; */
     width: 4.3vw;
+    max-width: 40px;
 }
 .coins img{
     /* height:20px; */
     width: 6vw;
+    max-width: 55px;
 }
 .zipcodeModal{
+    z-index: 6;
     position:absolute;
     height: 270px;
     width:60vw;
@@ -87,8 +90,8 @@
     margin-bottom: 10px;
     text-align: center;
     font-size: 18px;
-    font-weight: 500;
-    color: rgb(0, 0, 0);
+    font-weight: 600;
+    color: rgb(112, 112, 112);
     outline: none;
 }
 

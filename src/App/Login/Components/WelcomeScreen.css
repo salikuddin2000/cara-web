@@ -90,11 +90,12 @@
     /* padding-top: 10vw; */
     font-weight: 450;
     font-family: 'Nexa Text Demo', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 14px;
-    top:1.8vw;
+    font-size: 3.7vw;
+    top:1.7vw;
 }
 .welcomeScreen span{
-    font-size: 13px;
+    font-size: 3.5vw;
+    margin-right: 5px;
 }
 
 .skipLink {
@@ -102,7 +103,7 @@
     text-decoration: none;
     /* color: black; */
     font-weight: 600;
-    font-size: 13px;
+    font-size: 3.5vw;
     color: var(--primaryColor);
     font-family: 'Nexa Text Demo', Tahoma, Geneva, Verdana, sans-serif;
 }

@@ -1,10 +1,11 @@
 .NavBar{
+    z-index: 0;
     position: fixed;
     bottom: 0;
     width: 100%;
     background-color: white;
     overflow: hidden;
-    height: 6vh;
+    height: 12.3vw;
     justify-content: center;
     /* display: inline-block;  */
     margin:0;
@@ -23,8 +24,8 @@
     text-decoration: none;
     display: block;
     width:33.33vw;
-    height: 6vh;
-    padding-top: 1.6vh;
+    height: auto;
+    padding-top: 3.6vw;
 }
 .NavBar :link :hover{
     /* background-color: gray; */
@@ -33,7 +34,7 @@
     background-color: var(--primaryColor);
 } */
 .NavBar img{
-    height:3vh;
+    height:6vw;
 }
 /* .cart{
     height: 1vh;

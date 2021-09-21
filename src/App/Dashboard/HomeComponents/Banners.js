@@ -58,7 +58,7 @@ function Banners() {
     } else {
       return <h4>No ads Found</h4>;
     }
-  } else return bannerList && bannerList.length !== 0 && bannerList[5] ?<>{console.log(bannerList)}<Slider arrows={false} autoplay autoplaySpeed={5000} duration={350} className="banners">{bannerList}</Slider></>:"";
+  } else return bannerList && bannerList.length !== 0 && bannerList[5] ?<>{console.log(bannerList)}<Slider arrows={false} autoplay autoplaySpeed={5000} duration={250} className="banners">{bannerList}</Slider></>:"";
 }
 
 export default Banners;

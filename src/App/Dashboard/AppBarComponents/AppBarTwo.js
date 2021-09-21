@@ -55,8 +55,9 @@ function AppBarTwo() {
           <input
             onChange={(e) => handle(e)}
             id="pincode"
+            defaultValue={zipcode}
             value={info.pincode}
-            placeholder={zipcode}
+            // placeholder={zipcode}
             type="tel"
             maxLength="6"
           ></input>

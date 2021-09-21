@@ -9,6 +9,7 @@ import profile from "../../../assets/profile.png";
 function NavComponent() {
   return (
     <ul className="NavBar">
+      <div>
       <li>
         <Link to="/dashboard"><img alt="home" src={home} /></Link>
       </li>
@@ -18,6 +19,7 @@ function NavComponent() {
       <li>
         <Link to="/dashboard/profile"><img alt="profile" src={profile} /></Link>
       </li>
+      </div>
     </ul>
   );
 }

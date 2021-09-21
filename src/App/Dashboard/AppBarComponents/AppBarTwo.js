@@ -33,7 +33,7 @@ function AppBarTwo() {
     }else{
       errors=false;
     }
-    if(errors==false){
+    if(errors===false){
      submit(e);
     }
   }
@@ -49,7 +49,7 @@ function AppBarTwo() {
         // overlayClassName="modalOverlayStyling"
       >
         <div className="modalDiv">
-          <img /* className="modalImg" */ alt="location image" src={location} />
+          <img /* className="modalImg" */ alt="location" src={location} />
           {/* <h2>{zipcode}</h2> */}
           <br />{" "}
           <input

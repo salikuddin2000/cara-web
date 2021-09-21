@@ -28,7 +28,7 @@ function GetPhoneNumber(props) {
     }else{
       errors=false;
     }
-    if(errors==false){
+    if(errors===false){
      submit(e);
     }
   }

@@ -23,7 +23,7 @@
     /* text-emphasis: none; */
     text-decoration: none;
     display: block;
-    width:33.33vw;
+    width:33vw;
     height: auto;
     padding-top: 3.6vw;
 }
@@ -35,6 +35,7 @@
 } */
 .NavBar img{
     height:6vw;
+    /* max-height: 10px; */
 }
 /* .cart{
     height: 1vh;

@@ -6,7 +6,6 @@ import Banners from "./Banners.js";
 import RecommendationsSection from "./RecommendationsSection.js";
 import SearchBar from "./SearchBar.js";
 import { BeatLoader } from "react-spinners";
-import heart from "../../../assets/heart.svg";
 import "./home.css";
 import MadeWithLove from "../MadeWithLove.js";
 

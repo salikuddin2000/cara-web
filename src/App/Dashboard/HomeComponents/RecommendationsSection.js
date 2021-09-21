@@ -48,7 +48,7 @@ function RecommendationsSection() {
                   <h6>{(parseFloat(salon.star_rating)).toPrecision(2)}</h6>{" "}
                 </div>
                 <div className="openArrow">
-                  Open <img src={arrow} />
+                  Open <img alt="open" src={arrow} />
                 </div>
               </Link>
             )}

@@ -1,8 +1,6 @@
-/* .welcomeScreen{
-    display: block;
-    align-content: center;
-    align-content: center;
-} */
+.welcomeScreen{
+  height:0px;
+}
 
 .upperleaf {
     max-height: 50vw;

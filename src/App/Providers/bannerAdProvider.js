@@ -17,7 +17,7 @@ export function BannerAdProvider({children}){
         await axios
         .get(`https://cara-api-01.herokuapp.com/api/v1/advertisments/upperbanner/${pin}`)
         .then((response) => {
-            setSalonAdList(salonAdList.splice(0, salonAdList.length)) ;
+            setSalonAdList([]) ;
             console.log("Ads found");
             console.log(response.data);
             (response.data).map((salonAd) =>
@@ -36,7 +36,7 @@ export function BannerAdProvider({children}){
         })
         .catch(()=>{
             console.log("no Ads Found");
-            setSalonAdList(salonAdList.splice(0, salonAdList.length)) ;
+            setSalonAdList([]) ;
             console.log(salonAdList)
             setIsLoading(false)
         })

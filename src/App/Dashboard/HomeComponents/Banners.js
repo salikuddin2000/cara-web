@@ -10,7 +10,10 @@ function Banners() {
   const [bannerList, setBannerList] = useState([]);
 
   function setList(salonAdList) {
-    if (salonAdList !== undefined) {
+    if(salonAdList&&salonAdList===[]){
+      setBannerList([])
+    }
+    if (salonAdList !== undefined&&salonAdList!==[]) {
       setBannerList(
         salonAdList.map((ad) =>
           ad === undefined || ad === null || ad.length === 0 ? (
@@ -46,7 +49,7 @@ function Banners() {
   if (
     salonAdList === undefined ||
     salonAdList === null ||
-    salonAdList.length === 0
+    salonAdList.length === 0||salonAdList===[]
   ) {
     if (isLoading === true) {
       return (
@@ -58,7 +61,7 @@ function Banners() {
     } else {
       return <h4>No ads Found</h4>;
     }
-  } else return bannerList && bannerList.length !== 0 && bannerList[5] ?<>{console.log(bannerList)}<Slider arrows={false} autoplay autoplaySpeed={5000} duration={250} className="banners">{bannerList}</Slider></>:"";
+  } else return bannerList && bannerList.length !== 0 && bannerList[salonAdList.length-1] ?<>{/* {console.log(bannerList)} */}{console.log(salonAdList)}<Slider arrows={false} autoplay autoplaySpeed={5000} duration={250} className="banners">{bannerList}</Slider></>:"";
 }
 
 export default Banners;

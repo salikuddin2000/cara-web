@@ -1,5 +1,5 @@
 import React,{useState,useEffect,useContext} from "react";
-// import axios from "axios";
+import axios from "axios";
 import {useCaraUser} from "./caraUserProvider";
 
 const ZipcodeContext = React.createContext();
@@ -11,15 +11,20 @@ export function useZipcode() {
 export function ZipcodeProvider ({children}){
     // const [ zipcodeVar,setZipcodeVar]=useState()
     const { caraUser,setCaraUser } = useCaraUser();
-    const [zipcode,setZipcode]= useState("462000");
+    const [zipcode,setZipcode]= useState();
     
     
     function settingZipcode(caraUser){
         if(caraUser !== undefined && caraUser!==null){
+            console.log(caraUser)
             setZipcode(caraUser.zipcode)
             console.log("zipcode is setted : ", caraUser.zipcode)
         }
+        else if(caraUser===null){
+            setZipcode("462000")
+        }
         else{
+            // setZipcode("462000")
             console.log("zipcode is not setted yet")
         }
     }
@@ -32,11 +37,20 @@ export function ZipcodeProvider ({children}){
         }
         else{
             //axios.patch
+            axios.patch(`https://cara-api-01.herokuapp.com/api/v1/users/${caraUser.email_address}`, {
+                zipcode: newZipcode,
+              }
+            )
+            .then((res)=>{
+                console.log(res);
+            })
+            .catch(error => console.log(error))
             caraUser.zipcode =newZipcode;
             setCaraUser(caraUser);
             localStorage.setItem("cara_user", JSON.stringify(caraUser));
             setZipcode(newZipcode)
         }
+        
 
     }
     return(

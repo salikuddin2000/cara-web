@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useZipcode } from "../../Providers/zipcodeProvider.js";
 import Modal from "react-modal";
 import location from "../../../assets/location.svg";
@@ -10,8 +10,14 @@ function AppBarTwo() {
   const { zipcode, updateZipcode } = useZipcode();
   const [modalIsOpen, setModalisOpen] = useState(false);
   const [info, setInfo] = useState({
-    pincode: "",
+    pincode: zipcode,
   });
+  useEffect(() => {
+    const newinfo = {...info};
+    console.log(newinfo);
+    newinfo.pincode=zipcode;
+    setInfo(newinfo)
+  }, [zipcode])
 
   function handle(e) {
     const newinfo = { ...info };
@@ -27,7 +33,7 @@ function AppBarTwo() {
   function validateForm(e) {
     var errors = false;
     console.log("e : ",e);
-    if(info.pincode.length !== 6) {
+    if(info.pincode&&info.pincode!==zipcode&&info.pincode.length !== 6) {
       errors=true;
       return(alert("Zipcode must be of 6 characters"))
     }else{
@@ -42,7 +48,7 @@ function AppBarTwo() {
     <div className="AppBar">
       <Modal
         isOpen={modalIsOpen}
-        onRequestClose={() => {setModalisOpen(false);setInfo({})}}
+        onRequestClose={() => {setModalisOpen(false)}}
         className="zipcodeModal"
         overlayClassName="zipcodeModalOverlay"
         // className="modalStyling"
@@ -51,16 +57,18 @@ function AppBarTwo() {
         <div className="modalDiv">
           <img /* className="modalImg" */ alt="location" src={location} />
           {/* <h2>{zipcode}</h2> */}
+
+          {/* {console.log(zipcode)} */}
           <br />{" "}
+          {console.log(info.pincode)}
           <input
             onChange={(e) => handle(e)}
             id="pincode"
-            defaultValue={zipcode}
             value={info.pincode}
             // placeholder={zipcode}
             type="tel"
             maxLength="6"
-          ></input>
+          />
           <br />
           <button
             onClick={(e) => {

@@ -11,6 +11,7 @@ import Profile from "./ProfileComponents/Profile.js";
 import NavComponent from "./NavBarComponents/NavComponent.js";
 import Salon from "../Salons/Salon.js";
 import SalonSlots from "../Salons/SalonSlots.js";
+import CheckAuth from "../Login/CheckAuth.js";
 
 function DashboarRoutes() {
   let match = useRouteMatch();
@@ -18,6 +19,7 @@ function DashboarRoutes() {
     <>
       <BrowserRouter>
         <Switch>
+          <Route exact={true} path={`/`} component={CheckAuth} />
           <Route exact={true} path={`${match.path}`} component={Home} />
           <Route exact={true} path={`${match.path}cart`} component={Cart} />
           <Route

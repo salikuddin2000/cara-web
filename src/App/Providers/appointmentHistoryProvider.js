@@ -17,7 +17,7 @@ export function AppointmentHistoryProvider({children}){
             await axios
                 .get(`https://cara-api-01.herokuapp.com/api/v1/appointments/users/${user.email_address}`)
                 .then((response) => {
-                    // console.log(response.data);
+                    console.log(response.data);
                     setAppointmentList(Array.from(response.data))
                 })
                 .catch((err)=>{
@@ -34,9 +34,24 @@ export function AppointmentHistoryProvider({children}){
         console.log(appointmentList)
     },[appointmentList])
 
+    async function cancelAppointment(appointmentID){
+        
+
+        console.log("in provider",appointmentID)
+        axios.patch(`https://cara-api-01.herokuapp.com/api/v1/appointments/update/${appointmentID}`, {
+            appointment_status: "CANCELED_BY_USER",
+          }
+        )
+        .then((res)=>{
+            console.log(res);
+            setAppointmentHistory(caraUser)
+        })
+        .catch(error => console.log(error))
+    }
+
 
     return(
-        <AppointmentHistoryContext.Provider value={{appointmentList}}>
+        <AppointmentHistoryContext.Provider value={{appointmentList,cancelAppointment}}>
             {children}
         </AppointmentHistoryContext.Provider>
     )

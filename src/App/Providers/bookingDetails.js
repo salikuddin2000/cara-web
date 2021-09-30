@@ -71,15 +71,15 @@ export function BookingDetailsProvider({ children }) {
           setLoading(false);
           setIsBooked(false);
         })
-        .then((res) => {
-          console.log(res);
-        });
+        // .then((res) => {
+        //   console.log(res);
+        // });
     } else {
       setLoading(false);
     }
   }
   return (
-    <BookingDetailsContext.Provider value={{ bookObject, setBookObject,loading,isBooked }}>
+    <BookingDetailsContext.Provider value={{ bookObject, setBookObject,loading,isBooked,setIsBooked }}>
       <PostAppointmentContext.Provider value={postAppointment}>
         {children}
       </PostAppointmentContext.Provider>

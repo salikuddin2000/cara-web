@@ -7,7 +7,6 @@ import MadeWithLove from "../MadeWithLove.js";
 import Modal from "react-modal";
 import { useCaraUser } from "../../Providers/caraUserProvider.js";
 import "../AppBarComponents/AppBar.css";
-import CheckAuth from "../../Login/CheckAuth.js";
 
 function Cart() {
   const { caraUser } = useCaraUser();
@@ -27,6 +26,7 @@ function Cart() {
             time: {appointment.slots.start_time}
           </h5>
           <h6>{appointment.appointment_status}</h6>
+          {appointment.appointment_status==="BOOKED"?
           <button
             onClick={() => {
               setModalisOpen(true);
@@ -35,6 +35,8 @@ function Cart() {
           >
             Cancel Appointment
           </button>
+          :""          
+        }
         </div>
       ))
     );

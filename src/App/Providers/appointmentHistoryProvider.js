@@ -1,6 +1,7 @@
 import axios from "axios";
 import React,{useState,useEffect,useContext} from "react";
 import { useCaraUser } from "./caraUserProvider";
+import { useBookingDetails } from "./bookingDetails";
 
 const AppointmentHistoryContext = React.createContext();
 
@@ -10,6 +11,7 @@ export function useAppointmentHistoryList() {
 
 export function AppointmentHistoryProvider({children}){
     const {caraUser} = useCaraUser();
+    const {isBooked} = useBookingDetails();
     const [appointmentList,setAppointmentList] = useState([]);
 
     async function setAppointmentHistory(user){
@@ -28,11 +30,32 @@ export function AppointmentHistoryProvider({children}){
     useEffect(() =>{
         setAppointmentHistory(caraUser)
     },[caraUser])
-    useEffect(() =>{
-        console.log("history is ");
 
-        console.log(appointmentList)
-    },[appointmentList])
+    async function refreshAppointmentHistory(isBooked){
+        console.log("isBooked : ")
+        console.log(isBooked)
+        if(isBooked===true){
+            await axios
+                .get(`https://cara-api-01.herokuapp.com/api/v1/appointments/users/${caraUser.email_address}`)
+                .then((response) => {
+                    console.log(response.data);
+                    setAppointmentList(Array.from(response.data))
+                })
+                .catch((err)=>{
+                    console.log(err)
+                })
+        }
+    }
+    useEffect(() =>{
+        refreshAppointmentHistory(isBooked)
+    },[isBooked])
+
+
+    // useEffect(() =>{
+    //     console.log("history is ");
+
+    //     console.log(appointmentList)
+    // },[appointmentList])
 
     async function cancelAppointment(appointmentID){
         

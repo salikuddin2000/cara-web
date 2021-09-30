@@ -6,6 +6,8 @@ import { useBookingDetails } from "../Providers/bookingDetails.js";
 import { usePostAppointmentfunc } from "../Providers/bookingDetails.js";
 import DatePicker from "react-horizontal-datepicker";
 import {BeatLoader} from 'react-spinners';
+import Modal from "react-modal";
+import { Link } from "react-router-dom";
 
 function SalonSlots() {
   const {
@@ -24,11 +26,12 @@ function SalonSlots() {
     setTotalPrice,
     // cartSalonId,
   } = useCart();
-  const { bookObject, setBookObject, loading, isBooked } = useBookingDetails();
+  const { bookObject, setBookObject, loading, isBooked, setIsBooked } = useBookingDetails();
   const postAppointment = usePostAppointmentfunc();
   const [list, setList] = useState();
   const [slotsList, setSlotsList] = useState();
   const [chairList, setChairList] = useState([]);
+  // const [modalIsOpen,setModalisOpen] = useState(false)
 
   function removeObject(id, list) {
     let i;
@@ -108,7 +111,7 @@ function SalonSlots() {
                   setBookObject({
                     slot_id: slot.slot_id,
                     chair_number: slot.chair_number,
-                    appointment_details: bookObject.appointment_details,
+                    // appointment_details: bookObject.appointment_details,
                   })
                 }
               >
@@ -120,7 +123,7 @@ function SalonSlots() {
                   setBookObject({
                     slot_id: slot.slot_id,
                     chair_number: slot.chair_number,
-                    appointment_details: bookObject.appointment_details,
+                    // appointment_details: bookObject.appointment_details,
                   })
                 }
               >
@@ -181,7 +184,19 @@ function SalonSlots() {
       ) : (
         ""
       )}
-      {isBooked === true ? <h1>Appointment Booked</h1> : ""}
+      {isBooked === true ? <Modal
+          isOpen={true}
+          onRequestClose={() => {
+            // setModalisOpen(false);
+          }}
+          // className="zipcodeModal"
+          // overlayClassName="zipcodeModalOverlay"
+        >
+          <span>Appointment is Booked</span>
+          <br />
+
+          <Link to="/dashboard" onClick={()=>{setServiceCart([]);setIsBooked(false)}}>go to home page</Link>
+        </Modal> : ""}
       {/* {(isBooked===true)?<h1>Appointment Booked</h1>:"<h5>Appointment not Booked</h5>"} */}
     </>
   );

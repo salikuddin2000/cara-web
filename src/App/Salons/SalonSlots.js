@@ -8,6 +8,7 @@ import DatePicker from "react-horizontal-datepicker";
 import {BeatLoader} from 'react-spinners';
 import Modal from "react-modal";
 import { Link } from "react-router-dom";
+import "./Salon.css";
 
 function SalonSlots() {
   const {
@@ -186,11 +187,8 @@ function SalonSlots() {
       )}
       {isBooked === true ? <Modal
           isOpen={true}
-          onRequestClose={() => {
-            // setModalisOpen(false);
-          }}
-          // className="zipcodeModal"
-          // overlayClassName="zipcodeModalOverlay"
+          className="bookedModal"
+          overlayClassName="bookedModalOverlay"
         >
           <span>Appointment is Booked</span>
           <br />

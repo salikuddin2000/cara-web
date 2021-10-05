@@ -13,6 +13,8 @@ function Banners() {
     if(salonAdList&&salonAdList===[]){
       setBannerList([])
     }
+    console.log(salonAdList)
+    console.log(bannerList)
     if (salonAdList !== undefined&&salonAdList!==[]) {
       setBannerList(
         salonAdList.map((ad) =>
@@ -61,7 +63,7 @@ function Banners() {
     } else {
       return <h4>No ads Found</h4>;
     }
-  } else return bannerList && bannerList.length !== 0 && bannerList[salonAdList.length-1] ?<>{/* {console.log(bannerList)} */}{console.log(salonAdList)}<Slider arrows={false} autoplay autoplaySpeed={5000} duration={250} className="banners">{bannerList}</Slider></>:"";
+  } else return bannerList && bannerList.length !== 0 && bannerList[salonAdList.length-1] ?<>{/* {console.log(bannerList)} */}{/* {console.log(salonAdList)} */}<Slider arrows={false} autoplay autoplaySpeed={5000} duration={250} className="banners">{bannerList}</Slider></>:"";
 }
 
 export default Banners;

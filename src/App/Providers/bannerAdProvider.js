@@ -14,10 +14,10 @@ export function BannerAdProvider({children}){
     const [ isLoading, setIsLoading ] =useState(true)
     async function getSalonAds(pin){
         setIsLoading(true)
+        setSalonAdList([])
         await axios
-        .get(`https://cara-api-01.herokuapp.com/api/v1/advertisments/upperbanner/${pin}`)
+        .get(`https://cara-api-01.herokuapp.com/api/v1/display/upperbanner/${pin}`)
         .then((response) => {
-            setSalonAdList([]) ;
             console.log("Ads found");
             console.log(response.data);
             (response.data).map((salonAd) =>
@@ -42,6 +42,7 @@ export function BannerAdProvider({children}){
         })
     }
     useEffect(() => {
+        setSalonAdList([]);
         getSalonAds(zipcode)
         console.log("salon list is");
         console.log(salonAdList);

@@ -230,7 +230,8 @@
     margin-top: 10px;
     width: 86vw;
     max-width: 500px;
-    height: auto;
+    /* height: auto; */
+    min-height: 200px;
     border-radius: 20px;
 }
 .banners{

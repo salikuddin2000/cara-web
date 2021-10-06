@@ -1,21 +1,158 @@
-.bookedModal{
-    z-index: 2;
-    position:absolute;
-    height: 270px;
-    width:60vw;
-    display:block;
-    background-color: white;
-    margin-left: 20vw;   
-    margin-top:9.8rem;   
-    border-radius: 15px;
-    outline: none;
+/* .salonDiv{
+    
+} */
+.salonDiv h1{
+    text-align: left;
+    margin-left: 5px;
+    font-size: 20px;
 }
-.bookedModalOverlay{
+.backArrow{
+    margin-left: 15px;
+    margin-right: 20px;
+    float:left;
+    position: relative;
+    top:5px;
+    width:16px;
+}
+.salonType{
+    position: relative;
+    display: block;
+    float:right;
+    height:25px;
+    width: 80px;
+    margin-right: 5vw;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #7a6ac831;
+    color:var(--primaryColor);
+    font-weight: 600;
+    padding-top: 5px;
+    margin-top: 0;
+    margin-left: -3vw;
+    font-size: 14px;
+    /* margin-bottom: 20px; */
+}
+.categoriesWrapper {
+    text-align: left;
+    margin-left: 2.5vw;
+    /* margin-top: 0; */
+}
+.categoriesWrapper div h3 {
+    margin-top: 10px;
+    margin-left: 4vw;
+    /* margin-bottom: 20px; */
+    /* margin-top: 20px; */
+}
+.servicesWrapper {
+    position: relative;
+    border-radius: 20px;
+    margin-right: 2.5vw;
+    padding-top: 1px;
+    padding-right: 20px;
+    margin-top: 10px;
+    /* background-color: white; */
+    padding-bottom: 1px;
+}
+.serviceBlock {
+    padding-bottom: 10px;
+}
+.servicesWrapper p {
+    margin-left: 7vw;
+    margin-top: 0;
+    margin-bottom: 5px;
+    display: inline-block;
+    /* font-weight: 500; */
+  /* border-bottom: 1.5px solid rgb(207, 207, 207); */
+}
+.servicesWrapper p span{
+    font-size: 12px;
+    /* font-weight: 500 !important; */
+}
+.servicesWrapper button {
+    float: right;
+  /* display: inline-block; */
+  border-radius: 100%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  outline: none;
+  font-size: 20px;
+  height: 10px;
+}
+.removeButton {
+    position: relative;
+    right: .3vw;
+    /* padding:0; */
+
+  /* padding-bottom: 5px; */
+  top: -7px;
+  /* float: right; */
+  font-size: 30px !important;
+}
+.cart {
+    border-radius: 50px;
+    display: block;
+    z-index: 1;
     position: fixed;
-    /* pointer-events: none;  */
-    top:0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(36, 36, 36, 0.541);
+    bottom: 40px;
+    width: 25vw;
+    background-color: var(--primaryColor);
+    overflow: hidden;
+    left: 50%;
+transform: translateX(-50%);
+  /* height: 40px; */
+  justify-content: center;
+  /* display: inline-block;  */
+  /* margin:0;
+  padding:0; */
+  /* margin-left: 36vw; */
+  /* border: 1px solid #9b54c4; */
+  
+  /* background-image: linear-gradient (-180deg, #ff89d6 0%, #c01f9e 100%);
+  
+  box-shadow: 0 0 0 0 var(--primaryColor),
+  0 -0.25rem 1.5rem var(--primaryColor) inset,
+  0 0.75rem 0.5rem rgba(255, 255, 255, 0.548) inset,
+  0 0.25rem 0.5rem 0 var(--primaryColor) inset; */
+  padding-top: 10px;
+  padding-bottom: 10px;
+  /* font-size: 16px; */
+}
+.cart a {
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 18px;
+    /* position: absolute;
+    top: auto;
+    bottom: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    left: auto;
+    right:auto */
+}
+/* .servicesWrapper hr{
+    width: 65vw;
+    border: .4px solid rgb(218, 218, 218);
+    margin-bottom: 20px;
+} */
+
+.bookedModal {
+  z-index: 2;
+  position: absolute;
+  height: 270px;
+  width: 60vw;
+  display: block;
+  background-color: white;
+  margin-left: 20vw;
+  margin-top: 9.8rem;
+  border-radius: 15px;
+  outline: none;
+}
+.bookedModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(36, 36, 36, 0.541);
 }

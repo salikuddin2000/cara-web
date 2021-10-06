@@ -26,7 +26,11 @@ export function SalonProvider({children}){
                         salon_id: response.data.salon_id,
                         salon_name: response.data.salon_name,
                         salon_address: response.data.address_line_one,
-                        salon_categories: Array.from(response.data.categories)
+                        salon_categories: Array.from(response.data.categories),
+                        close_time: response.data.close_time,
+                        open_time: response.data.open_time,
+                        salon_type: response.data.salon_type,
+                        photos: Array.from(response.data.photos),
                     }
                 )
                 setIsLoading(false)

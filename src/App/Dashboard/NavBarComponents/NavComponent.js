@@ -14,7 +14,7 @@ function NavComponent() {
         <Link to="/dashboard"><img alt="home" src={home} /></Link>
       </li>
       <li>
-        <Link to="/dashboard/cart"><img className="cart" alt="Appointment History" src={cart} /></Link>
+        <Link to="/dashboard/cart"><img /* className="cart" */ alt="Appointment History" src={cart} /></Link>
       </li>
       <li>
         <Link to="/dashboard/profile"><img alt="profile" src={profile} /></Link>

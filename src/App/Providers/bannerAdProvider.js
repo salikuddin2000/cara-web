@@ -20,17 +20,7 @@ export function BannerAdProvider({children}){
         .then((response) => {
             console.log("Ads found");
             console.log(response.data);
-            (response.data).map((salonAd) =>
-            setSalonAdList([
-                ...salonAdList,
-                salonAdList[salonAdList.length] =
-                {
-                    salon_id : salonAd.salon_id,
-                    banner_position_number : salonAd.banner_position_number,
-                    banner_url: salonAd.banner_url,
-                }
-            ])
-            )
+            setSalonAdList(Array.from(response.data))
             setIsLoading(false)
 
         })
@@ -42,7 +32,6 @@ export function BannerAdProvider({children}){
         })
     }
     useEffect(() => {
-        setSalonAdList([]);
         getSalonAds(zipcode)
         console.log("salon list is");
         console.log(salonAdList);

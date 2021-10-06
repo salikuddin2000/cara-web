@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import { useHistory } from "react-router";
+import Modal from "react-modal";
+import Slider from "infinite-react-carousel";
 import { useSalonInfo } from "../Providers/salonProvider";
 import { useCart } from "../Providers/servicesCategoryProvider";
-import {BeatLoader} from 'react-spinners';
+import { useCaraUser } from "../Providers/caraUserProvider";
+import { BeatLoader } from "react-spinners";
+import back_arrow from "../../assets/back_arrow.svg";
 
 function Salon() {
   const location = useLocation();
@@ -15,8 +20,30 @@ function Salon() {
     totalPrice,
     setTotalPrice,
   } = useCart();
+  const {caraUser}= useCaraUser();
   const [idLocation, setIdLocation] = useState();
   const [categoryList, setCategoryList] = useState();
+  const [modalIsOpen, setModalisOpen] = useState(false);
+  const [salonPhotos, setSalonPhotos] = useState([]);
+  
+  let history = useHistory();
+
+
+  function setPhotos(salonInfo){
+    if(salonInfo&&salonInfo.photos){
+      setSalonPhotos(
+        [
+          <img alt="1" src="https://media.istockphoto.com/photos/woman-with-protective-mask-receiving-treatment-in-hair-salon-picture-id1264558427" />,
+          <img alt="2" src="https://media.istockphoto.com/photos/barber-shop-picture-id1288801785?s=612x612" />,
+          <img alt="3" src="https://media.istockphoto.com/photos/retro-styled-beauty-salon-picture-id1325440885" />,
+          <img alt="4" src="https://media.istockphoto.com/photos/hair-stylist-in-brazil-picture-id1321545990" />,
+        ]
+      )
+    }
+  }
+  useEffect(() => {
+    setPhotos(salonInfo)
+  }, [salonInfo])
 
   function containsObject(id, list) {
     let i;
@@ -56,13 +83,14 @@ function Salon() {
     if (salonInfo && salonInfo.salon_categories) {
       setCategoryList(
         salonInfo.salon_categories.map((category) => (
-          <div key={category.category_id}>
+          <div className="servicesWrapper" key={category.category_id}>
             <h3>{category.category_name}</h3>
             {category.services.map((service, index) => (
-              <div key={service.service_id}>
-                <p>{service.service_name}</p>
+              <div className="serviceBlock" key={service.service_id}>
+                <p>{service.service_name}<br /><span>₹{service.service_price}</span></p>
                 {containsObject(service.service_id, serviceCart) ? (
                   <button
+                    className="removeButton"
                     onClick={() => {
                       removeObject(service.service_id, serviceCart);
                       setTotalPrice(
@@ -74,21 +102,32 @@ function Salon() {
                   </button>
                 ) : (
                   <>
-                    <button
-                      onClick={() => {
-                        setServiceCart([
-                          ...serviceCart,
-                          (serviceCart[serviceCart.length] = { service }),
-                        ]);
-                        setTotalPrice(
-                          totalPrice + parseInt(service.service_price)
-                        );
-                      }}
-                    >
-                      +
-                    </button>
+                    {caraUser !== null ? (
+                      <button
+                        onClick={() => {
+                          setServiceCart([
+                            ...serviceCart,
+                            (serviceCart[serviceCart.length] = { service }),
+                          ]);
+                          setTotalPrice(
+                            totalPrice + parseInt(service.service_price)
+                          );
+                        }}
+                      >
+                        +
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => {
+                          setModalisOpen(true);
+                        }}
+                      >
+                        +
+                      </button>
+                    )}
                   </>
                 )}
+            {/* <hr /> */}
               </div>
             ))}
           </div>
@@ -109,17 +148,54 @@ function Salon() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [serviceCart.length]);
 
+  // console.log(salonInfo.open_time)
+  // let data= new Date(salonInfo.open_time)
+  // let date = data.toLocaleTimeString()
+  // console.log(date)
+
+
   return idLocation ? (
-    <div>
-      <h2>{idLocation}</h2>
-      <h1>This is salon page</h1>
+    <div className="salonDiv">
+      {/* <h2>{idLocation}</h2> */}
+      {/* <h1>This is salon page</h1> */}
+      <div onClick={history.goBack}>
+      <img alt="back arrow" className="backArrow" src={back_arrow} />
+      </div>
       {!isLoading ? (
         salonInfo && salonInfo.salon_id ? (
           <>
             <h1>{salonInfo.salon_name}</h1>
-            {categoryList}
+            {salonPhotos?<Slider arrows={false} autoplay autoplaySpeed={5000} duration={250} /* className="banners" */>{salonPhotos}</Slider>:""}
+            <p className="salonType">{salonInfo.salon_type}</p>
+            <p className="salonType">OPEN</p>
+            <br />
+            <br />
+            {/* <p>{salonInfo.open_time}</p>
+            <p>{salonInfo.close_time}</p> */}
+            <div className="categoriesWrapper">{categoryList}</div>
+            
+            <Modal
+              isOpen={modalIsOpen}
+              // className="bookedModal"
+              // overlayClassName="bookedModalOverlay"
+            >
+              <span>Sign In to book appointments</span>
+              <br />
+
+              <Link
+                to="/"
+                // onClick={() => {
+                //   setServiceCart([]);
+                //   setIsBooked(false);
+                // }}
+              >
+                Sign In
+              </Link>
+            </Modal>
             {serviceCart.length !== 0 ? (
-              <Link to="/dashboard/salon/slots">show cart</Link>
+              <div className="cart">
+              <Link to="/dashboard/salon/slots">Cart</Link>
+              </div>
             ) : (
               ""
             )}
@@ -128,7 +204,7 @@ function Salon() {
           <h2>Salon not available</h2>
         )
       ) : (
-        <BeatLoader loading color='#796AC8' />
+        <BeatLoader loading color="#796AC8" />
       )}
     </div>
   ) : (

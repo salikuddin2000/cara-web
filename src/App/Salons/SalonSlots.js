@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router";
 // import { useCaraUser } from "../Providers/caraUserProvider.js";
 import { useCart } from "../Providers/servicesCategoryProvider.js";
 import { useSlots } from "../Providers/slotsProvider.js";
 import { useBookingDetails } from "../Providers/bookingDetails.js";
 import { usePostAppointmentfunc } from "../Providers/bookingDetails.js";
 import DatePicker from "react-horizontal-datepicker";
-import {BeatLoader} from 'react-spinners';
+import { BeatLoader } from "react-spinners";
 import Modal from "react-modal";
 import { Link } from "react-router-dom";
+import back_arrow from "../../assets/back_arrow.svg";
 import "./Salon.css";
 
 function SalonSlots() {
@@ -27,12 +29,15 @@ function SalonSlots() {
     setTotalPrice,
     // cartSalonId,
   } = useCart();
-  const { bookObject, setBookObject, loading, isBooked, setIsBooked } = useBookingDetails();
+  const { bookObject, setBookObject, loading, isBooked, setIsBooked } =
+    useBookingDetails();
   const postAppointment = usePostAppointmentfunc();
   const [list, setList] = useState();
   const [slotsList, setSlotsList] = useState();
   const [chairList, setChairList] = useState([]);
   // const [modalIsOpen,setModalisOpen] = useState(false)
+
+  let history = useHistory();
 
   function removeObject(id, list) {
     let i;
@@ -161,6 +166,9 @@ function SalonSlots() {
 
   return (
     <>
+      <div onClick={history.goBack}>
+        <img alt="back arrow" className="backArrow" src={back_arrow} />
+      </div>
       <div>{serviceCart ? list : ""}</div>
       <div>{totalPrice ? <h5>{totalPrice}</h5> : ""}</div>
       <div>{chairList ? chairList : ""}</div>
@@ -172,20 +180,34 @@ function SalonSlots() {
         labelFormat={"MMMM"}
         color={"#796AC8"}
       />
-      <div>{slots ? onLoading ? <BeatLoader loading color='#796AC8' /> : slotsList : ""}</div>
+      <div>
+        {slots ? (
+          onLoading ? (
+            <BeatLoader loading color="#796AC8" />
+          ) : (
+            slotsList
+          )
+        ) : (
+          ""
+        )}
+      </div>
       {serviceCart.length !== 0 &&
       selectedDate &&
       bookObject !== null &&
       bookObject.slot_id ? (
         loading ? (
-          <><br /><BeatLoader loading color='#796AC8' /></>
+          <>
+            <br />
+            <BeatLoader loading color="#796AC8" />
+          </>
         ) : (
           <button onClick={() => postAppointment()}>Book Appointment</button>
         )
       ) : (
         ""
       )}
-      {isBooked === true ? <Modal
+      {isBooked === true ? (
+        <Modal
           isOpen={true}
           className="bookedModal"
           overlayClassName="bookedModalOverlay"
@@ -193,8 +215,19 @@ function SalonSlots() {
           <span>Appointment is Booked</span>
           <br />
 
-          <Link to="/dashboard" onClick={()=>{setServiceCart([]);setIsBooked(false)}}>go to home page</Link>
-        </Modal> : ""}
+          <Link
+            to="/dashboard"
+            onClick={() => {
+              setServiceCart([]);
+              setIsBooked(false);
+            }}
+          >
+            go to home page
+          </Link>
+        </Modal>
+      ) : (
+        ""
+      )}
       {/* {(isBooked===true)?<h1>Appointment Booked</h1>:"<h5>Appointment not Booked</h5>"} */}
     </>
   );

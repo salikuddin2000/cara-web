@@ -5,11 +5,15 @@ import { useCart } from "../Providers/servicesCategoryProvider.js";
 import { useSlots } from "../Providers/slotsProvider.js";
 import { useBookingDetails } from "../Providers/bookingDetails.js";
 import { usePostAppointmentfunc } from "../Providers/bookingDetails.js";
+import { useSalonInfo } from "../Providers/salonProvider";
 import DatePicker from "react-horizontal-datepicker";
 import { BeatLoader } from "react-spinners";
 import Modal from "react-modal";
 import { Link } from "react-router-dom";
 import back_arrow from "../../assets/back_arrow.svg";
+import trash_can from "../../assets/trash_can.svg";
+import chair from "../../assets/chair.png";
+import selected_chair from "../../assets/selected_chair.png";
 import "./Salon.css";
 
 function SalonSlots() {
@@ -32,6 +36,7 @@ function SalonSlots() {
   const { bookObject, setBookObject, loading, isBooked, setIsBooked } =
     useBookingDetails();
   const postAppointment = usePostAppointmentfunc();
+  const { salonInfo } = useSalonInfo();
   const [list, setList] = useState();
   const [slotsList, setSlotsList] = useState();
   const [chairList, setChairList] = useState([]);
@@ -51,21 +56,38 @@ function SalonSlots() {
   }
 
   function listChairs() {
-    for (let i = 1; i < 4; i++) {
-      setChairList([
-        ...chairList,
-        (chairList[i - 1] = (
-          <button key={i - 1} onClick={() => setSelectedChair(i)}>
-            chair {i}
-          </button>
-        )),
-      ]);
+    let chairs = [];
+    for (let i = 0; i < salonInfo.number_of_chairs; i++) {
+      chairs[i] = (
+        <div className="chair" key={i} onClick={() => setSelectedChair(i + 1)}>
+          {selectedChair === i + 1 ? (
+            <>
+              <img alt="chair" src={selected_chair} />
+              <br /> {i + 1}
+            </>
+          ) : (
+            <>
+              <img alt="chair" src={chair} />
+              <br /> {i + 1}
+            </>
+          )}
+        </div>
+      );
+      // setChairList([
+      //   ...chairList,
+      //   (chairList[i - 1] = (
+      //     <div className="chair" key={i - 1} onClick={() => setSelectedChair(i)}>
+      //       {selectedChair===i?"selected" :<><img alt="chair" src={chair} /><br /> {i}</>}
+      //     </div>
+      //   )),
+      // ]);
     }
+    setChairList(chairs);
   }
   useEffect(() => {
     listChairs();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [selectedChair]);
   useEffect(() => {
     console.log("totalPrice:", totalPrice);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -74,14 +96,15 @@ function SalonSlots() {
     if (serviceCart && serviceCart.length !== 0 && serviceCart[0]) {
       setList(
         serviceCart.map((service) => (
-          <div key={service.service.service_id}>
+          <div className="cartServices" key={service.service.service_id}>
             <h5>
               {service.service.service_name}
-              {"        price :      "}
-              {service.service.service_price}
+              <br />
+              <span>₹{service.service.service_price}</span>
             </h5>{" "}
             {serviceCart.length !== 0 ? (
-              <button
+              <div
+                className="trashIconDiv"
                 onClick={() => {
                   removeObject(service.service.service_id, serviceCart);
                   setTotalPrice(
@@ -89,8 +112,8 @@ function SalonSlots() {
                   );
                 }}
               >
-                remove
-              </button>
+                <img alt="trash" src={trash_can} />
+              </div>
             ) : (
               ""
             )}
@@ -110,9 +133,10 @@ function SalonSlots() {
     if (slots && slots.length !== 0) {
       setSlotsList(
         slots.map((slot) => (
-          <div key={slot.slot_id}>
+          <div className="slot" key={slot.slot_id}>
             {selectedChair && selectedChair !== null ? (
-              <button
+              <div
+                className="timeSlot"
                 onClick={() =>
                   setBookObject({
                     slot_id: slot.slot_id,
@@ -121,10 +145,11 @@ function SalonSlots() {
                   })
                 }
               >
-                {slot.start_time + "slot id : " + slot.slot_id}
-              </button>
+                {slot.start_time}
+              </div>
             ) : (
-              <button
+              <div
+                className="slotWithChairNumber"
                 onClick={() =>
                   setBookObject({
                     slot_id: slot.slot_id,
@@ -133,12 +158,8 @@ function SalonSlots() {
                   })
                 }
               >
-                {slot.start_time +
-                  "  chair number : " +
-                  slot.chair_number +
-                  "slot id : " +
-                  slot.slot_id}
-              </button>
+                {slot.start_time + "  chair : " + slot.chair_number}
+              </div>
             )}
           </div>
         ))
@@ -165,32 +186,59 @@ function SalonSlots() {
   // }, [serviceCart]);
 
   return (
-    <>
+    <div className="salonSlotsDiv">
       <div onClick={history.goBack}>
         <img alt="back arrow" className="backArrow" src={back_arrow} />
       </div>
-      <div>{serviceCart ? list : ""}</div>
-      <div>{totalPrice ? <h5>{totalPrice}</h5> : ""}</div>
-      <div>{chairList ? chairList : ""}</div>
-      <button onClick={() => setSelectedChair(null)}>See All Slots</button>
-      <DatePicker
-        getSelectedDay={selectedDay}
-        endDate={31}
-        selectDate={new Date(selectedDate)}
-        labelFormat={"MMMM"}
-        color={"#796AC8"}
-      />
-      <div>
-        {slots ? (
-          onLoading ? (
-            <BeatLoader loading color="#796AC8" />
+      <h2>Cart</h2>
+      <br />
+      <div className="serviceCartWrapper">{serviceCart ? list : ""}</div>
+      <div>{totalPrice ? <h5>Total : ₹{totalPrice}</h5> : ""}</div>
+      {serviceCart && serviceCart.length !== 0 ? (
+        <div>{chairList ? chairList : ""}</div>
+      ) : (
+        ""
+      )}
+      {serviceCart && serviceCart.length !== 0 ? (
+        <button
+          className="seeAllSlotsButton"
+          onClick={() => setSelectedChair(null)}
+        >
+          See All Slots
+        </button>
+      ) : (
+        ""
+      )}
+      {serviceCart && serviceCart.length !== 0 ? (
+        <div className="datePicker">
+          <DatePicker
+            getSelectedDay={selectedDay}
+            endDate={31}
+            selectDate={new Date(selectedDate)}
+            labelFormat={"MMMM"}
+            color={"#796AC8"}
+          />
+        </div>
+      ) : (
+        ""
+      )}
+      {serviceCart && serviceCart.length !== 0 ? (
+        <div className="slotsWrapper">
+          {slots ? (
+            onLoading ? (
+              <div className="loader">
+                <BeatLoader loading color="#796AC8" />
+              </div>
+            ) : (
+              slotsList
+            )
           ) : (
-            slotsList
-          )
-        ) : (
-          ""
-        )}
-      </div>
+            ""
+          )}
+        </div>
+      ) : (
+        ""
+      )}
       {serviceCart.length !== 0 &&
       selectedDate &&
       bookObject !== null &&
@@ -229,7 +277,7 @@ function SalonSlots() {
         ""
       )}
       {/* {(isBooked===true)?<h1>Appointment Booked</h1>:"<h5>Appointment not Booked</h5>"} */}
-    </>
+    </div>
   );
 }
 

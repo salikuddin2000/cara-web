@@ -156,3 +156,126 @@ transform: translateX(-50%);
   bottom: 0;
   background-color: rgba(36, 36, 36, 0.541);
 }
+.salonSlotsDiv{
+    margin-top: 13px;
+    /* margin-left: 2.5vw; */
+    /* margin-right: 2.5vw; */
+}
+.salonSlotsDiv h2{
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    margin-top: 13px;
+    /* color: var(--primaryColor); */
+    /* text-align: center; */
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+.serviceCartWrapper{
+   /* margin-top: 40px; */
+   margin-top: 15px;
+   margin-left: 3vw;
+   margin-right: 3vw;
+}
+.cartServices{
+    /* display: inline-block; */
+    text-align: left;
+    margin-left: 2.5vw;
+}
+.cartServices h5{
+    display: inline-block;
+    margin-top:22px;
+    margin-bottom: 0px;
+    font-size: 16px;
+    font-weight: 600;
+    /* text-align: left; */
+}
+.cartServices h5 span{
+    font-weight: 400;
+    font-size: 12px;
+}
+.trashIconDiv{
+    float:right;
+    margin-top: 27px;
+}
+.trashIconDiv img{
+    width: 20px;
+}
+.chair{
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.chair img{
+    width: 25px;
+}
+.seeAllSlotsButton{
+    margin-top: 20px;
+    font-weight: 500;
+    background-color: var(--primaryColor);
+    color:white;
+    border:none;
+    border-radius:10px;
+    height:30px;
+    width: 100px;
+}
+.datePicker{
+    /* width: 20px !important; */
+    /* margin-left: 20px; */
+    margin-left: 6vw;
+    margin-right: 6vw;
+    margin-bottom: 25px;
+    margin-top: 20px;
+    /* background-color: red; */
+}
+.slotsWrapper{
+    text-align: left;
+    left:0;
+    right:0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80vw;
+    margin-bottom: 70px;
+
+}
+.loader{
+    text-align: center;
+    left:0;
+    right:0;
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 80vw; */
+}
+.slot{
+    display: inline-block;
+    /* justify-content: left; */
+}
+.timeSlot{
+    padding-top: 3px;
+    padding-bottom: 3px;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: 700;
+    color:var(--primaryColor);
+    border: 3px solid var(--primaryColor);
+    border-radius: 50px;
+    width:70px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.slotWithChairNumber{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: 700;
+    color:var(--primaryColor);
+    border: 3px solid var(--primaryColor);
+    border-radius: 50px;
+    width:115px;
+    /* height: 25px; */
+    margin-left: 10px;
+    margin-right: 10px;
+}

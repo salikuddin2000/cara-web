@@ -31,6 +31,7 @@ export function SalonProvider({children}){
                         open_time: response.data.open_time,
                         salon_type: response.data.salon_type,
                         photos: Array.from(response.data.photos),
+                        number_of_chairs: response.data.number_of_chairs
                     }
                 )
                 setIsLoading(false)

@@ -15,7 +15,7 @@ export function SlotsProvider({children}){
                 + (currentdate.getDate()<10 ? ("0"+currentdate.getDate()):(currentdate.getDate()))
     const {cartSalonId,serviceCart}=useCart();
     const [selectedDate,setSelectedDate]=useState();
-    const [selectedChair,setSelectedChair]=useState(null);
+    const [selectedChair,setSelectedChair]=useState(1);
     const [slots,setSlots]=useState();
     const [onLoading,setOnLoading]=useState(false);
     async function getSlots(id,date,selectedChair){

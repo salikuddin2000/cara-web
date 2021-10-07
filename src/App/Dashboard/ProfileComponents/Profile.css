@@ -1,0 +1,47 @@
+.loggedInProfile{
+
+}
+.loggedInProfile img{
+    border-radius: 100%;
+    margin-top: 20px;
+}
+.loggedInProfile button{
+    background-color: var(--primaryColor);
+    color:white;
+    border-radius: 10px;
+    height:40px;
+    width:100px;
+    border:none;
+    font-weight: 700;
+    /* margin-top: 50px; */
+    margin-bottom: 150px;
+}
+.loggedInProfile div{
+    position: absolute;
+    bottom:40px;
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+}
+.nullUserProfile h5{
+    font-size: 26px;
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
+.nullUserProfile a{
+    text-decoration: none;
+    color:white;
+}
+.nullUserProfile a div{
+    padding-top: 11px;
+    padding-bottom: 12px;
+    position: absolute;
+    background-color: var(--primaryColor);
+    width: 46vw;
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 8px;
+}

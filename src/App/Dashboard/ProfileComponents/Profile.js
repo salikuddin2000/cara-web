@@ -3,27 +3,34 @@ import { Link } from 'react-router-dom';
 import {useUserUpdate} from  "../../Providers/caraUserProvider"
 import AppBar from "../AppBarComponents/AppBar.js";
 import MadeWithLove from '../MadeWithLove';
-import {useCaraUser} from "../../Providers/caraUserProvider.js"
+import {useCaraUser} from "../../Providers/caraUserProvider.js";
+import "./Profile.css";
 
 function Profile() {
     const signOut = useUserUpdate();
     const {caraUser} = useCaraUser();
 
     if (caraUser === null) {
-        return (<div>sign in to view your profile<br />
+        return (<div className="nullUserProfile"><h5>sign in to view your profile</h5><br />
               <Link
             to="/"
-          >sign in</Link>
+          ><div>Sign In</div></Link>
         </div>);
       }
     else{
     return (
-        <div>
+      (caraUser&&caraUser.email_address)?
+        <div className="loggedInProfile">
             <AppBar />
-            This is User Profile
+            <img alt="user image" src={caraUser.photo_url} />
+            <h2>{caraUser.first_name} {caraUser.last_name}</h2>
+            <h5>{caraUser.email_address}</h5>
             <button onClick={()=>signOut()}>Sign Out</button>
+            <div>
             <MadeWithLove />
+            </div>
         </div>
+        :""
     )}
 }
 

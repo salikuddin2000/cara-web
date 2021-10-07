@@ -12,8 +12,9 @@ import Modal from "react-modal";
 import { Link } from "react-router-dom";
 import back_arrow from "../../assets/back_arrow.svg";
 import trash_can from "../../assets/trash_can.svg";
-import chair from "../../assets/chair.png";
-import selected_chair from "../../assets/selected_chair.png";
+import chair from "../../assets/chair.svg";
+import selected_chair from "../../assets/selected_chair.svg";
+import tick from "../../assets/tick.png";
 import "./Salon.css";
 
 function SalonSlots() {
@@ -132,44 +133,76 @@ function SalonSlots() {
   function listSlots(slots) {
     if (slots && slots.length !== 0) {
       setSlotsList(
-        slots.map((slot) => (
-          <div className="slot" key={slot.slot_id}>
-            {selectedChair && selectedChair !== null ? (
-              <div
-                className="timeSlot"
-                onClick={() =>
-                  setBookObject({
-                    slot_id: slot.slot_id,
-                    chair_number: slot.chair_number,
-                    // appointment_details: bookObject.appointment_details,
-                  })
-                }
-              >
-                {slot.start_time}
-              </div>
-            ) : (
-              <div
-                className="slotWithChairNumber"
-                onClick={() =>
-                  setBookObject({
-                    slot_id: slot.slot_id,
-                    chair_number: slot.chair_number,
-                    // appointment_details: bookObject.appointment_details,
-                  })
-                }
-              >
-                {slot.start_time + "  chair : " + slot.chair_number}
-              </div>
-            )}
-          </div>
-        ))
+        slots.map((slot) =>
+          bookObject && bookObject.slot_id === slot.slot_id ? (
+            <div className="slot" key={slot.slot_id}>
+              {selectedChair && selectedChair !== null ? (
+                <div
+                  className="selectedTimeSlot"
+                  onClick={() =>
+                    setBookObject({
+                      slot_id: slot.slot_id,
+                      chair_number: slot.chair_number,
+                      // appointment_details: bookObject.appointment_details,
+                    })
+                  }
+                >
+                  {slot.start_time}
+                </div>
+              ) : (
+                <div
+                  className="selectedSlotWithChairNumber"
+                  onClick={() =>
+                    setBookObject({
+                      slot_id: slot.slot_id,
+                      chair_number: slot.chair_number,
+                      // appointment_details: bookObject.appointment_details,
+                    })
+                  }
+                >
+                  {slot.start_time + "  chair : " + slot.chair_number}
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="slot" key={slot.slot_id}>
+              {selectedChair && selectedChair !== null ? (
+                <div
+                  className="timeSlot"
+                  onClick={() =>
+                    setBookObject({
+                      slot_id: slot.slot_id,
+                      chair_number: slot.chair_number,
+                      // appointment_details: bookObject.appointment_details,
+                    })
+                  }
+                >
+                  {slot.start_time}
+                </div>
+              ) : (
+                <div
+                  className="slotWithChairNumber"
+                  onClick={() =>
+                    setBookObject({
+                      slot_id: slot.slot_id,
+                      chair_number: slot.chair_number,
+                      // appointment_details: bookObject.appointment_details,
+                    })
+                  }
+                >
+                  {slot.start_time + "  chair : " + slot.chair_number}
+                </div>
+              )}
+            </div>
+          )
+        )
       );
     }
   }
   useEffect(() => {
     listSlots(slots);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [slots]);
+  }, [slots, bookObject]);
 
   const selectedDay = (val) => {
     let date = val.getDate() < 10 ? "0" + val.getDate() : val.getDate();
@@ -193,13 +226,12 @@ function SalonSlots() {
       <h2>Cart</h2>
       <br />
       <div className="serviceCartWrapper">{serviceCart ? list : ""}</div>
-      <div>{totalPrice ? <h5>Total : ₹{totalPrice}</h5> : ""}</div>
       {serviceCart && serviceCart.length !== 0 ? (
         <div>{chairList ? chairList : ""}</div>
       ) : (
         ""
       )}
-      {serviceCart && serviceCart.length !== 0 ? (
+      {/* {serviceCart && serviceCart.length !== 0 ? (
         <button
           className="seeAllSlotsButton"
           onClick={() => setSelectedChair(null)}
@@ -208,7 +240,7 @@ function SalonSlots() {
         </button>
       ) : (
         ""
-      )}
+      )} */}
       {serviceCart && serviceCart.length !== 0 ? (
         <div className="datePicker">
           <DatePicker
@@ -249,10 +281,22 @@ function SalonSlots() {
             <BeatLoader loading color="#796AC8" />
           </>
         ) : (
-          <button onClick={() => postAppointment()}>Book Appointment</button>
+          <div className="totalAndBookWrapper">
+            <div className="totalPriceWithBookButton">
+              {totalPrice ? <h5>Total : ₹{totalPrice}</h5> : ""}
+            </div>
+            <div
+              className="bookAppointmentButton"
+              onClick={() => postAppointment()}
+            >
+              <h5>Book Appointment</h5>
+            </div>
+          </div>
         )
       ) : (
-        ""
+        <div className="totalPrice">
+          {totalPrice ? <h5>Total : ₹{totalPrice}</h5> : ""}
+        </div>
       )}
       {isBooked === true ? (
         <Modal
@@ -260,7 +304,9 @@ function SalonSlots() {
           className="bookedModal"
           overlayClassName="bookedModalOverlay"
         >
-          <span>Appointment is Booked</span>
+          <div className="bookedModalDiv">
+          <img alt="success" src={tick} />
+          <h5>Appointment<br />Booked</h5>
           <br />
 
           <Link
@@ -269,9 +315,11 @@ function SalonSlots() {
               setServiceCart([]);
               setIsBooked(false);
             }}
-          >
-            go to home page
+          ><div>
+            Go to Home Page
+            </div>
           </Link>
+          </div>
         </Modal>
       ) : (
         ""

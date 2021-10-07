@@ -6,7 +6,7 @@ import {
   useRouteMatch
 } from "react-router-dom";
 import Home from "./HomeComponents/Home.js";
-import Cart from "./CartComponents/Cart.js";
+import AppointmentHistory from "./AppointmentHistoryComponents/AppointmentHistory.js";
 import Profile from "./ProfileComponents/Profile.js";
 import NavComponent from "./NavBarComponents/NavComponent.js";
 import Salon from "../Salons/Salon.js";
@@ -21,7 +21,7 @@ function DashboarRoutes() {
         <Switch>
           <Route exact={true} path={`/`} component={CheckAuth} />
           <Route exact={true} path={`${match.path}`} component={Home} />
-          <Route exact={true} path={`${match.path}cart`} component={Cart} />
+          <Route exact={true} path={`${match.path}cart`} component={AppointmentHistory} />
           <Route
             exact={true}
             path={`${match.path}profile`}

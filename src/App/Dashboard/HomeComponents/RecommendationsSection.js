@@ -31,12 +31,13 @@ function RecommendationsSection() {
                   },
                 }}
               >
-                <img
+                {/* <img
                   src={salon.salon_logo}
                   alt={`${salon.salon_name}`}
                   height="50"
                   width="100"
-                />
+                /> */}
+                <img className="recommendationSalonLogo" alt={`${salon.salon_name}`} src={salon.salon_logo} />
                 {salon.salon_name.length<14?
                 <h1>{salon.salon_name}</h1>
                 :<div className="slideRight">

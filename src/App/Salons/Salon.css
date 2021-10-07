@@ -139,12 +139,15 @@ transform: translateX(-50%);
 .bookedModal {
   z-index: 2;
   position: absolute;
-  height: 270px;
-  width: 60vw;
+  height: 300px;
+  width: 70vw;
   display: block;
   background-color: white;
-  margin-left: 20vw;
-  margin-top: 9.8rem;
+  left: 0;
+  right: 0;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 22vh;
   border-radius: 15px;
   outline: none;
 }
@@ -156,6 +159,48 @@ transform: translateX(-50%);
   bottom: 0;
   background-color: rgba(36, 36, 36, 0.541);
 }
+.bookedModalDiv {
+    position: relative;
+    text-align: center;
+}
+.bookedModal h5{
+    margin-top:5px;
+    font-size: 24px;
+    color: rgb(122, 122, 122);
+    margin-bottom: 10px;
+
+}
+.bookedModal img{
+    margin-top: 20px;
+    width:100px;
+    margin-bottom: 5px;
+}
+.bookedModal a{
+    list-style: none;
+    color:white;
+    text-decoration: none;
+}
+.bookedModal a div{
+    padding-top: 11px;
+    padding-bottom: 12px;
+    position: absolute;
+    background-color: var(--primaryColor);
+    width: 46vw;
+    /* height: 60px; */
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 8px;
+}
+/* .bookedModalDiv span{
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+} */
 .salonSlotsDiv{
     margin-top: 13px;
     /* margin-left: 2.5vw; */
@@ -176,13 +221,13 @@ transform: translateX(-50%);
 .serviceCartWrapper{
    /* margin-top: 40px; */
    margin-top: 15px;
-   margin-left: 3vw;
-   margin-right: 3vw;
+   margin-left: 5vw;
+   margin-right: 5vw;
 }
 .cartServices{
     /* display: inline-block; */
     text-align: left;
-    margin-left: 2.5vw;
+    /* margin-left: 2.5vw; */
 }
 .cartServices h5{
     display: inline-block;
@@ -205,11 +250,12 @@ transform: translateX(-50%);
 }
 .chair{
     display: inline-block;
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-right: 25px;
+    margin-left: 25px;
+    margin-top: 40px;
 }
 .chair img{
-    width: 25px;
+    width: 35px;
 }
 .seeAllSlotsButton{
     margin-top: 20px;
@@ -279,3 +325,155 @@ transform: translateX(-50%);
     margin-left: 10px;
     margin-right: 10px;
 }
+.selectedTimeSlot{
+    padding-top: 3px;
+    padding-bottom: 3px;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: 700;
+    background-color: var(--primaryColor);
+    color:white;
+    border: 3px solid var(--primaryColor);
+    border-radius: 50px;
+    width:70px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.selectedSlotWithChairNumber{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: 700;
+    background-color: var(--primaryColor);
+
+    color:white;
+    border: 3px solid var(--primaryColor);
+    border-radius: 50px;
+    width:115px;
+    /* height: 25px; */
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.totalPrice{
+    position: fixed;
+    display: inline-block;
+    /* float:left; */
+    margin: 0;
+    text-align: center;
+    left: 0;
+    bottom: 0;
+    height:50px;
+    background-color: white;
+    width:100vw;
+    box-shadow: 0px 5px 10px -1px rgba(0, 0, 0, 0.288);
+    /* padding-bottom: 5px; */
+}
+.totalPrice h5{
+    position: relative;
+    padding-top: 17px;
+    /* padding-bottom: 20px; */
+    vertical-align: auto;
+    margin:0;
+}
+.bookAppointmentButton{
+    position: fixed;
+    /* display: inline-block; */
+    /* float:right; */
+    float: right;
+    text-align: center;
+    right:0;
+    bottom: 0;
+    height:50px;
+    background-color: var(--primaryColor);
+    color:white;
+    width:50vw;
+    /* padding-top: 17px; */
+}
+.bookAppointmentButton h5{
+    margin:0;
+    padding-top: 17px;
+}
+.totalPriceWithBookButton{
+    position: fixed;
+    display: inline-block;
+    /* float:left; */
+    margin: 0;
+    text-align: center;
+    left: 0;
+    bottom: 0;
+    height:50px;
+    background-color: white;
+    width:50vw;
+}
+.totalPriceWithBookButton h5{
+    position: relative;
+    padding-top: 17px;
+    /* padding-bottom: 20px; */
+    vertical-align: auto;
+    margin:0;
+}
+.totalAndBookWrapper{
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+    box-shadow: 0px -56px 20px 2px rgba(0, 0, 0, 0.288); 
+    /* -moz-shadow: 0px 3px 8px -1px rgba(0,0,0,0.3); 
+    box-shadow: 0px 3px 8px -1px rgba(0,0,0,0.3);  */
+}
+.redirectModal {
+    /* z-index: ; */
+    opacity:1;
+    position: absolute;
+    height: 200px;
+    width: 70vw;
+    display: block;
+    background-color: white;
+    /* margin-left: 20vw; */
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 32vh;
+    border-radius: 15px;
+    outline: none;
+  }
+  .redirectModalOverlay {
+    position: fixed;
+    opacity:1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(36, 36, 36, 0.541);
+  }
+  .redirectModalDiv{
+      text-align: center;
+      position: relative;
+  }
+  .redirectModalDiv h5{
+    margin-top:25px;
+    font-size: 24px;
+    font-weight: 600;
+    color: rgb(122, 122, 122);
+    margin-bottom: 10px;
+  }
+  .redirectModal a{
+    /* margin-top: 50px; */
+    list-style: none;
+    color:white;
+    text-decoration: none;
+  }
+  .redirectModal a div{
+    padding-top: 11px;
+    padding-bottom: 12px;
+    position: absolute;
+    background-color: var(--primaryColor);
+    width: 46vw;
+    /* height: 60px; */
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 8px;
+  }

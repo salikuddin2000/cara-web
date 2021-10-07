@@ -42,10 +42,12 @@ function SearchBar() {
                   height="50"
                   width="100"
                 /> */}
-                <img alt="salon logo" src={salon.salon_logo} />
+                <img className="searchSalonLogo" alt={`${salon.salon_name}`} src={salon.salon_logo} />
+                <div className="searchSalonInfoDiv"> 
                 <h5>{salon.salon_name}</h5>
                 <h6>{salon.address_line_one}</h6>
-                <h6>{salon.salon_type}</h6>
+                </div>
+                <span>{salon.salon_type}</span>
               </Link>
               </div>
             )}

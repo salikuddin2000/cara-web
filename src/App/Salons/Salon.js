@@ -175,11 +175,13 @@ function Salon() {
             <div className="categoriesWrapper">{categoryList}</div>
             
             <Modal
-              isOpen={modalIsOpen}
-              // className="bookedModal"
-              // overlayClassName="bookedModalOverlay"
+              isOpen={modalIsOpen}              
+              className="redirectModal"
+              overlayClassName="redirectModalOverlay"
             >
-              <span>Sign In to book appointments</span>
+              {/* {console.log("inside modAL",modalIsOpen)} */}
+              <div className="redirectModalDiv">
+              <h5>Sign In to book appointments</h5>
               <br />
 
               <Link
@@ -189,8 +191,11 @@ function Salon() {
                 //   setIsBooked(false);
                 // }}
               >
+                <div>
                 Sign In
+                </div>
               </Link>
+              </div>
             </Modal>
             {serviceCart.length !== 0 ? (
               <div className="cart">

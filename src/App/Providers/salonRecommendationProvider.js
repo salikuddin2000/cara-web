@@ -25,8 +25,8 @@ export function SalonRecommendationProvider({children}){
         await axios
         .get(`${url}`)
         .then((response) => {
-            salonList.splice(0, salonList.length)
-            // console.log("salons found");
+            salonList.splice(0, salonList.length);
+            // console.log("");
             // console.log(response.data);
             (response.data).map((salon) =>
             setSalonList([

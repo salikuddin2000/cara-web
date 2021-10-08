@@ -89,10 +89,10 @@ function SalonSlots() {
     listChairs();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedChair]);
-  useEffect(() => {
-    console.log("totalPrice:", totalPrice);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [totalPrice]);
+  // useEffect(() => {
+  //   console.log("totalPrice:", totalPrice);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [totalPrice]);
   function setCart(serviceCart) {
     if (serviceCart && serviceCart.length !== 0 && serviceCart[0]) {
       setList(
@@ -209,7 +209,7 @@ function SalonSlots() {
     let month =
       val.getMonth() + 1 < 10 ? "0" + (val.getMonth() + 1) : val.getMonth() + 1;
     let year = val.getFullYear();
-    console.log(year + "-" + month + "-" + date);
+    // console.log(year + "-" + month + "-" + date);
     // console.log("date is :"+val)
     setSelectedDate(year + "-" + month + "-" + date);
   };
@@ -259,7 +259,7 @@ function SalonSlots() {
           {slots ? (
             onLoading ? (
               <div className="loader">
-                <BeatLoader loading color="#796AC8" />
+                <BeatLoader loading color="#796AC8" size={14}/>
               </div>
             ) : (
               slotsList
@@ -278,7 +278,9 @@ function SalonSlots() {
         loading ? (
           <>
             <br />
-            <BeatLoader loading color="#796AC8" />
+            <div className="beatLoader">
+            <BeatLoader loading color="#796AC8" size={14} />
+            </div>
           </>
         ) : (
           <div className="totalAndBookWrapper">

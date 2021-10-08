@@ -18,8 +18,8 @@ export function SalonProvider({children}){
         await axios
         .get(`https://cara-api-01.herokuapp.com/api/v1/salons/${id}`)
             .then((response) => {
-                console.log("salon found");
-                console.log(response.data);
+                // console.log("salon found");
+                // console.log(response.data);
                 
                 setSalonInfo(
                     {
@@ -37,16 +37,16 @@ export function SalonProvider({children}){
                 setIsLoading(false)
             })
             .catch(()=>{
-                console.log("no Salon info Found");
-                console.log(salonInfo)
+                // console.log("no Salon info Found");
+                // console.log(salonInfo)
                 setIsLoading(false)
             })
         }
         }
         useEffect(() => {
             setSalon(salonId)
-            console.log("salon info is :");
-            console.log(salonInfo);
+            // console.log("salon info is :");
+            // console.log(salonInfo);
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [salonId])
 

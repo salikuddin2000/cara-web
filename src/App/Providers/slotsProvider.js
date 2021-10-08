@@ -31,13 +31,13 @@ export function SlotsProvider({children}){
         await axios
         .get(url)
         .then((response) => {
-            console.log("slots found");
-            console.log(response.data);
+            // console.log("slots found");
+            // console.log(response.data);
             setSlots(Array.from(response.data))
             setOnLoading(false)
         })
         .catch((err)=>{
-            console.log("no Slots Found with exception :");
+            // console.log("no Slots Found with exception :");
             console.log(err)
             setOnLoading(false)
         })
@@ -54,10 +54,10 @@ export function SlotsProvider({children}){
        setSelectedDate(datetime)
             // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-    useEffect(() => {
-        console.log(selectedDate)
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [selectedDate])
+    // useEffect(() => {
+    //     console.log(selectedDate)
+    //         // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, [selectedDate])
    
 //    function setSlotsEmpty(serviceCart){
 //        if(serviceCart.length===0){
@@ -68,15 +68,15 @@ export function SlotsProvider({children}){
 //         setSlotsEmpty(serviceCart)
 //     },[serviceCart])
 
-    useEffect(() => {
-        console.log("datetime is :");
-        console.log(selectedDate);
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [selectedDate])
-    useEffect(() => {
-        console.log("selected chair : ",selectedChair)
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [selectedChair])
+    // useEffect(() => {
+    //     console.log("datetime is :");
+    //     console.log(selectedDate);
+    //         // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, [selectedDate])
+    // useEffect(() => {
+    //     console.log("selected chair : ",selectedChair)
+    //         // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, [selectedChair])
     return(
         <SlotsContext.Provider value={{slots,setSelectedChair,selectedChair,setSelectedDate,onLoading,selectedDate}}>
             {children}

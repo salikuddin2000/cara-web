@@ -22,8 +22,8 @@ export function SalonSearchProvider({ children }) {
         .get(`https://cara-api-01.herokuapp.com/api/v1/search/salons/${word}`)
         .then((response) => {
           salons.splice(0, salons.length);
-          console.log("salon found in search");
-          console.log(response.data);
+          // console.log("salon found in search");
+          // console.log(response.data);
           response.data.map((salon) =>
             setSalons([
               ...salons,
@@ -39,10 +39,10 @@ export function SalonSearchProvider({ children }) {
             setLoadingSearch(false);
         })
         .catch(() => {
-          console.log("no salons list Found");
+          // console.log("no salons list Found");
           salons.splice(0, salons.length);
           setLoadingSearch(false);
-          console.log(salons);
+          // console.log(salons);
         });
     }
   }

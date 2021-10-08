@@ -14,7 +14,7 @@ function SearchBar() {
     const newinfo = { ...searchWord };
     newinfo[e.target.id] = e.target.value;
     setSearchWord(newinfo);
-    console.log(newinfo);
+    // console.log(newinfo);
   }
 
   function setList(salons) {
@@ -71,10 +71,10 @@ function SearchBar() {
         // background-image={search}
       />
       {/* <img src={search} /> */}
-      {console.log("searchword is", searchWord.word)}
+      {/* {console.log("searchword is", searchWord.word)} */}
       {searchWord.word.length !== 0 && searchWord !== "" ? (
         loadingSearch === true ? (
-          <><br /><BeatLoader loading color='#796AC8' /></>
+          <><br /><div className="beatLoader"><BeatLoader loading color='#796AC8' size={14}/></div></>
         ) : salons.length !== 0 ? (
           <div>{searchList}</div>
         ) : (

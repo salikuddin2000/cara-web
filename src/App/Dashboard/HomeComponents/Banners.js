@@ -13,15 +13,15 @@ function Banners() {
     if(salonAdList&&salonAdList===[]){
       setBannerList([])
     }
-    console.log(salonAdList)
-    console.log(bannerList)
+    // console.log(salonAdList)
+    // console.log(bannerList)
     if (salonAdList !== undefined&&salonAdList!==[]) {
       setBannerList(
-        salonAdList.map((ad) =>
+        salonAdList.map((ad,index) =>
           ad === undefined || ad === null || ad.length === 0 ? (
             setBannerList(bannerList.splice(0, bannerList.length))
           ) : (
-            <div key={ad.salon_id}>
+            <div key={index}>
               <Link
                 to={{
                   pathname: `${match.url}/salon`,
@@ -57,7 +57,9 @@ function Banners() {
       return (
         <>
           <br />
-          <BeatLoader loading color="#796AC8" />
+          <div className="beatLoader">
+          <BeatLoader loading color="#796AC8" size={14}/>
+          </div>
         </>
       );
     } else {

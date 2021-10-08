@@ -11,17 +11,17 @@ function GetPhoneNumber(props) {
     const newinfo = {...info}
     newinfo[e.target.id]= e.target.value
     setInfo(newinfo)
-    console.log(newinfo)
+    // console.log(newinfo)
 }
   var submit = async (e) => {
     e.preventDefault();
     googleUser.phone_number = info.phone_number;
-    console.log(googleUser);
+    // console.log(googleUser);
     props.setPhoneNumber(googleUser);
   };
   function validateForm(e) {
     var errors = false;
-    console.log("e : ",e);
+    // console.log("e : ",e);
     if(info.phone_number.length !== 10) {
       errors=true;
       return(alert("number must be of 10 characters"))
@@ -34,7 +34,7 @@ function GetPhoneNumber(props) {
   }
   return (
     <div className="phoneScreen">
-      {console.log("inside get Phone number")}
+      {/* {console.log("inside get Phone number")} */}
       <div>
         <span>+91</span>
       </div>

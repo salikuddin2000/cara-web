@@ -22,7 +22,7 @@ function Profile() {
       (caraUser&&caraUser.email_address)?
         <div className="loggedInProfile">
             <AppBar />
-            <img alt="user image" src={caraUser.photo_url} />
+            <img alt="user" src={caraUser.photo_url} />
             <h2>{caraUser.first_name} {caraUser.last_name}</h2>
             <h5>{caraUser.email_address}</h5>
             <button onClick={()=>signOut()}>Sign Out</button>

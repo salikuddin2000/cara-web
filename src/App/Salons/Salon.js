@@ -142,11 +142,11 @@ function Salon() {
     setCategories(salonInfo, serviceCart);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [salonInfo, serviceCart.length]);
-  useEffect(() => {
-    console.log("new cart is: ");
-    console.log(serviceCart);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [serviceCart.length]);
+  // useEffect(() => {
+  //   console.log("new cart is: ");
+  //   console.log(serviceCart);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [serviceCart.length]);
 
   // console.log(salonInfo.open_time)
   // let data= new Date(salonInfo.open_time)
@@ -209,7 +209,9 @@ function Salon() {
           <h2>Salon not available</h2>
         )
       ) : (
-        <BeatLoader loading color="#796AC8" />
+        <div className="beatLoader">
+        <BeatLoader loading color="#796AC8" size={14} />
+        </div>
       )}
     </div>
   ) : (

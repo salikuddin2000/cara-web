@@ -14,16 +14,17 @@ function AppBarTwo() {
   });
   useEffect(() => {
     const newinfo = {...info};
-    console.log(newinfo);
+    // console.log(newinfo);
     newinfo.pincode=zipcode;
     setInfo(newinfo)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [zipcode])
 
   function handle(e) {
     const newinfo = { ...info };
     newinfo[e.target.id] = e.target.value;
     setInfo(newinfo);
-    console.log(newinfo);
+    // console.log(newinfo);
   }
   var submit = async (e) => {
     e.preventDefault();
@@ -32,7 +33,7 @@ function AppBarTwo() {
   };
   function validateForm(e) {
     var errors = false;
-    console.log("e : ",e);
+    // console.log("e : ",e);
     if(info.pincode&&info.pincode!==zipcode&&info.pincode.length !== 6) {
       errors=true;
       return(alert("Zipcode must be of 6 characters"))
@@ -60,7 +61,7 @@ function AppBarTwo() {
 
           {/* {console.log(zipcode)} */}
           <br />{" "}
-          {console.log(info.pincode)}
+          {/* {console.log(info.pincode)} */}
           <input
             onChange={(e) => handle(e)}
             id="pincode"

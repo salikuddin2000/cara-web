@@ -22,13 +22,14 @@ export function useUserUpdate() {
 export function CaraUserProvider({ children }) {
   const [caraUser, setCaraUser] = useState();
   const [googleUser, setGoogleUser] = useState();
+  const [isLoadingSignIn, setIsLoadingSignIn] = useState(false);
   const [showPhoneScreen, setShowPhoneScreen] = useState(false);
   const [showDashboardScreen, setShowDashboardScreen] = useState(false);
 
   const userState = () => {
     const userdata = localStorage.getItem("cara_user");
     const userObject = userdata !== null ? JSON.parse(userdata) : null;
-    console.log(userObject);
+    // console.log(userObject);
     userdata !== null? setShowDashboardScreen(true):setShowDashboardScreen(false)
     setCaraUser(userObject);
   };
@@ -38,21 +39,23 @@ export function CaraUserProvider({ children }) {
   }, []);
 
   async function checkUserFromAPI(googleUser) {
-    console.log(googleUser);
+    // console.log(googleUser);
     if (googleUser === undefined || googleUser === null) {
-      console.log("google user is: ", googleUser);
+      // let nothing=0;
+      // console.log("google user is: ", googleUser);
     } else {
-      console.log("google user is: ", googleUser);
-      console.log("google user phone number  is: ", googleUser.phone_number);
+      // let nothing=0;
+      // console.log("google user is: ", googleUser);
+      // console.log("google user phone number  is: ", googleUser.phone_number);
       await axios
         .get(
           `https://cara-api-01.herokuapp.com/api/v1/users/${googleUser.email}`
         )
         .then(async (response) => {
-          console.log(response.status);
+          // console.log(response.status);
           if (response.status === 200) {
-            console.log("Cara user found:");
-            console.log(response);
+            // console.log("Cara user found:");
+            // console.log(response);
             setCaraUser(response.data);
             localStorage.setItem("cara_user", JSON.stringify(response.data));
             setShowDashboardScreen(true);
@@ -61,8 +64,8 @@ export function CaraUserProvider({ children }) {
         .catch(async (err) => {
           setShowPhoneScreen(true);
           console.log("caught error : ", err);
-          console.log("No user found in database with these credentials...");
-          console.log("Creating new user...");
+          // console.log("No user found in database with these credentials...");
+          // console.log("Creating new user...");
         });
     }
   }
@@ -82,16 +85,16 @@ export function CaraUserProvider({ children }) {
         zipcode: "462000",
       })
       .then((res) => {
-        console.log("Google User posted to db");
-        console.log(res);
+        // console.log("Google User posted to db");
+        // console.log(res);
         setCaraUser(res.data);
         localStorage.setItem("cara_user", JSON.stringify(res.data));
         setShowDashboardScreen(true);
       })
       .catch((e) => console.log("User not created with excepion" + e))
-      .then((res) => {
-        console.log(res);
-      });
+      // .then((res) => {
+      //   console.log(res);
+      // });
   }
 
   function signOut() {
@@ -103,7 +106,7 @@ export function CaraUserProvider({ children }) {
 
   return (
     <CaraUserContext.Provider value={{ caraUser, setCaraUser }}>
-      <GoogleUserContext.Provider value={{ googleUser, setGoogleUser, showPhoneScreen, showDashboardScreen }}>
+      <GoogleUserContext.Provider value={{ googleUser, setGoogleUser, showPhoneScreen, showDashboardScreen, setIsLoadingSignIn,isLoadingSignIn }}>
         <UserUpdateContext.Provider value={signOut}>
           <UserPostReqContext.Provider value={{ postGoogleUser }}>
             {children}

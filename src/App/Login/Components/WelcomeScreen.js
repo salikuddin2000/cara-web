@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import firebase from "firebase";
 import fire from "../firebase_config.js";
+import { useGoogleUser } from "../../Providers/caraUserProvider.js";
 import upper_leaf from "../../../assets/upper_leaf.png";
 import lower_leaf from "../../../assets/lower_leaf.png";
 import hair_girl from "../../../assets/hair_girl.png";
@@ -10,6 +11,7 @@ import google_logo from "../../../assets/google_logo.png";
 import "./WelcomeScreen.css";
 
 function WelcomeScreen(props) {
+  const {setIsLoadingSignIn} = useGoogleUser();
   const SignIn = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     fire
@@ -18,7 +20,7 @@ function WelcomeScreen(props) {
       .then((result) => {
         const token = result.credential.accessToken;
         const user = result.user;
-        console.log("in function sign in");
+        // console.log("in function sign in");
 
         const data = {
           storetoken: token,
@@ -29,9 +31,11 @@ function WelcomeScreen(props) {
           uuid: user.uid,
           phone_number: null,
         };
+        setIsLoadingSignIn(false);
         props.signIn(data);
       })
       .catch((error) => {
+        setIsLoadingSignIn(false);
         const errorCode = error.code;
         const errorMessage = error.message;
         const email = error.email;
@@ -51,7 +55,7 @@ function WelcomeScreen(props) {
       <img alt="backgroundImage" className="poleman" src={pole_man} />
       <h1>Cara</h1>
       <div className="loginAssets">
-        <button onClick={() => SignIn()}>
+        <button onClick={() => {SignIn();setIsLoadingSignIn(true)}}>
           <div>
             <img alt="googleLogo" className="googleLogo" src={google_logo} />
             <span>Profile Sign In/Sign Up with Google</span>

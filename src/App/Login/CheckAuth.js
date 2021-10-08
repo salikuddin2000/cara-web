@@ -7,16 +7,16 @@ import {BeatLoader} from 'react-spinners';
 
 function CheckAuth() {
   const { caraUser } = useCaraUser();
-  const { googleUser, setGoogleUser, showPhoneScreen, showDashboardScreen } = useGoogleUser();
+  const { googleUser, setGoogleUser, showPhoneScreen, showDashboardScreen,isLoadingSignIn} = useGoogleUser();
   const { postGoogleUser } = useUserPostReq();
 
   if (caraUser === null && googleUser === undefined) {
-    console.log("in if", caraUser);
-    return <WelcomeScreen signIn={(googleUser) => setGoogleUser(googleUser)} />;
+    // console.log("in if", caraUser);
+    return (isLoadingSignIn===false?<WelcomeScreen signIn={(googleUser) => setGoogleUser(googleUser)}/>: <div className="beatLoader"><BeatLoader loading color='#796AC8' size={14} /></div> );
   } 
   else if ( caraUser === null && googleUser !== undefined && googleUser.phone_number === null && showPhoneScreen===true)
   {
-    console.log("inside null phone number", googleUser);
+    // console.log("inside null phone number", googleUser);
     return (
       <GetPhoneNumber
         setPhoneNumber={(googleUser) => {
@@ -27,7 +27,7 @@ function CheckAuth() {
     );
   }
   else if (caraUser !== undefined && showDashboardScreen===true ) {
-    console.log("in else ", caraUser);
+    // console.log("in else ", caraUser);
     return (
       <Redirect
         to={{
@@ -38,7 +38,7 @@ function CheckAuth() {
     );
   }
   else {
-    return <BeatLoader loading color='#796AC8' />;
+    return <div className="beatLoader"><BeatLoader loading color='#796AC8' size={14} /></div>;
   }
 }
 

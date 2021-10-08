@@ -26,8 +26,8 @@ export function SalonRecommendationProvider({children}){
         .get(`${url}`)
         .then((response) => {
             salonList.splice(0, salonList.length)
-            console.log("salons found");
-            console.log(response.data);
+            // console.log("salons found");
+            // console.log(response.data);
             (response.data).map((salon) =>
             setSalonList([
                 ...salonList,
@@ -43,16 +43,16 @@ export function SalonRecommendationProvider({children}){
             setIsLoading(false)
         })
         .catch(()=>{
-            console.log("no Salons Found");
+            // console.log("no Salons Found");
             salonList.splice(0, salonList.length)
-            console.log(salonList)
+            // console.log(salonList)
             setIsLoading(false)
         })
     }
     useEffect(() => {
         getSalons(zipcode)
-        console.log("salon list is");
-        console.log(salonList);
+        // console.log("salon list is");
+        // console.log(salonList);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [zipcode])
 

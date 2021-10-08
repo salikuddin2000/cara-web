@@ -16,16 +16,17 @@ export function ZipcodeProvider ({children}){
     
     function settingZipcode(caraUser){
         if(caraUser !== undefined && caraUser!==null){
-            console.log(caraUser)
+            // console.log(caraUser)
             setZipcode(caraUser.zipcode)
-            console.log("zipcode is setted : ", caraUser.zipcode)
+            // console.log("zipcode is setted : ", caraUser.zipcode)
         }
         else if(caraUser===null){
             setZipcode("462000")
         }
         else{
+            // let nothing=0;
             // setZipcode("462000")
-            console.log("zipcode is not setted yet")
+            // console.log("zipcode is not setted yet")
         }
     }
     useEffect(() => {
@@ -42,7 +43,8 @@ export function ZipcodeProvider ({children}){
               }
             )
             .then((res)=>{
-                console.log(res);
+                ""
+                // console.log(res);
             })
             .catch(error => console.log(error))
             caraUser.zipcode =newZipcode;

@@ -33,10 +33,10 @@ export function BookingDetailsProvider({ children }) {
     setIsBooked("")
   }, [])
 
-  useEffect(() => {
-    console.log("bookObject is: ");
-    console.log(bookObject);
-  }, [bookObject]);
+  // useEffect(() => {
+  //   console.log("bookObject is: ");
+  //   console.log(bookObject);
+  // }, [bookObject]);
   //add Loading functionality, confirmation Modal and Redirect to appointment History
   async function postAppointment() {
     if (
@@ -60,8 +60,8 @@ export function BookingDetailsProvider({ children }) {
           })),
         })
         .then((res) => {
-          console.log("Appontment Booked ");
-          console.log(res);
+          // console.log("Appontment Booked ");
+          // console.log(res);
           setLoading(false);
           setBookObject(null)
           setIsBooked(true);

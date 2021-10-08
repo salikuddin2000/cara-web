@@ -18,23 +18,23 @@ export function BannerAdProvider({children}){
         await axios
         .get(`https://cara-api-01.herokuapp.com/api/v1/display/upperbanner/${pin}`)
         .then((response) => {
-            console.log("Ads found");
-            console.log(response.data);
+            // console.log("Ads found");
+            // console.log(response.data);
             setSalonAdList(Array.from(response.data))
             setIsLoading(false)
 
         })
-        .catch(()=>{
-            console.log("no Ads Found");
+        .catch((err)=>{
+            // console.log("no Ads Found");
             setSalonAdList([]) ;
-            console.log(salonAdList)
+            // console.log(salonAdList)
             setIsLoading(false)
         })
     }
     useEffect(() => {
         getSalonAds(zipcode)
-        console.log("salon list is");
-        console.log(salonAdList);
+        // console.log("salon list is");
+        // console.log(salonAdList);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [zipcode])
 

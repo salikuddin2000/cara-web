@@ -68,7 +68,9 @@ function RecommendationsSection() {
       return (
         <>
           <br />
-          <BeatLoader loading color="#796AC8" />
+          <div className="beatLoader">
+          <BeatLoader loading color="#796AC8" size={14} />
+          </div>
         </>
       );
     } else {

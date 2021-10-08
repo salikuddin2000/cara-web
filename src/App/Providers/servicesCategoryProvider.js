@@ -23,14 +23,14 @@ export function ServicesCategoryProvider({ children }) {
     checkSalonCart(salonId,cartSalonId)
   }, [salonId,cartSalonId])
 
-  useEffect(() => {
-    console.log("serviceCart is : ");
-    console.log(serviceCart);
-  }, [serviceCart]);
+  // useEffect(() => {
+  //   console.log("serviceCart is : ");
+  //   console.log(serviceCart);
+  // }, [serviceCart]);
 
-  useEffect(() => {
-    console.log(totalPrice)
-  }, [totalPrice])
+  // useEffect(() => {
+  //   console.log(totalPrice)
+  // }, [totalPrice])
 
   return (
     <ServicesCategoryContext.Provider

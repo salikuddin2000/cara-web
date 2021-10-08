@@ -43,12 +43,12 @@ function AppointmentHistory() {
         </div>
       ))
     );
-    console.log(appointmentList);
+    // console.log(appointmentList);
   }, [appointmentList]);
 
-  useEffect(() => {
-    console.log(modalIsOpen);
-  }, [modalIsOpen]);
+  // useEffect(() => {
+  //   console.log(modalIsOpen);
+  // }, [modalIsOpen]);
 
   if (caraUser === null) {
     return (<div className="nullUserAppointmentHistory"><h5>Sign in to book appointments</h5> <br />
@@ -75,8 +75,8 @@ function AppointmentHistory() {
           <br />
           <button
             onClick={() => {
-              console.log("confirm cancel button clicked");
-              console.log(cancelId);
+              // console.log("confirm cancel button clicked");
+              // console.log(cancelId);
               cancelAppointment(cancelId);
               setModalisOpen(false);
             }}

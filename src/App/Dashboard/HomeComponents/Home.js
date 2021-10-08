@@ -6,6 +6,7 @@ import Banners from "./Banners.js";
 import RecommendationsSection from "./RecommendationsSection.js";
 import SearchBar from "./SearchBar.js";
 import { BeatLoader } from "react-spinners";
+import {Helmet} from "react-helmet";
 import "./home.css";
 import MadeWithLove from "../MadeWithLove.js";
 
@@ -24,6 +25,9 @@ function Home() {
   } else {
     return (
       <div className="home">
+        <Helmet>
+            <title>Cara | Home</title>
+        </Helmet>
         {caraUser === null ? (
           <>
             <AppBarTwo /> <h3>Hello User,</h3>

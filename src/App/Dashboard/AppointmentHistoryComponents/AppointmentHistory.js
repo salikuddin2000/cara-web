@@ -6,6 +6,7 @@ import AppBar from "../AppBarComponents/AppBar.js";
 import MadeWithLove from "../MadeWithLove.js";
 import Modal from "react-modal";
 import { useCaraUser } from "../../Providers/caraUserProvider.js";
+import { Helmet } from "react-helmet";
 import time from "../../../assets/time.svg";
 import date from "../../../assets/date.svg";
 import "../AppBarComponents/AppBar.css";
@@ -57,6 +58,9 @@ function AppointmentHistory() {
   if (caraUser === null) {
     return (
       <div className="nullUserAppointmentHistory">
+        <Helmet>
+          <title>Cara | Appointment History</title>
+        </Helmet>
         <h5>Sign in to book appointments</h5> <br />
         <Link to="/">
           <div>Sign In</div>
@@ -66,6 +70,9 @@ function AppointmentHistory() {
   } else {
     return (
       <div>
+        <Helmet>
+          <title>Cara | Appointment History</title>
+        </Helmet>
         <AppBar />
         <div className="appointmentHistoryWrapper">{list}</div>
         <Modal

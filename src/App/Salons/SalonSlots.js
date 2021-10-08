@@ -10,6 +10,7 @@ import DatePicker from "react-horizontal-datepicker";
 import { BeatLoader } from "react-spinners";
 import Modal from "react-modal";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import back_arrow from "../../assets/back_arrow.svg";
 import trash_can from "../../assets/trash_can.svg";
 import chair from "../../assets/chair.svg";
@@ -220,6 +221,9 @@ function SalonSlots() {
 
   return (
     <div className="salonSlotsDiv">
+      <Helmet>
+        <title>Cara | Book Appointment</title>
+      </Helmet>
       <div onClick={history.goBack}>
         <img alt="back arrow" className="backArrow" src={back_arrow} />
       </div>
@@ -259,7 +263,7 @@ function SalonSlots() {
           {slots ? (
             onLoading ? (
               <div className="loader">
-                <BeatLoader loading color="#796AC8" size={14}/>
+                <BeatLoader loading color="#796AC8" size={14} />
               </div>
             ) : (
               slotsList
@@ -279,7 +283,7 @@ function SalonSlots() {
           <>
             <br />
             <div className="beatLoader">
-            <BeatLoader loading color="#796AC8" size={14} />
+              <BeatLoader loading color="#796AC8" size={14} />
             </div>
           </>
         ) : (
@@ -307,20 +311,23 @@ function SalonSlots() {
           overlayClassName="bookedModalOverlay"
         >
           <div className="bookedModalDiv">
-          <img alt="success" src={tick} />
-          <h5>Appointment<br />Booked</h5>
-          <br />
+            <img alt="success" src={tick} />
+            <h5>
+              Appointment
+              <br />
+              Booked
+            </h5>
+            <br />
 
-          <Link
-            to="/dashboard"
-            onClick={() => {
-              setServiceCart([]);
-              setIsBooked(false);
-            }}
-          ><div>
-            Go to Home Page
-            </div>
-          </Link>
+            <Link
+              to="/dashboard"
+              onClick={() => {
+                setServiceCart([]);
+                setIsBooked(false);
+              }}
+            >
+              <div>Go to Home Page</div>
+            </Link>
           </div>
         </Modal>
       ) : (

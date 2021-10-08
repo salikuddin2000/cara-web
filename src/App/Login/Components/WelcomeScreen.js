@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import firebase from "firebase";
 import fire from "../firebase_config.js";
 import { useGoogleUser } from "../../Providers/caraUserProvider.js";
+import { Helmet } from "react-helmet";
 import upper_leaf from "../../../assets/upper_leaf.png";
 import lower_leaf from "../../../assets/lower_leaf.png";
 import hair_girl from "../../../assets/hair_girl.png";
@@ -11,7 +12,7 @@ import google_logo from "../../../assets/google_logo.png";
 import "./WelcomeScreen.css";
 
 function WelcomeScreen(props) {
-  const {setIsLoadingSignIn} = useGoogleUser();
+  const { setIsLoadingSignIn } = useGoogleUser();
   const SignIn = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     fire
@@ -49,13 +50,21 @@ function WelcomeScreen(props) {
 
   return (
     <div className="welcomeScreen">
+      <Helmet>
+        <title>Cara | Sign In / Sign Up</title>
+      </Helmet>
       <img alt="backgroundImage" className="upperleaf" src={upper_leaf} />
       <img alt="backgroundImage" className="lowerleaf" src={lower_leaf} />
       <img alt="backgroundImage" className="hairgirl" src={hair_girl} />
       <img alt="backgroundImage" className="poleman" src={pole_man} />
       <h1>Cara</h1>
       <div className="loginAssets">
-        <button onClick={() => {SignIn();setIsLoadingSignIn(true)}}>
+        <button
+          onClick={() => {
+            SignIn();
+            setIsLoadingSignIn(true);
+          }}
+        >
           <div>
             <img alt="googleLogo" className="googleLogo" src={google_logo} />
             <span>Profile Sign In/Sign Up with Google</span>

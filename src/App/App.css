@@ -15,3 +15,9 @@ html {
 .beatLoader{
   margin-top: 35px;
 }
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  outline: none;
+}

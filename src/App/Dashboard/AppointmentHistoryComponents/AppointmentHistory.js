@@ -9,7 +9,7 @@ import { useCaraUser } from "../../Providers/caraUserProvider.js";
 import time from "../../../assets/time.svg";
 import date from "../../../assets/date.svg";
 import "../AppBarComponents/AppBar.css";
-import "./AppointmentHistory.css"
+import "./AppointmentHistory.css";
 
 function AppointmentHistory() {
   const { caraUser } = useCaraUser();
@@ -24,22 +24,26 @@ function AppointmentHistory() {
         <div key={appointment.appointment_id}>
           <h1>{appointment.salon.salon_name}</h1>
           <h5>
-            <img alt="date" src={date} /> : {appointment.date_of_appointment.split("T")[0]}
+            <img alt="date" src={date} /> :{" "}
+            {appointment.date_of_appointment.split("T")[0]}
             <br />
             <img alt="time" src={time} /> : {appointment.slots.start_time}
           </h5>
-          {appointment.appointment_status==="BOOKED"?
-          <button className="cancelButton"
-            onClick={() => {
-              setModalisOpen(true);
-              setCancelId(appointment.appointment_id);
-            }}
-          >
-            Cancel Appointment
-          </button>
-          :<h6>{(appointment.appointment_status.replace(/_/g," ")).toLowerCase()}</h6>
-         
-        }
+          {appointment.appointment_status === "BOOKED" ? (
+            <button
+              className="cancelButton"
+              onClick={() => {
+                setModalisOpen(true);
+                setCancelId(appointment.appointment_id);
+              }}
+            >
+              Cancel Appointment
+            </button>
+          ) : (
+            <h6>
+              {appointment.appointment_status.replace(/_/g, " ").toLowerCase()}
+            </h6>
+          )}
         </div>
       ))
     );
@@ -51,38 +55,44 @@ function AppointmentHistory() {
   // }, [modalIsOpen]);
 
   if (caraUser === null) {
-    return (<div className="nullUserAppointmentHistory"><h5>Sign in to book appointments</h5> <br />
-          <Link
-        to="/"
-      ><div>Sign In</div></Link>
-    </div>);
+    return (
+      <div className="nullUserAppointmentHistory">
+        <h5>Sign in to book appointments</h5> <br />
+        <Link to="/">
+          <div>Sign In</div>
+        </Link>
+      </div>
+    );
   } else {
     return (
       <div>
         <AppBar />
-        <div className="appointmentHistoryWrapper" >
-        {list}
-        </div>
+        <div className="appointmentHistoryWrapper">{list}</div>
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={() => {
             setModalisOpen(false);
           }}
-          className="zipcodeModal"
-          overlayClassName="zipcodeModalOverlay"
+          className="confirmModal"
+          overlayClassName="confirmModalOverlay"
         >
-          <span>Are you sure you want to cancel</span>
-          <br />
-          <button
-            onClick={() => {
-              // console.log("confirm cancel button clicked");
-              // console.log(cancelId);
-              cancelAppointment(cancelId);
-              setModalisOpen(false);
-            }}
-          >
-            confirm
-          </button>
+          <div className="confirmModalDiv">
+            <h5>
+              Are you sure
+              <br /> you want to cancel ?
+            </h5>
+            <br />
+            <button
+              onClick={() => {
+                // console.log("confirm cancel button clicked");
+                // console.log(cancelId);
+                cancelAppointment(cancelId);
+                setModalisOpen(false);
+              }}
+            >
+              Confirm
+            </button>
+          </div>
         </Modal>
         <MadeWithLove />
       </div>

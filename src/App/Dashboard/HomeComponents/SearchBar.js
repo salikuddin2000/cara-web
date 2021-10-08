@@ -27,7 +27,6 @@ function SearchBar() {
             salon.salon_id === undefined ? (
               ""
             ) : (
-              <div className="searchCard">
               <Link
                 to={{
                   pathname: `${match.url}/salon`,
@@ -36,6 +35,7 @@ function SearchBar() {
                   },
                 }}
               >
+              <div className="searchCard">
                 {/* <img
                   src={salon.salon_logo}
                   alt={`${salon.salon_name}`}
@@ -48,8 +48,8 @@ function SearchBar() {
                 <h6>{salon.address_line_one}</h6>
                 </div>
                 <span>{salon.salon_type}</span>
-              </Link>
               </div>
+              </Link>
             )}
           </div>
         ))

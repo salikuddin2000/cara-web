@@ -12,3 +12,6 @@ html {
   font-family: 'Signatra';
   src: local('Signatra DEMO'), url(../Signatra.otf) format('opentype');
 }
+.beatLoader{
+  margin-top: 35px;
+}

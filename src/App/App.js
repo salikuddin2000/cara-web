@@ -1,5 +1,6 @@
 import "./App.css";
 import { Route, Switch, withRouter } from "react-router-dom";
+import LandingPage from "./LandingPage/LandingPage";
 import Dashboard from "./Dashboard/DashboardRoutes.js";
 import CheckAuth from "./Login/CheckAuth";
 import { CaraUserProvider } from "./Providers/caraUserProvider";
@@ -29,8 +30,13 @@ function App() {
                       <SlotsProvider>
                         <BookingDetailsProvider>
                           <AppointmentHistoryProvider>
-                          <Route exact={true} path="/" component={CheckAuth} />
-                          <Route path="/dashboard/" component={Dashboard} />
+                            <Route exact={true} path="/" component={LandingPage} />
+                            <Route
+                              exact={true}
+                              path="/login"
+                              component={CheckAuth}
+                            />
+                            <Route path="/dashboard/" component={Dashboard} />
                           </AppointmentHistoryProvider>
                         </BookingDetailsProvider>
                       </SlotsProvider>

@@ -19,7 +19,7 @@ function Profile() {
         <Helmet>
           <title>Cara | Profile</title>
         </Helmet>
-        <Link to="/">
+        <Link to="/login">
           <div>Sign In</div>
         </Link>
       </div>

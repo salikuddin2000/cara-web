@@ -212,7 +212,7 @@ function Salon() {
                 <br />
 
                 <Link
-                  to="/"
+                  to="/login"
                   // onClick={() => {
                   //   setServiceCart([]);
                   //   setIsBooked(false);

@@ -101,7 +101,7 @@ export function CaraUserProvider({ children }) {
     setGoogleUser(null);
     setCaraUser(null);
     localStorage.removeItem("cara_user");
-    window.location = "/";
+    window.location = "/login";
   }
 
   return (

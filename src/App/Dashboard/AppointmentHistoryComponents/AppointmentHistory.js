@@ -62,7 +62,7 @@ function AppointmentHistory() {
           <title>Cara | Appointment History</title>
         </Helmet>
         <h5>Sign in to book appointments</h5> <br />
-        <Link to="/">
+        <Link to="/login">
           <div>Sign In</div>
         </Link>
       </div>

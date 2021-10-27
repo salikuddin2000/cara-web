@@ -6,6 +6,7 @@
     background-color: white;
     overflow: hidden;
     height: 12.3vw;
+    /* max-height: 50px; */
     justify-content: center;
     /* display: inline-block;  */
     margin:0;

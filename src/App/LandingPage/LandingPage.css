@@ -1,0 +1,82 @@
+.header{
+    margin:0;
+    width: 100%;
+    height:4rem;
+    background-color: white;
+    z-index: 1001;
+    top: 0;
+    /* box-shadow: 0 2px 15px -2px rgba(0,0,0,0.2); */
+    
+}
+.caraHeading{
+    float: left;
+    /* display: inline; */
+    margin:0;
+    font-size: 100px ; /*55*/
+    margin-top: 70px; /* change this*/
+    margin-left: 16px;
+    color: var(--primaryColor);
+    font-weight: 500;
+    font-family: 'Signatra', Tahoma, Geneva, Verdana, sans-serif;
+}
+.getStarted{
+    position: fixed;
+    right: 16px;
+    /* top: 0px;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto; */
+    text-align: center;
+    padding-top: .38rem;
+    padding-bottom: .5rem;
+    height:1.2rem;
+    font-weight: 600;
+    width:6.8rem;
+    /* font-size: 100px; */
+    border: 1.8px solid black;
+    margin-top: .9rem;
+    /* margin-right: 16px; */
+    /* background-color: white; */
+    border-radius: 50px;
+    display: inline;
+    float: right;
+    text-decoration: none;
+    color:black;
+    font-size: 16px;
+}
+.verticalSlickDiv{
+    /* background-color: blue; */
+    text-align: left !important;
+    margin-left: 16px;
+    margin-top: 150px;
+    margin-right: 16px;
+    margin-bottom: 0;
+    /* height: 50px; */
+    /* width:500px; */
+    /* vertical-align: middle; */
+    overflow: hidden;
+}
+.verticalSlickDiv h3{
+    margin:0 0 5px 0;
+    /* vertical-align: middle; */
+    font-size: 24px;
+}
+
+.answerHeading {
+    font-size: 16px;
+    color: grey;
+    font-weight: 500;
+    text-align: left;
+    margin: 6px 0 0 16px;
+}
+
+.cityState {
+    margin: 0 0 0 16px;
+    text-align: left;
+    font-size: 26px;
+    color: #4e4e4e;
+}
+
+.temp {
+    height: 1000px;
+}

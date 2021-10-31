@@ -1,0 +1,35 @@
+<svg id="Component_1_1" data-name="Component 1 – 1" xmlns="http://www.w3.org/2000/svg" width="476.626" height="369.204" viewBox="0 0 476.626 369.204">
+  <path id="Path_339" data-name="Path 339" d="M7.688,0H468.938c4.246,0,7.687,3.173,7.687,7.086V362.117c0,3.914-3.442,7.086-7.687,7.086H7.688C3.442,369.2,0,366.031,0,362.117V7.086C0,3.173,3.442,0,7.688,0Z" fill="#f5f5f5"/>
+  <g id="Rectangle_142" data-name="Rectangle 142" transform="translate(24.313 33.757)" fill="#fff" stroke="rgba(0,0,0,0.1)" stroke-width="1">
+    <rect width="428" height="38" rx="5" stroke="none"/>
+    <rect x="0.5" y="0.5" width="427" height="37" rx="4.5" fill="none"/>
+  </g>
+  <g id="Rectangle_143" data-name="Rectangle 143" transform="translate(24.313 158.757)" fill="#fff" stroke="rgba(0,0,0,0.1)" stroke-width="1">
+    <rect width="428" height="38" rx="5" stroke="none"/>
+    <rect x="0.5" y="0.5" width="427" height="37" rx="4.5" fill="none"/>
+  </g>
+  <text id="Face_treatments" data-name="Face treatments" transform="translate(39.313 186.757)" font-size="20" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">Face treatments</tspan></text>
+  <text id="Women_s_Haircut" data-name="Women&apos;s Haircut" transform="translate(39.313 61.757)" font-size="20" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">Women&apos;s Haircut</tspan></text>
+  <text id="Trimming" transform="translate(39.313 137.757)" font-size="18" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Trimming</tspan></text>
+  <text id="Facial" transform="translate(39.313 265.757)" font-size="18" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Facial</tspan></text>
+  <text id="Step-cut" transform="translate(39.313 103.757)" font-size="18" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Step-cut</tspan></text>
+  <text id="Acne" transform="translate(39.313 231.757)" font-size="18" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Acne</tspan></text>
+  <g id="Icon_feather-plus" data-name="Icon feather-plus" transform="translate(410.313 121.216)">
+    <path id="Path_5" data-name="Path 5" d="M18,7.5v20" transform="translate(-8 -7.5)" fill="none" stroke="rgba(0,0,0,0.7)" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+    <path id="Path_6" data-name="Path 6" d="M7.5,18h20" transform="translate(-7.5 -8)" fill="none" stroke="rgba(0,0,0,0.7)" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+  </g>
+  <g id="Icon_feather-plus-2" data-name="Icon feather-plus" transform="translate(410.313 249.216)">
+    <path id="Path_5-2" data-name="Path 5" d="M18,7.5v20" transform="translate(-8 -7.5)" fill="none" stroke="rgba(0,0,0,0.7)" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+    <path id="Path_6-2" data-name="Path 6" d="M7.5,18h20" transform="translate(-7.5 -8)" fill="none" stroke="rgba(0,0,0,0.7)" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+  </g>
+  <g id="Icon_feather-plus-3" data-name="Icon feather-plus" transform="translate(410.313 87.216)">
+    <path id="Path_5-3" data-name="Path 5" d="M18,7.5v20" transform="translate(-8 -7.5)" fill="none" stroke="rgba(0,0,0,0.7)" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+    <path id="Path_6-3" data-name="Path 6" d="M7.5,18h20" transform="translate(-7.5 -8)" fill="none" stroke="rgba(0,0,0,0.7)" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+  </g>
+  <path id="trash_can" d="M14.778,2a1.675,1.675,0,0,0-1.667,1.667V4.778H8.752a.5.5,0,0,0-.175,0H7.556a.556.556,0,1,0,0,1.111h.556v20a1.675,1.675,0,0,0,1.667,1.667H24.222a1.675,1.675,0,0,0,1.667-1.667v-20h.556a.556.556,0,1,0,0-1.111H25.426a.556.556,0,0,0-.181,0H20.889V3.667A1.675,1.675,0,0,0,19.222,2Zm0,1.111h4.444a.554.554,0,0,1,.556.556V4.778H14.222V3.667A.554.554,0,0,1,14.778,3.111ZM9.222,5.889h4.351a.556.556,0,0,0,.181,0H20.24a.556.556,0,0,0,.181,0h4.357v20a.554.554,0,0,1-.556.556H9.778a.554.554,0,0,1-.556-.556Zm4.436,2.77a.556.556,0,0,0-.547.563V23.111a.556.556,0,1,0,1.111,0V9.222a.556.556,0,0,0-.564-.563Zm3.333,0a.556.556,0,0,0-.547.563V23.111a.556.556,0,1,0,1.111,0V9.222a.556.556,0,0,0-.564-.563Zm3.333,0a.556.556,0,0,0-.547.563V23.111a.556.556,0,0,0,.556.556c.307,0,.393-.249.393-.556l.163-13.889a.556.556,0,0,0-.564-.563Z" transform="translate(403.313 205.216)" fill="#c86a6a"/>
+  <g id="Rectangle_144" data-name="Rectangle 144" transform="translate(171.313 293.757)" fill="#d7d1f6" stroke="#d7d1f6" stroke-width="1">
+    <rect width="135" height="49" rx="24.5" stroke="none"/>
+    <rect x="0.5" y="0.5" width="134" height="48" rx="24" fill="none"/>
+  </g>
+  <text id="Cart" transform="translate(213.313 326.757)" font-size="24" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="0.02em"><tspan x="0" y="0">Cart</tspan></text>
+</svg>

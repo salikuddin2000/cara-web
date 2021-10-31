@@ -1,0 +1,67 @@
+<svg id="Component_4_1" data-name="Component 4 – 1" xmlns="http://www.w3.org/2000/svg" width="372.125" height="499.375" viewBox="0 0 372.125 499.375">
+  <path id="Path_344" data-name="Path 344" d="M6,0H366.123c3.315,0,6,4.242,6,9.475V484.15c0,5.233-2.687,9.475-6,9.475H6c-3.315,0-6-4.242-6-9.475V9.475C0,4.242,2.687,0,6,0Z" fill="#f5f5f5"/>
+  <text id="Cart" transform="translate(162 38.125)" font-size="24" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="0.02em"><tspan x="0" y="0">Cart</tspan></text>
+  <g id="Ellipse_64" data-name="Ellipse 64" transform="translate(70 294.125)" fill="none" stroke="#796ac8" stroke-width="2">
+    <circle cx="23" cy="23" r="23" stroke="none"/>
+    <circle cx="23" cy="23" r="22" fill="none"/>
+  </g>
+  <g id="Ellipse_62" data-name="Ellipse 62" transform="translate(316 300.125)" fill="#796ac8" stroke="#707070" stroke-width="1">
+    <ellipse cx="19" cy="18.5" rx="19" ry="18.5" stroke="none"/>
+    <ellipse cx="19" cy="18.5" rx="18.5" ry="18" fill="none"/>
+  </g>
+  <g id="Ellipse_63" data-name="Ellipse 63" transform="translate(27 300.125)" fill="#796ac8" stroke="#707070" stroke-width="1">
+    <ellipse cx="19" cy="18.5" rx="19" ry="18.5" stroke="none"/>
+    <ellipse cx="19" cy="18.5" rx="18.5" ry="18" fill="none"/>
+  </g>
+  <path id="back_arrow" d="M7.423,48.846l-.644.61a.721.721,0,0,1-.984,0L.155,44.117a.633.633,0,0,1,0-.932l5.64-5.342a.721.721,0,0,1,.984,0l.644.61a.636.636,0,0,1-.012.943l-3.5,3.155h8.339a.677.677,0,0,1,.7.659v.879a.677.677,0,0,1-.7.659H3.915l3.5,3.155A.632.632,0,0,1,7.423,48.846Z" transform="translate(20.05 -12.525)"/>
+  <text id="Acne" transform="translate(23 68.125)" font-size="15" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="0.02em"><tspan x="0" y="16">Acne</tspan></text>
+  <g id="Rectangle_148" data-name="Rectangle 148" transform="translate(51 375.125)" fill="none" stroke="#796ac8" stroke-width="3">
+    <rect width="74" height="29" rx="14.5" stroke="none"/>
+    <rect x="1.5" y="1.5" width="71" height="26" rx="13" fill="none"/>
+  </g>
+  <g id="Rectangle_149" data-name="Rectangle 149" transform="translate(141 375.125)" fill="none" stroke="#796ac8" stroke-width="3">
+    <rect width="74" height="29" rx="14.5" stroke="none"/>
+    <rect x="1.5" y="1.5" width="71" height="26" rx="13" fill="none"/>
+  </g>
+  <g id="Rectangle_150" data-name="Rectangle 150" transform="translate(232 375.125)" fill="none" stroke="#796ac8" stroke-width="3">
+    <rect width="74" height="29" rx="14.5" stroke="none"/>
+    <rect x="1.5" y="1.5" width="71" height="26" rx="13" fill="none"/>
+  </g>
+  <text id="Microdermabrasion" transform="translate(23 124.125)" font-size="15" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="0.02em"><tspan x="0" y="16">Microdermabrasion</tspan></text>
+  <text id="_21" data-name="21" transform="translate(83 311.125)" fill="#796ac8" font-size="17" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="0.02em"><tspan x="0" y="18">21</tspan></text>
+  <text id="Thu" transform="translate(84 299.125)" fill="#796ac8" font-size="10" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="0.02em"><tspan x="0" y="11">Thu</tspan></text>
+  <text id="Fri" transform="translate(136 297.125)" font-size="10" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="0.02em"><tspan x="0" y="11">Fri</tspan></text>
+  <text id="Sat" transform="translate(182 297.125)" font-size="10" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="0.02em"><tspan x="0" y="11">Sat</tspan></text>
+  <text id="Sun" transform="translate(227 297.125)" font-size="10" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="0.02em"><tspan x="0" y="11">Sun</tspan></text>
+  <text id="Mon" transform="translate(272 297.125)" font-size="10" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="0.02em"><tspan x="0" y="11">Mon</tspan></text>
+  <text id="_23" data-name="23" transform="translate(179 309.125)" font-size="17" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="0.02em"><tspan x="0" y="18">23</tspan></text>
+  <text id="_22" data-name="22" transform="translate(133 309.125)" font-size="17" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="0.02em"><tspan x="0" y="18">22</tspan></text>
+  <text id="_10:30" data-name="10:30" transform="translate(69 380.125)" fill="#796ac8" font-size="14" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="0.02em"><tspan x="0" y="15">10:30</tspan></text>
+  <text id="_11:00" data-name="11:00" transform="translate(159 380.125)" fill="#796ac8" font-size="14" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="0.02em"><tspan x="0" y="15">11:00</tspan></text>
+  <text id="_12:00" data-name="12:00" transform="translate(250 380.125)" fill="#796ac8" font-size="14" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="0.02em"><tspan x="0" y="15">12:00</tspan></text>
+  <text id="_24" data-name="24" transform="translate(227 309.125)" font-size="17" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="0.02em"><tspan x="0" y="18">24</tspan></text>
+  <text id="_25" data-name="25" transform="translate(274 309.125)" font-size="17" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="0.02em"><tspan x="0" y="18">25</tspan></text>
+  <text id="_400" data-name="₹400" transform="translate(23 91.125)" font-size="10" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="0.02em"><tspan x="0" y="11">₹</tspan><tspan y="11" font-family="NexaDemo-Bold, Nexa Demo">400</tspan></text>
+  <text id="_1" data-name="1" transform="translate(108 228.125)" font-size="16" font-family="NexaDemo-Light, Nexa Demo" font-weight="300" letter-spacing="0.02em"><tspan x="0" y="16">1</tspan></text>
+  <text id="_2" data-name="2" transform="translate(185 229.125)" font-size="16" font-family="NexaDemo-Light, Nexa Demo" font-weight="300" letter-spacing="0.02em"><tspan x="0" y="16">2</tspan></text>
+  <g id="Rectangle_151" data-name="Rectangle 151" transform="translate(0 450.375)" fill="#fff" stroke="#fff" stroke-width="1">
+    <path d="M25,0H347a25,25,0,0,1,25,25V49a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V25A25,25,0,0,1,25,0Z" stroke="none"/>
+    <path d="M25,.5H347A24.5,24.5,0,0,1,371.5,25V48a.5.5,0,0,1-.5.5H1A.5.5,0,0,1,.5,48V25A24.5,24.5,0,0,1,25,.5Z" fill="none"/>
+  </g>
+  <text id="_3" data-name="3" transform="translate(265 229.125)" font-size="16" font-family="NexaDemo-Light, Nexa Demo" font-weight="300" letter-spacing="0.02em"><tspan x="0" y="16">3</tspan></text>
+  <text id="_410" data-name="₹410" transform="translate(23 147.125)" font-size="10" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="0.02em"><tspan x="0" y="11">₹</tspan><tspan y="11" font-family="NexaDemo-Bold, Nexa Demo">410</tspan></text>
+  <text id="Total_:" data-name="Total :" transform="translate(151 464.125)" font-size="12" font-family="NexaDemo-Bold, Nexa Demo" font-weight="700" letter-spacing="0.02em"><tspan x="0" y="12">Total :</tspan></text>
+  <text id="_810" data-name="₹810" transform="translate(189 463.125)" font-size="12" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="0.02em"><tspan x="0" y="13">₹</tspan><tspan y="13" font-family="NexaDemo-Bold, Nexa Demo">810</tspan></text>
+  <path id="chair" d="M30.815,25a3.351,3.351,0,0,1-2.259-.841,2.739,2.739,0,0,1-.929-2.044V12.5a5.157,5.157,0,0,1,1.494-3.03q1.494-1.776,2.756-1.776a1.387,1.387,0,0,1,1.08.511,3.077,3.077,0,0,1,.645,1.32,14.478,14.478,0,0,1,.3,1.547A10.7,10.7,0,0,1,34,12.5v9.613a2.739,2.739,0,0,1-.929,2.044A3.351,3.351,0,0,1,30.811,25ZM23.376,11.538H10.623a2.139,2.139,0,0,1-1.509-.566A1.783,1.783,0,0,1,8.5,9.613L6.375,1.923A1.773,1.773,0,0,1,6.99.556,2.164,2.164,0,0,1,8.5,0h17A2.153,2.153,0,0,1,27,.571a1.767,1.767,0,0,1,.63,1.352L25.5,9.613a2.06,2.06,0,0,1-2.125,1.923Zm-17,10.577a2.655,2.655,0,0,1-.924,2.044,3.242,3.242,0,0,1-2.259.836,3.253,3.253,0,0,1-2.269-.837A2.652,2.652,0,0,1,0,22.115V12.5a12.72,12.72,0,0,1,.083-1.426,10.766,10.766,0,0,1,.3-1.552A3.213,3.213,0,0,1,1.045,8.2a1.387,1.387,0,0,1,1.08-.51q1.262,0,2.756,1.776A5.156,5.156,0,0,1,6.375,12.5Zm4.248-8.654H23.376a2.186,2.186,0,0,1,1.494.556,1.736,1.736,0,0,1,.63,1.352,2.058,2.058,0,0,1-2.125,1.938H10.623a2.138,2.138,0,0,1-1.512-.571,1.813,1.813,0,0,1,.006-2.726,2.217,2.217,0,0,1,1.506-.55Zm0,5.769H23.376a2.186,2.186,0,0,1,1.494.556,1.751,1.751,0,0,1,.63,1.368v1.923A2.06,2.06,0,0,1,23.376,25H10.623a2.138,2.138,0,0,1-1.512-.571A1.783,1.783,0,0,1,8.5,23.077V21.154a1.808,1.808,0,0,1,.612-1.371,2.216,2.216,0,0,1,1.514-.557Z" transform="translate(173.278 200.125)" fill="none" stroke="#796ac8" stroke-width="1"/>
+  <path id="chair-2" data-name="chair" d="M30.815,25a3.351,3.351,0,0,1-2.259-.841,2.739,2.739,0,0,1-.929-2.044V12.5a5.157,5.157,0,0,1,1.494-3.03q1.494-1.776,2.756-1.776a1.387,1.387,0,0,1,1.08.511,3.077,3.077,0,0,1,.645,1.32,14.478,14.478,0,0,1,.3,1.547A10.7,10.7,0,0,1,34,12.5v9.613a2.739,2.739,0,0,1-.929,2.044A3.351,3.351,0,0,1,30.811,25ZM23.376,11.538H10.623a2.139,2.139,0,0,1-1.509-.566A1.783,1.783,0,0,1,8.5,9.613L6.375,1.923A1.773,1.773,0,0,1,6.99.556,2.164,2.164,0,0,1,8.5,0h17A2.153,2.153,0,0,1,27,.571a1.767,1.767,0,0,1,.63,1.352L25.5,9.613a2.06,2.06,0,0,1-2.125,1.923Zm-17,10.577a2.655,2.655,0,0,1-.924,2.044,3.242,3.242,0,0,1-2.259.836,3.253,3.253,0,0,1-2.269-.837A2.652,2.652,0,0,1,0,22.115V12.5a12.72,12.72,0,0,1,.083-1.426,10.766,10.766,0,0,1,.3-1.552A3.213,3.213,0,0,1,1.045,8.2a1.387,1.387,0,0,1,1.08-.51q1.262,0,2.756,1.776A5.156,5.156,0,0,1,6.375,12.5Zm4.248-8.654H23.376a2.186,2.186,0,0,1,1.494.556,1.736,1.736,0,0,1,.63,1.352,2.058,2.058,0,0,1-2.125,1.938H10.623a2.138,2.138,0,0,1-1.512-.571,1.813,1.813,0,0,1,.006-2.726,2.217,2.217,0,0,1,1.506-.55Zm0,5.769H23.376a2.186,2.186,0,0,1,1.494.556,1.751,1.751,0,0,1,.63,1.368v1.923A2.06,2.06,0,0,1,23.376,25H10.623a2.138,2.138,0,0,1-1.512-.571A1.783,1.783,0,0,1,8.5,23.077V21.154a1.808,1.808,0,0,1,.612-1.371,2.216,2.216,0,0,1,1.514-.557Z" transform="translate(253 200.125)" fill="none" stroke="#796ac8" stroke-width="1"/>
+  <path id="selected_chair" d="M30.815,25a3.351,3.351,0,0,1-2.259-.841,2.739,2.739,0,0,1-.929-2.044V12.5a5.157,5.157,0,0,1,1.494-3.03q1.494-1.776,2.756-1.776a1.387,1.387,0,0,1,1.08.511,3.077,3.077,0,0,1,.645,1.32,14.477,14.477,0,0,1,.3,1.547A10.7,10.7,0,0,1,34,12.5v9.613a2.739,2.739,0,0,1-.929,2.044A3.351,3.351,0,0,1,30.811,25ZM23.376,11.538H10.623a2.139,2.139,0,0,1-1.509-.566A1.783,1.783,0,0,1,8.5,9.613L6.375,1.923A1.773,1.773,0,0,1,6.99.556,2.164,2.164,0,0,1,8.5,0h17A2.153,2.153,0,0,1,27,.571a1.767,1.767,0,0,1,.63,1.352L25.5,9.613a2.06,2.06,0,0,1-2.125,1.923Zm-17,10.577a2.655,2.655,0,0,1-.924,2.044,3.242,3.242,0,0,1-2.259.836,3.253,3.253,0,0,1-2.269-.837A2.652,2.652,0,0,1,0,22.115V12.5a12.72,12.72,0,0,1,.083-1.426,10.766,10.766,0,0,1,.3-1.552A3.213,3.213,0,0,1,1.045,8.2a1.387,1.387,0,0,1,1.08-.51q1.262,0,2.756,1.776A5.157,5.157,0,0,1,6.375,12.5Zm4.248-8.654H23.376a2.186,2.186,0,0,1,1.494.556,1.736,1.736,0,0,1,.63,1.352,2.058,2.058,0,0,1-2.125,1.938H10.623a2.138,2.138,0,0,1-1.512-.571,1.813,1.813,0,0,1,.006-2.726,2.217,2.217,0,0,1,1.506-.55Zm0,5.769H23.376a2.186,2.186,0,0,1,1.494.556,1.751,1.751,0,0,1,.63,1.368v1.923A2.06,2.06,0,0,1,23.376,25H10.623a2.138,2.138,0,0,1-1.512-.571A1.783,1.783,0,0,1,8.5,23.077V21.154a1.808,1.808,0,0,1,.612-1.371,2.216,2.216,0,0,1,1.514-.557Z" transform="translate(94 200.125)" fill="#796ac8"/>
+  <g id="arrow" transform="translate(321.5 303.001)">
+    <path id="Path_342" data-name="Path 342" d="M22.72,10.341a.743.743,0,0,1,1.052,0L28.23,14.8a.743.743,0,0,1,0,1.052l-4.458,4.458a.744.744,0,1,1-1.052-1.052l3.932-3.932L22.719,11.4a.743.743,0,0,1,0-1.052Z" transform="translate(-6.115)" fill="#fff" fill-rule="evenodd"/>
+    <path id="Path_343" data-name="Path 343" d="M4.5,17.614a.743.743,0,0,1,.743-.743h15.6a.743.743,0,0,1,0,1.486H5.243A.743.743,0,0,1,4.5,17.614Z" transform="translate(0 -2.294)" fill="#fff" fill-rule="evenodd"/>
+  </g>
+  <g id="arrow-2" data-name="arrow" transform="translate(58.5 333.677) rotate(180)">
+    <path id="Path_342-2" data-name="Path 342" d="M22.72,10.341a.743.743,0,0,1,1.052,0L28.23,14.8a.743.743,0,0,1,0,1.052l-4.458,4.458a.744.744,0,1,1-1.052-1.052l3.932-3.932L22.719,11.4a.743.743,0,0,1,0-1.052Z" transform="translate(-6.115)" fill="#fff" fill-rule="evenodd"/>
+    <path id="Path_343-2" data-name="Path 343" d="M4.5,17.614a.743.743,0,0,1,.743-.743h15.6a.743.743,0,0,1,0,1.486H5.243A.743.743,0,0,1,4.5,17.614Z" transform="translate(0 -2.294)" fill="#fff" fill-rule="evenodd"/>
+  </g>
+  <text id="October" transform="translate(29 272.125)" fill="#796ac8" font-size="12" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="0.02em"><tspan x="0" y="13">October</tspan></text>
+</svg>

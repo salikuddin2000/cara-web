@@ -22,13 +22,14 @@ function Banners() {
             setBannerList(bannerList.splice(0, bannerList.length))
           ) : (
             <div key={index}>
+              {ad.salon_id !== undefined?
               <Link
-                to={{
-                  pathname: `${match.url}/salon`,
-                  state: {
-                    id: ad.salon_id,
-                  },
-                }}
+              to={{
+                pathname: `${match.url}/salon`,
+                state: {
+                  id: ad.salon_id,
+                },
+              }}
               >
                 <img className="carouselImage"
                   src={ad.banner_url}
@@ -37,6 +38,14 @@ function Banners() {
                   width="100"
                 />
               </Link>
+              :
+              <img className="carouselImage"
+                src={ad.banner_url}
+                alt={`${ad.banner_position_number}`}
+                height="50"
+                width="100"
+              />
+              }
             </div>
           )
         )

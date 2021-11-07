@@ -19,7 +19,7 @@ function LandingPage() {
   const { caraUser } = useCaraUser();
   const [validity, setValidity] = useState();
   const [modalIsOpen, setModalIsOpen] = useState();
-  var d1 = new Date("2021-11-24"); //yyyy-mm-dd
+  var d1 = new Date("2021-09-24"); //yyyy-mm-dd
   var today = new Date();
   function assignValidity() {
     if (today < d1) {

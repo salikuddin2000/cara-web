@@ -249,7 +249,7 @@ function SalonSlots() {
         <div className="datePicker">
           <DatePicker
             getSelectedDay={selectedDay}
-            endDate={1000}
+            endDate={31}
             selectDate={new Date(selectedDate)}
             labelFormat={"MMMM"}
             color={"#796AC8"}

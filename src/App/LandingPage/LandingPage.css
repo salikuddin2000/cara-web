@@ -7,7 +7,7 @@ header{
     /* position: sticky; */
     display: block;
     position: fixed;
-    z-index: 1;
+    z-index: 0;
     background-color: #F5F5F5;
 }
 
@@ -70,7 +70,7 @@ header{
     top: 32px;
 } */
 .contentWrapper{
-
+    z-index: -1;
     width: 100vw;
     position: absolute;
     top:180px;

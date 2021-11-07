@@ -6,8 +6,8 @@ import { useCaraUser } from "../Providers/caraUserProvider.js";
 import salonView from "../../assets/salon_view.svg";
 import salonGirl from "../../assets/salon_girl.svg";
 import salonInterior from "../../assets/salon_interior.svg";
-import android from "../../assets/android.svg";
-import apple from "../../assets/apple.svg";
+// import android from "../../assets/android.svg";
+// import apple from "../../assets/apple.svg";
 import search_salons from "../../assets/search_salons.svg";
 import services from "../../assets/services.svg";
 import book_appointment from "../../assets/book_appointment.svg";
@@ -19,7 +19,7 @@ function LandingPage() {
   const { caraUser } = useCaraUser();
   const [validity, setValidity] = useState();
   const [modalIsOpen, setModalIsOpen] = useState();
-  var d1 = new Date("2021-09-24"); //yyyy-mm-dd
+  var d1 = new Date("2021-11-24"); //yyyy-mm-dd
   var today = new Date();
   function assignValidity() {
     if (today < d1) {
@@ -64,7 +64,7 @@ function LandingPage() {
       <div className="landingPage">
         <div className="header" id="header">
           <header className="headerBorder">
-            <h1 className="nonShrunk">Cara</h1>
+            <a href="#header"><h1 className="nonShrunk">Cara</h1></a>
             {validity === undefined || validity === true ? (
               <>
                 <Link
@@ -81,21 +81,23 @@ function LandingPage() {
                 Get Started
               </Link>
             )}
-          </header>
-        </div>
-        {/* <img className="upperLeaf" src={upperLeaf} alt="upper leaf" /> */}
-        <section className="contentWrapper">
           <Modal
             isOpen={modalIsOpen}
+            className="startModal"
+            overlayClassName="startModalOverlay"
             onRequestClose={() => {
               setModalIsOpen(false);
             }}
           >
-            <div className="confirmModalDiv">
+            <div className="modalDiv">
               <h5>Our App will release soon</h5>
               <br />
             </div>
           </Modal>
+          </header>
+        </div>
+        {/* <img className="upperLeaf" src={upperLeaf} alt="upper leaf" /> */}
+        <section className="contentWrapper">
           <div id="sliderWrapper">
             <Slider {...settings}>
               <div>
@@ -105,7 +107,7 @@ function LandingPage() {
                 <h3>Interview Tomorrow?</h3>
               </div>
               <div>
-                <h3>worried about ambiance?</h3>
+                <h3>Worried about ambiance?</h3>
               </div>
               <div>
                 <h3>Want to impress someone?</h3>
@@ -120,29 +122,30 @@ function LandingPage() {
           {/* <br /> */}
           <img className="salonView" src={salonView} alt="waiting line" />
           <h5 className="waitText">Wait No More!</h5>
+          <div className="ellipse"></div>
           <p>
-            CARA is an appointment BOOKING app for Salons & Spas. Explore and
-            choose the BEST service & time for YOU.
+            <b>Cara</b> is an appointment booking App for Salons & Spas. Explore and
+            choose the best service & time for you.
           </p>
           <h5 className="nowText">Now with Cara</h5>
           <ul>
             <li>- Save time scheduling appointments. </li>
             <li>- Select time as per your convenience.</li>
             <li>- No more waiting in Salons for Haircuts.</li>
-            <li>- Search and compare salons & spas for you</li>.
+            <li>- Search and compare salons & spas for you.</li>
             <li>- Know all information for your service.</li>
           </ul>
           <img className="salonGirl" src={salonGirl} alt="girl" />
           <h5>3 steps for you</h5>
           <ol>
-            <li>{"1) Install cara app and choose your salon"}</li>
+            <li>1) Install cara app and choose your salon</li>
             <section>
-              <div className="android">
+              {/* <div className="android">
                 Android <img src={android} alt="android" />
               </div>
               <div className="apple">
                 IOS <img src={apple} alt="android" />
-              </div>
+              </div> */}
               <img
                 className="search_salons"
                 src={search_salons}
@@ -150,25 +153,25 @@ function LandingPage() {
               />
             </section>
             <li className="secondStep">
-              {"2) Select Services"}
-              <img className="services" src={services} alt="select services" />
+              2) Select Services
             </li>
+              <img className="services" src={services} alt="select services" />
             <li>
-              {"3) Select artist & time and"}
+              3) Select artist & time and
               <br />
-              {"Click on Book Appointment"}
+              Click on Book Appointment
+            </li>
               <img
                 className="book_appointment"
                 src={book_appointment}
                 alt="book appointment"
               />
-            </li>
           </ol>
           <p>
-            That's it.. just reach the salon at selected time. Take a 5 min
-            break then get straight to your service.
+            <b>That's it..</b>
           </p>
           <img className="salonInterior" src={salonInterior} alt="salon" />
+          <br />
           {validity === undefined || validity === true ? (
             <>
               <Link

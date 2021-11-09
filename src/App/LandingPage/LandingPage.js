@@ -3,14 +3,23 @@ import { Link, Redirect } from "react-router-dom";
 import Modal from "react-modal";
 import Slider from "react-slick";
 import { useCaraUser } from "../Providers/caraUserProvider.js";
+import coming_soon from "../../assets/coming_soon.svg";
 import salonView from "../../assets/salon_view.svg";
 import salonGirl from "../../assets/salon_girl.svg";
 import salonInterior from "../../assets/salon_interior.svg";
 // import android from "../../assets/android.svg";
 // import apple from "../../assets/apple.svg";
-import search_salons from "../../assets/search_salons.svg";
+import search_salons from "../../assets/search_salons.png";
 import services from "../../assets/services.svg";
 import book_appointment from "../../assets/book_appointment.svg";
+import schedule_appointments from "../../assets/schedule_appointments.svg";
+import no_wait from "../../assets/no_wait.svg";
+import search_compare from "../../assets/search_compare.svg";
+import know_salons from "../../assets/know_salons.svg";
+import heart from "../../assets/heart.svg"; 
+import instagram from "../../assets/instagram.svg"; 
+import facebook from "../../assets/facebook.svg"; 
+import linkedin from "../../assets/linkedin.svg"; 
 // import upperLeaf from "../../assets/upper_leaf.svg"
 import $ from "jquery";
 import "./LandingPage.css";
@@ -19,7 +28,7 @@ function LandingPage() {
   const { caraUser } = useCaraUser();
   const [validity, setValidity] = useState();
   const [modalIsOpen, setModalIsOpen] = useState();
-  var d1 = new Date("2021-09-24"); //yyyy-mm-dd
+  var d1 = new Date("2021-11-24"); //yyyy-mm-dd
   var today = new Date();
   function assignValidity() {
     if (today < d1) {
@@ -64,7 +73,9 @@ function LandingPage() {
       <div className="landingPage">
         <div className="header" id="header">
           <header className="headerBorder">
-            <a href="#header"><h1 className="nonShrunk">Cara</h1></a>
+            <a href="#header">
+              <h1 className="nonShrunk">Cara</h1>
+            </a>
             {validity === undefined || validity === true ? (
               <>
                 <Link
@@ -81,19 +92,20 @@ function LandingPage() {
                 Get Started
               </Link>
             )}
-          <Modal
-            isOpen={modalIsOpen}
-            className="startModal"
-            overlayClassName="startModalOverlay"
-            onRequestClose={() => {
-              setModalIsOpen(false);
-            }}
-          >
-            <div className="modalDiv">
-              <h5>Our App will release soon</h5>
-              <br />
-            </div>
-          </Modal>
+            <Modal
+              isOpen={modalIsOpen}
+              className="startModal"
+              overlayClassName="startModalOverlay"
+              onRequestClose={() => {
+                setModalIsOpen(false);
+              }}
+            >
+              <div className="startModalDiv">
+                <img src={coming_soon} alt="coming_soon" />
+                <h5>Coming soon</h5>
+                <br />
+              </div>
+            </Modal>
           </header>
         </div>
         {/* <img className="upperLeaf" src={upperLeaf} alt="upper leaf" /> */}
@@ -121,24 +133,34 @@ function LandingPage() {
           <h1 className="cityState">Bhopal, MP</h1>
           {/* <br /> */}
           <img className="salonView" src={salonView} alt="waiting line" />
-          <h5 className="waitText">Wait No More!</h5>
-          <div className="ellipse"></div>
+          {/* <h5 className="waitText">Wait No More!</h5> */}
           <p>
-            <b>Cara</b> is an appointment booking App for Salons & Spas. Explore and
-            choose the best service & time for you.
+            <b className="caraInPara">Cara</b> is an online appointment booking
+            app for salons & spas.
           </p>
-          <h5 className="nowText">Now with Cara</h5>
-          <ul>
-            <li>- Save time scheduling appointments. </li>
-            <li>- Select time as per your convenience.</li>
-            <li>- No more waiting in Salons for Haircuts.</li>
-            <li>- Search and compare salons & spas for you.</li>
-            <li>- Know all information for your service.</li>
-          </ul>
+          <div className="ellipse">
+            <h5 className="nowText">BENEFITS</h5>
+            <div className="card">
+              <img src={schedule_appointments} alt="benefits" /><br />
+              <span>Schedule Appointments</span>
+            </div>
+            <div className="card">
+              <img src={no_wait} alt="benefits" /><br />
+              <span>No more wait for haircuts</span>
+            </div>
+            <div className="card">
+              <img src={search_compare} alt="benefits" /><br />
+              <span>Search and compare salons</span>
+            </div>
+            <div className="card">
+              <img src={know_salons} alt="benefits" /><br />
+              <span>Know all about salons</span>
+            </div>
+          </div>
           <img className="salonGirl" src={salonGirl} alt="girl" />
-          <h5>3 steps for you</h5>
+          <h5>3 Easy Steps</h5>
           <ol>
-            <li>1) Install cara app and choose your salon</li>
+            <li>1) Choose your Salon</li>
             <section>
               {/* <div className="android">
                 Android <img src={android} alt="android" />
@@ -152,20 +174,18 @@ function LandingPage() {
                 alt="salon list"
               />
             </section>
-            <li className="secondStep">
-              2) Select Services
-            </li>
-              <img className="services" src={services} alt="select services" />
+            <li className="secondStep">2) Select Services</li>
+            <img className="services" src={services} alt="select services" />
             <li>
               3) Select artist & time and
               <br />
               Click on Book Appointment
             </li>
-              <img
-                className="book_appointment"
-                src={book_appointment}
-                alt="book appointment"
-              />
+            <img
+              className="book_appointment"
+              src={book_appointment}
+              alt="book appointment"
+            />
           </ol>
           <p>
             <b>That's it..</b>
@@ -192,6 +212,16 @@ function LandingPage() {
           <br />
           <br />
           {/* <div className="temp"></div> */}
+          <div className="footer">
+          <h6 className="landingPageMadeWithLove">Made with <img className="heartStyle" alt="heart" src={heart} /><br />For all fashionable folks.</h6>
+          <span><a href = "support@carasalons.in">support@carasalons.in</a> | <a href="tel:+919589198950">+91 95891 98950</a></span>
+          <br />
+          <a href="https://www.instagram.com/carasalons"><img className="instagramStyle" src={instagram} alt="instagram link"/></a>
+          <a href="https://www.facebook.com/carasalons"><img className="imgLink" src={facebook} alt="facebook link"/></a>
+          <a href="https://www.linkedin.com/company/carasalons"><img className="imgLink" src={linkedin} alt="linkedin link"/></a>
+          <br />
+          <span className="copyright">© 2021 <b>Cara</b>. All rights reserved.</span>
+          </div>
         </section>
       </div>
     );

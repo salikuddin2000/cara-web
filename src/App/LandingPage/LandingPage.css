@@ -237,7 +237,7 @@ header{
     font-weight: 600;
     /* text-align: left; */
     padding:0;
-    margin-left: 30px;
+    margin-left: 10vw;
     list-style: none;
 }
 .contentWrapper ol li{
@@ -245,7 +245,7 @@ header{
 }
 .contentWrapper ol img{
     /* justify-self: center !important; */
-    margin-left: -30px;
+    margin-left: -10vw;
     margin-right: 0;
 }
 .salonGirl{
@@ -386,3 +386,24 @@ header{
 .temp {
     height: 1000px;
 }
+
+@media only screen and (min-width: 700px) {
+    .contentWrapper ol{
+        font-weight: 600;
+        /* text-align: left; */
+        padding:0;
+        /* margin-left: 10vw; */
+        list-style: none;
+        margin: 0;
+    }
+    .contentWrapper ol li{
+        text-align: center; 
+        /* margin-left: -150px;    */
+    }
+    .contentWrapper ol img{
+        /* justify-self: center !important; */
+        /* margin-left: -10vw; */
+        margin-right: auto;
+        margin-left: auto;
+    }
+  }

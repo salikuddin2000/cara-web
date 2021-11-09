@@ -214,9 +214,9 @@ function LandingPage() {
           {/* <div className="temp"></div> */}
           <div className="footer">
           <h6 className="landingPageMadeWithLove">Made with <img className="heartStyle" alt="heart" src={heart} /><br />For all fashionable folks.</h6>
-          <span><a href = "support@carasalons.in">support@carasalons.in</a> | <a href="tel:+919589198950">+91 95891 98950</a></span>
+          <span><a href = "mailto:support@carasalons.in">support@carasalons.in</a> | <a href="tel:+919589198950">+91 95891 98950</a></span>
           <br />
-          <a href="https://www.instagram.com/carasalons"><img className="instagramStyle" src={instagram} alt="instagram link"/></a>
+          <a href="https://www.instagram.com/carasalons"><img className="imgLink" src={instagram} alt="instagram link"/></a>
           <a href="https://www.facebook.com/carasalons"><img className="imgLink" src={facebook} alt="facebook link"/></a>
           <a href="https://www.linkedin.com/company/carasalons"><img className="imgLink" src={linkedin} alt="linkedin link"/></a>
           <br />
